@@ -27,7 +27,7 @@ export class LoginComponent {
   constructor() {
     merge([this.email.statusChanges, this.email.valueChanges, this.password.statusChanges, this.password.valueChanges])
     .pipe(takeUntilDestroyed())
-    .subscribe(() => {})
+    .subscribe(() => {});
   }
 
   updateErrorMessageEmail(){
@@ -60,14 +60,12 @@ export class LoginComponent {
       if(this.form.valid){
         try {
           const response = await this.authService.login(this.form.value);
-          console.log(response);
+          console.log(response.message);
         } catch (error) {
           console.error(error);
         }
       }
-
   }
-  
     
 }
 

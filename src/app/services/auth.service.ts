@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +11,19 @@ export class AuthService {
 
   constructor() { };
 
-
   async register(formValue: any){
-    const res = await this.httpClient.post<any>(`${this.baseURL}/register`, formValue);
+    const res = firstValueFrom(await this.httpClient.post<any>(`${this.baseURL}/register`, formValue));
     return res;
   }
 
   async login(formValue: any){
-    const res = await this.httpClient.post<any>(`${this.baseURL}/login`, formValue, {withCredentials: true});
+    const res = firstValueFrom(await this.httpClient.post<any>(`${this.baseURL}/login`, formValue, {withCredentials: true}));
     return res;
   }
+
+  async logout(){
+    return this.httpClient.post<any>(`${this.baseURL}/logout`, null, {withCredentials: true});
+  }
+
 
 }
