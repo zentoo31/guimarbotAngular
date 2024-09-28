@@ -3,7 +3,7 @@
     class="mx-auto flex w-full flex-col justify-center px-5 pt-0 md:h-[unset] md:max-w-[50%] lg:h-[100vh] min-h-[100vh] lg:max-w-[50%] lg:px-6"
   >
     <div
-      class="my-auto mb-auto mt-8 flex flex-col md:mt-[10px] w-[350px] max-w-[450px] mx-auto md:max-w-[450px] lg:mt-[50px] lg:max-w-[450px]"
+      class="my-auto mb-auto mt-8 flex flex-col md:mt-[10px] w-[350px] max-w-[450px] mx-auto md:max-w-[450px] lg:mt-[50px] lg:max-w-[450px] animate-fade-in-down"
     >
       <p class="text-[32px] font-bold text-zinc-950">Registro</p>
       <p class="mb-2.5 mt-2.5 font-normal text-zinc-950">
@@ -75,17 +75,18 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
                 placeholder="Pedro Paco"
                 type="text"
               />
-              <p>{{ formErrors.first_name() }}</p>
+              <p class="text-red-400">{{ formErrors.first_name() }}</p>
               <label class="text-zinc-950" for="surname">Apellidos</label>
               <input
                 class="mr-2.5 mb-2 h-full min-h-[44px] w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-950 placeholder:text-zinc-400 focus:outline-0"
                 id="surname"
                 (blur)="validateForm()"
                 formControlName="last_name"
+                [class.invalid]="formInvalidState.last_name"
                 placeholder="Sanchez Lopez"
                 type="text"
               />
-              <p>{{ formErrors.last_name() }}</p>
+              <p class="text-red-400">{{ formErrors.last_name() }}</p>
               <label class="text-zinc-950" for="username"
                 >Nombre de usuario</label
               >
@@ -93,17 +94,19 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
                 class="mr-2.5 mb-2 h-full min-h-[44px] w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-950 placeholder:text-zinc-400 focus:outline-0"
                 id="username"
                 formControlName="username"
+                [class.invalid]="formInvalidState.username"
                 (blur)="validateForm()"
                 placeholder="usuario123"
                 type="text"
               />
-              <p>{{ formErrors.username() }}</p>
+              <p class="text-red-400">{{ formErrors.username() }}</p>
               <label class="text-zinc-950" for="email">Correo</label>
               <input
                 class="mr-2.5 mb-2 h-full min-h-[44px] w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-950 placeholder:text-zinc-400 focus:outline-0"
                 id="email"
                 formControlName="email"
                 placeholder="nombre@ejemplo.com"
+                [class.invalid]="formInvalidState.username"
                 type="email"
                 (blur)="validateForm()"
                 autocapitalize="none"
@@ -111,7 +114,7 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
                 autocorrect="off"
                 name="email"
               />
-              <p>{{ formErrors.email() }}</p>
+              <p class="text-red-400">{{ formErrors.email() }}</p>
               <label class="text-zinc-950 mt-2" for="password"
                 >Contraseña</label
               >
@@ -119,13 +122,14 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
                 id="password"
                 placeholder="Contraseña"
                 formControlName="password"
+                [class.invalid]="formInvalidState.password"
                 type="password"
                 (blur)="validateForm()"
                 autocomplete="current-password"
                 class="mr-2.5 mb-2 h-full min-h-[44px] w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-950 placeholder:text-zinc-400 focus:outline-0"
                 name="password"
               />
-              <p>{{ formErrors.password() }}</p>
+              <p class="text-red-400">{{ formErrors.password() }}</p>
             </div>
             <button
               class="whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-[#221D21] text-white hover:bg-white hover:text-[#221D21] border-2 hover:border-[#221D21] mt-2 flex h-[unset] w-full items-center justify-center rounded-lg px-4 py-4 text-sm font-medium"

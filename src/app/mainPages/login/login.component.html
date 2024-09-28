@@ -3,7 +3,7 @@
     class="mx-auto flex w-full flex-col justify-center px-5 pt-0 md:h-[unset] md:max-w-[50%] lg:h-[100vh] min-h-[100vh] lg:max-w-[50%] lg:px-6"
   >
     <div
-      class="my-auto mb-auto mt-8 flex flex-col md:mt-[70px] w-[350px] max-w-[450px] mx-auto md:max-w-[450px] lg:mt-[130px] lg:max-w-[450px]"
+      class="my-auto mb-auto mt-8 flex flex-col md:mt-[70px] w-[350px] max-w-[450px] mx-auto md:max-w-[450px] lg:mt-[130px] lg:max-w-[450px] animate-fade-in-down"
     >
       <p class="text-[32px] font-bold text-zinc-950" style="font-family: Poppins, sans-serif; font-weight: 700;">Iniciar sesión</p>
       <p class="mb-2.5 mt-2.5 font-normal text-zinc-950" style="font-family: Inter, sans-serif; font-weight: 300;">
@@ -87,7 +87,8 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
                 placeholder="Password"
                 [formControl] = "password"
                 (blur)="updateErrorMessagePassword()"
-                type="password"
+                [class.invalid] = "isPasswordInvalid"
+                type="password" 
                 autocomplete="current-password"
                 class="mr-2.5 mb-2 h-full min-h-[44px] w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-950 placeholder:text-zinc-400 focus:outline-0"
                 name="password"
