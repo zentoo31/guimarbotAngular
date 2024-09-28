@@ -1,6 +1,409 @@
-<section class="bg-slate-400">
-    <h1>GuimarBot</h1>
-    <p class="text-blue-300">main works!</p>
-    <a [routerLink]="['/login']">login</a> <br>
-    <a [routerLink]="['/register']">Register</a>
-</section>
+<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm">
+  <div
+    class="container mx-auto px-4 py-3 space-x-28 flex items-center justify-center"
+  >
+    <img
+      src="../assets/SVG_cabezabot.svg"
+      alt="GuimarBot Logo"
+      style="width: 50px; height: 50px"
+    />
+    <nav
+      class="hidden md:flex items-center space-x-12 bg px-12 py-2 bg-gray-200 opacity-50 rounded-full"
+      style="font-family: Poppins, sans-serif; font-weight: 400"
+    >
+      <a
+        href="#inicio"
+        (click)="preventReload($event)"
+        class="flex items-center space-x-2 text-[#221D21] hover:text-[#FFC525]"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          fill="currentColor"
+          class="bi bi-house"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"
+          />
+        </svg>
+      </a>
+      <a
+        href="#planes"
+        (click)="preventReload($event)"
+        class="font-poppins text-[#221D21] hover:text-[#FFC525]"
+        >Planes</a
+      >
+      <a
+        href="#demo"
+        (click)="preventReload($event)"
+        class="font-poppins text-[#221D21] hover:text-[#FFC525]"
+        >Demo</a
+      >
+      <a
+        href="#FAQ"
+        (click)="preventReload($event)"
+        class="font-poppins text-[#221D21] hover:text-[#FFC525]"
+        >FAQ</a
+      >
+      <a
+        href="#contacto"
+        (click)="preventReload($event)"
+        class="font-poppins text-[#221D21] hover:text-[#FFC525]"
+        >Contacto</a
+      >
+    </nav>
+    <button
+      class="bg-[#221D21] text-white px-6 py-2 rounded-full"
+      style="font-family: Poppins, sans-serif; font-weight: 700"
+    >
+      Iniciar Sesión
+    </button>
+  </div>
+</header>
+<div class="min-h-screen bg-white text-black">
+  <section
+    id="inicio"
+    class="flex justify-center items-center p-20 flex-col md:flex-row bg-white"
+  >
+    <div class="max-w-lg px-5 text-center md:text-start">
+      <h1
+        class="text-4xl font-bold mb-4"
+        style="font-family: Inter, sans-serif; font-weight: 900"
+      >
+        Aprende a
+        <p style="font-family: 'Cascadia Code', monospace; font-weight: 700">
+          programar,
+        </p>
+        crea sin límites.
+      </h1>
+      <p
+        class="text-gray-400 mb-6"
+        style="font-family: Inter, sans-serif; font-weight: 300"
+      >
+        Aprende a programar desde cero con clases interactivas. Practica y crea
+        proyectos reales para dominar la programación.
+      </p>
+      <button
+        class="mt-10 bg-black text-white px-8 py-3 rounded-full flex w-full items-center justify-center md:w-auto"
+        style="font-family: Poppins; font-weight: 700"
+      >
+        <svg
+          width="26"
+          height="23"
+          viewBox="0 0 26 23"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <rect width="26" height="23" fill="url(#pattern0_14_17)" />
+          <defs>
+            <pattern
+              id="pattern0_14_17"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <use
+                xlink:href="#image0_14_17"
+                transform="matrix(0.00884616 0 0 0.01 0.0576922 0)"
+              />
+            </pattern>
+            <image
+              id="image0_14_17"
+              width="100"
+              height="100"
+              xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADoklEQVR4nO3dO2gUURTG8atGJYgvNHZio4KCFkF8YEwQoiIiAWXFSoUYHyA22okYkAg+sEqjaLTQwq0sNIWCpSgkqLFIpfgIwSwoBowomvxl2JE0yWQ3c2fm3jPnB9vOnHO/ndl53jVGKaWUUkoppZRSQgGbgGvAK2AIN/0AeoHzwCIjEbAaeIx/hoAmIwmwG/iOv34CG4wEwFbgF/7rA2YZnwFLgBJy7DQ+A64jy2XjK2BeuO+V5L7xFbAfeYrGV0AH8hSNr4A7yFM0vgqKT2GASkBXuHtcByzLuu+8BjIAtHp/XiAkkE6gNuv+vJNAIH+AE1n35a0EAjmZdU9esxxIZ9b9eM9iIAPV/mZQvoa2BWgBCo59gpo2AjXJjX6ygbRWuL4aoA14Dozivq9Ae2oHKJYCKVXyTQLqgX781AMs9SWQrgrWsxcYwW/PgBk+BLKvgi1jBBkO+BDI+il+M/qRo9uHQOoilt+GLCUfApl0v0r5aEqSMecDiVh2nSeHtlXxOZDNCORzIC0I5HMgBQTSQByjgTgmr4HcBtbavv0bPofWHD5yarVfyYHcSrTpcm0LgU82+5UcyJpEmx6vr91mv5IDWZBo0+P1tdrsV3IgzYk2PV7fTZv9Sg6kL+lX1IDG8AkZa/1KDuT/PfpgH3/Q8r3yI+GWMa0w8hyIszQQx2ggjtFAHKOBOEYDcYwG4hgNxDEaiGM0EMdoII7RQByjgTgm60CCiQW2AXuAw8BZ4CpwF3gEvNCLi+kFciPmsgsIZG/0qw9kZcxlFxDI3uhXP9fJ/JjLLiCQvdGfeNCORax7e8xlFxDI3uhP/obT60nW3RvnCRA0kGkP3PGIL8RH4ELUvW0NxDJgMTBsexNGt5BYoQRbgQZSgbQCmQu8sVkguoXEDmU58EEDiTQcc5irDmUF8JIq5OywtyfVQMKBnA0cBd5WUmHOAjmXbhoT78aaoh7PzFEgX4L3SoyvkBVIMPt3o/EZcgIJrmTUG99RWSCD4R/IFB373Asm9Qd2ADONBEwdSEfqU+jlGdGBPMm6vtwhOpBTWdeXO0BDRCCns64vd4DaiEsxT7OuL5eI/sOYS8FVgaxrzBVgDvBtirPfbgcOc6M+D4ArwCojAXARGYKZVRuM7yjfkQxOACVI/2pvEoBdwF/8NyrmZBY4FOeFfUcMGkkoT2nxHn+dMdJQvgEWPLj9EPgM/MZtY8C74GQ28bnflVJKKaWUUkopZZLxD1JlnZ7zx2kvAAAAAElFTkSuQmCC"
+            />
+          </defs>
+        </svg>
+        <span>Ver cursos</span>
+      </button>
+    </div>
+    <img
+      src="../assets/SVG_guimarbot.svg"
+      alt="Logo"
+      style="width: 350px; height: 350px"
+    />
+  </section>
+
+  <section id="planes" class="py-24 bg-white">
+    <h2
+      class="text-3xl font-bold text-center mb-5"
+      style="font-family: Inter, sans-serif; font-weight: 900"
+    >
+      Planes
+    </h2>
+    <p
+      class="text-gray-400 mb-6 text-center"
+      style="font-family: Inter, sans-serif; font-weight: 300"
+    >
+      ¡Escoge el tiempo de suscripción que gustes!
+    </p>
+    <div
+      class="flex justify-center lg:space-x-8 m-20 md:m-40 space-y-20 lg:space-y-0 md:space-y-15 flex-col md:flex-col lg:flex-row"
+    >
+      @for (item of planes; track $index) {
+      <div class="bg-white rounded-md shadow-md relative">
+        <div
+          class="absolute flex items-center justify-center p-1 px-3 text-sm text-[#89BB54] bg-[#DCEDC8] rounded-full -top-4 left-7 gap-x-2"
+          style="font-family: Inter, sans-serif; font-weight: 300"
+        >
+          50% OFF
+        </div>
+        <div class="bg-[#D9D9D9] h-48 w-auto lg:w-60"></div>
+        <div class="p-4 ">
+          <h3
+            class="text-xl font-semibold text-center"
+            style="font-family: Inter, sans-serif; font-weight: 400"
+          >
+            {{ item }}
+          </h3>
+        </div>
+      </div>
+      }
+    </div>
+  </section>
+
+  <section id="demo" class="py-24 bg-white">
+    <h2
+      class="text-3xl font-bold text-center mb-5"
+      style="font-family: Inter, sans-serif; font-weight: 900"
+    >
+      Demo
+    </h2>
+    <p
+      class="text-gray-400 mb-6 text-center"
+      style="font-family: Inter, sans-serif; font-weight: 300"
+    >
+      ¡Aprende lo básico de JavaScript!
+    </p>
+    <div
+      class="bg-[#222222] text-green-400 p-6 rounded-lg max-w-3xl m-10 md:mx-auto"
+      style="font-family: 'Cascadia Code', monospace; font-weight: 700"
+    >
+      <p class="mb-4 text-[#FFC525]">
+        ¡Bienvenido!, aprenderemos la introducción básica de JavaScript.
+      </p>
+      <h3 class="bg-[#B727F0] rounded-md mb-2 inline-block px-4 text-white">
+        Introducción
+      </h3>
+      <p class="mb-4 text-white">¿Qué es JavaScript?</p>
+      <p class="text-white mb-16">
+        JavaScript es uno de los lenguajes más populares y versátiles, nacido en
+        1995 para dar interactividad a páginas web, pero hoy se usa para casi
+        cualquier cosa, desde desarrollo web hasta inteligencia artificial. Es
+        el único lenguaje que los navegadores entienden de forma nativa, tiene
+        una curva de aprendizaje rápida y es muy demandado en el mercado laboral
+        debido a sus múltiples aplicaciones.
+      </p>
+      <div
+        class="bg-[#151515] p-4 rounded relative border-white border-2"
+        style="font-family: 'Cascadia Code', monospace; font-weight: 700"
+      >
+        <div
+          class="absolute flex items-center justify-center p-1 px-3 text-sm text-black bg-white rounded-full -top-4 left-7 gap-x-2"
+        >
+          Examen interactivo
+        </div>
+        <div class="m-4">
+          <p class="mb-2 text-[#FFC525]">
+            ¿JavaScript sólo se puede usar para crear páginas web?
+          </p>
+          <ul class="list-disc list-inside text-white">
+            <li>Verdadero</li>
+            <li>Falso</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="FAQ" class="py-24 bg-white">
+    <h2
+      class="text-3xl font-bold text-center mb-5"
+      style="font-family: Inter, sans-serif; font-weight: 900"
+    >
+      Preguntas frecuentes (FAQ)
+    </h2>
+    <p
+      class="text-gray-400 mb-6 text-center"
+      style="font-family: Inter, sans-serif; font-weight: 300"
+    >
+      ¡Descubre acerca de GuimarBot!
+    </p>
+
+    <div class="max-w-2xl m-10 md:mx-auto">
+      @for (item of faq; track $index) {
+
+      <div class="mb-4 bg-white rounded-lg shadow">
+        <button
+          class="flex justify-between items-center w-full text-left p-4"
+          style="font-family: Poppins, sans-serif; font-weight: 500"
+        >
+          <span>{{ item }}</span>
+          <span class="text-2xl">+</span>
+        </button>
+      </div>
+      }
+    </div>
+  </section>
+
+  <section id="contacto" class="py-24 bg-white">
+    <h2 class="text-3xl font-bold text-center mb-8">Contacto</h2>
+    <div
+      class="flex justify-center items-center flex-col md:flex-row bg-white space-x-0 md:space-x-60"
+    >
+      <div class="flex flex-col items-center">
+        <img
+          src="../assets/SVG_cabezabot.svg"
+          alt="GuimarBot Logo"
+          style="width: 225px; height: 225px"
+        />
+        <p
+          class="text-gray-400 mb-6 text-center max-w-60"
+          style="font-family: Inter, sans-serif; font-weight: 300"
+        >
+          Somos GuimarBot, tu taller de programación de confianza.
+        </p>
+      </div>
+      <form
+        class="md:w-1/4"
+        style="font-family: Poppins, sans-serif; font-weight: 700"
+      >
+        <div>
+          <label for="email" class="block mb-1">Correo electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            class="w-full p-2 border rounded bg-[#F9F9F9]"
+          />
+        </div>
+        <div>
+          <label for="subject" class="block mb-1">Asunto:</label>
+          <input
+            type="text"
+            id="subject"
+            class="w-full p-2 border rounded bg-[#F9F9F9]"
+          />
+        </div>
+        <div>
+          <label for="message" class="block mb-1">Mensaje:</label>
+          <textarea
+            id="message"
+            rows="4"
+            class="w-full p-2 border rounded bg-[#F9F9F9]"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="mt-4 bg-[#221D21] text-white px-5 py-3 rounded-lg flex w-full items-center justify-center md:w-auto"
+        >
+          Enviar
+        </button>
+      </form>
+    </div>
+  </section>
+</div>
+<footer 
+  class=" p-10 min-h-60 bg-[#181517] text-gray-300 justify-evenly flex flex-col md:flex-row space-y-16 md:space-y-0"
+  style="font-family: Inter, sans-serif; font-weight: 300"
+>
+  <div class="space-y-4">
+    <svg
+      width="246"
+      height="55"
+      viewBox="0 0 62 11"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.94141 2.78711L7.78711 3.92969C7.05664 3.15625 6.20508 2.76953 5.23242 2.76953C4.38477 2.76953 3.67383 3.05078 3.09961 3.61328C2.5293 4.17578 2.24414 4.85938 2.24414 5.66406C2.24414 6.49609 2.54102 7.20117 3.13477 7.7793C3.72852 8.35742 4.46094 8.64648 5.33203 8.64648C5.89844 8.64648 6.375 8.52734 6.76172 8.28906C7.15234 8.05078 7.4668 7.67773 7.70508 7.16992H5.20898V5.62891H9.54492L9.55664 5.99219C9.55664 6.74609 9.36133 7.46094 8.9707 8.13672C8.58008 8.8125 8.07422 9.32812 7.45312 9.68359C6.83203 10.0391 6.10352 10.2168 5.26758 10.2168C4.37305 10.2168 3.57422 10.0234 2.87109 9.63672C2.17188 9.24609 1.61719 8.69141 1.20703 7.97266C0.800781 7.25391 0.597656 6.47852 0.597656 5.64648C0.597656 4.50586 0.974609 3.51367 1.72852 2.66992C2.62305 1.66602 3.78711 1.16406 5.2207 1.16406C5.9707 1.16406 6.67188 1.30273 7.32422 1.58008C7.875 1.81445 8.41406 2.2168 8.94141 2.78711ZM10.8809 3.625H12.498V6.69531C12.498 7.29297 12.5391 7.70898 12.6211 7.94336C12.7031 8.17383 12.834 8.35352 13.0137 8.48242C13.1973 8.61133 13.4219 8.67578 13.6875 8.67578C13.9531 8.67578 14.1777 8.61328 14.3613 8.48828C14.5488 8.35938 14.6875 8.17188 14.7773 7.92578C14.8438 7.74219 14.877 7.34961 14.877 6.74805V3.625H16.4824V6.32617C16.4824 7.43945 16.3945 8.20117 16.2188 8.61133C16.0039 9.11133 15.6875 9.49609 15.2695 9.76562C14.8516 10.0312 14.3203 10.1641 13.6758 10.1641C12.9766 10.1641 12.4102 10.0078 11.9766 9.69531C11.5469 9.38281 11.2441 8.94727 11.0684 8.38867C10.9434 8.00195 10.8809 7.29883 10.8809 6.2793V3.625ZM17.918 3.625H19.5234V10H17.918V3.625ZM19.0078 0.162109H20.9004L18.7559 2.45898H17.6074L19.0078 0.162109ZM20.9648 3.625H22.5703V4.35742C22.8438 4.05664 23.1465 3.83203 23.4785 3.68359C23.8145 3.53516 24.1797 3.46094 24.5742 3.46094C24.9727 3.46094 25.332 3.55859 25.6523 3.75391C25.9727 3.94922 26.2305 4.23438 26.4258 4.60938C26.6797 4.23438 26.9902 3.94922 27.3574 3.75391C27.7285 3.55859 28.1328 3.46094 28.5703 3.46094C29.0234 3.46094 29.4219 3.56641 29.7656 3.77734C30.1094 3.98828 30.3555 4.26367 30.5039 4.60352C30.6562 4.94336 30.7324 5.49609 30.7324 6.26172V10H29.1211V6.76562C29.1211 6.04297 29.0312 5.55469 28.8516 5.30078C28.6719 5.04297 28.4023 4.91406 28.043 4.91406C27.7695 4.91406 27.5234 4.99219 27.3047 5.14844C27.0898 5.30469 26.9297 5.52148 26.8242 5.79883C26.7188 6.07227 26.666 6.51367 26.666 7.12305V10H25.0547V6.91211C25.0547 6.3418 25.0117 5.92969 24.9258 5.67578C24.8438 5.41797 24.7188 5.22656 24.5508 5.10156C24.3828 4.97656 24.1797 4.91406 23.9414 4.91406C23.6758 4.91406 23.4336 4.99414 23.2148 5.1543C23 5.31055 22.8379 5.53125 22.7285 5.81641C22.623 6.10156 22.5703 6.55078 22.5703 7.16406V10H20.9648V3.625ZM36.9727 3.625H38.5664V10H36.9727V9.32617C36.6602 9.62305 36.3457 9.83789 36.0293 9.9707C35.7168 10.0996 35.377 10.1641 35.0098 10.1641C34.1855 10.1641 33.4727 9.8457 32.8711 9.20898C32.2695 8.56836 31.9688 7.77344 31.9688 6.82422C31.9688 5.83984 32.2598 5.0332 32.8418 4.4043C33.4238 3.77539 34.1309 3.46094 34.9629 3.46094C35.3457 3.46094 35.7051 3.5332 36.041 3.67773C36.377 3.82227 36.6875 4.03906 36.9727 4.32812V3.625ZM35.291 4.9375C34.7949 4.9375 34.3828 5.11328 34.0547 5.46484C33.7266 5.8125 33.5625 6.25977 33.5625 6.80664C33.5625 7.35742 33.7285 7.81055 34.0605 8.16602C34.3965 8.52148 34.8086 8.69922 35.2969 8.69922C35.8008 8.69922 36.2188 8.52539 36.5508 8.17773C36.8828 7.82617 37.0488 7.36719 37.0488 6.80078C37.0488 6.24609 36.8828 5.79688 36.5508 5.45312C36.2188 5.10938 35.7988 4.9375 35.291 4.9375ZM39.8086 3.625H41.1797V4.42773C41.3281 4.11133 41.5254 3.87109 41.7715 3.70703C42.0176 3.54297 42.2871 3.46094 42.5801 3.46094C42.7871 3.46094 43.0039 3.51562 43.2305 3.625L42.7324 5.00195C42.5449 4.9082 42.3906 4.86133 42.2695 4.86133C42.0234 4.86133 41.8145 5.01367 41.6426 5.31836C41.4746 5.62305 41.3906 6.2207 41.3906 7.11133L41.3965 7.42188V10H39.8086V3.625ZM44.2031 10V1.38086H45.5566C46.3418 1.38086 46.916 1.43164 47.2793 1.5332C47.7949 1.66992 48.2051 1.92383 48.5098 2.29492C48.8145 2.66602 48.9668 3.10352 48.9668 3.60742C48.9668 3.93555 48.8965 4.23438 48.7559 4.50391C48.6191 4.76953 48.3945 5.01953 48.082 5.25391C48.6055 5.5 48.9883 5.80859 49.2305 6.17969C49.4727 6.54688 49.5938 6.98242 49.5938 7.48633C49.5938 7.9707 49.4688 8.41211 49.2188 8.81055C48.9688 9.20898 48.6465 9.50781 48.252 9.70703C47.8574 9.90234 47.3125 10 46.6172 10H44.2031ZM45.8438 2.94531V4.76172H46.2012C46.5996 4.76172 46.8945 4.67773 47.0859 4.50977C47.2812 4.3418 47.3789 4.11328 47.3789 3.82422C47.3789 3.55469 47.2871 3.3418 47.1035 3.18555C46.9199 3.02539 46.6406 2.94531 46.2656 2.94531H45.8438ZM45.8438 6.22656V8.43555H46.2539C46.9336 8.43555 47.3906 8.34961 47.625 8.17773C47.8633 8.00586 47.9824 7.75586 47.9824 7.42773C47.9824 7.05664 47.8438 6.76367 47.5664 6.54883C47.2891 6.33398 46.8281 6.22656 46.1836 6.22656H45.8438ZM53.9824 3.46094C54.584 3.46094 55.1484 3.61133 55.6758 3.91211C56.207 4.21289 56.6211 4.62109 56.918 5.13672C57.2148 5.65234 57.3633 6.20898 57.3633 6.80664C57.3633 7.4082 57.2129 7.9707 56.9121 8.49414C56.6152 9.01758 56.209 9.42773 55.6934 9.72461C55.1777 10.0176 54.6094 10.1641 53.9883 10.1641C53.0742 10.1641 52.293 9.83984 51.6445 9.19141C51 8.53906 50.6777 7.74805 50.6777 6.81836C50.6777 5.82227 51.043 4.99219 51.7734 4.32812C52.4141 3.75 53.1504 3.46094 53.9824 3.46094ZM54.0059 4.9668C53.5098 4.9668 53.0957 5.14062 52.7637 5.48828C52.4355 5.83203 52.2715 6.27344 52.2715 6.8125C52.2715 7.36719 52.4336 7.81641 52.7578 8.16016C53.0859 8.50391 53.5 8.67578 54 8.67578C54.5 8.67578 54.916 8.50195 55.248 8.1543C55.5801 7.80664 55.7461 7.35938 55.7461 6.8125C55.7461 6.26562 55.582 5.82227 55.2539 5.48242C54.9297 5.13867 54.5137 4.9668 54.0059 4.9668ZM58.8691 1.27539H60.4629V3.625H61.4121V5.00195H60.4629V10H58.8691V5.00195H58.0488V3.625H58.8691V1.27539Z"
+        fill="#fff"
+      />
+    </svg>
+    <p class="max-w-96">
+      Organización de educación en tecnologías y crecimiento personal para niños
+      y jóvenes.
+    </p>
+    <ul class="flex flex-row space-x-5">
+      <a
+        target="_blank"
+        class="bg-white rounded-lg p-2"
+        href="https://www.facebook.com/GuimarbotPeru/"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="#221D21"
+          class="bi bi-facebook"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+          /></svg
+      ></a>
+      <a
+        class="bg-white rounded-lg p-2"
+        href="https://wa.me/921297778"
+        target="_blank"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="#221D21"
+          class="bi bi-whatsapp"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"
+          /></svg
+      ></a>
+      <a
+        target="_blank"
+        class="bg-white rounded-lg p-2"
+        href="https://www.tiktok.com/@guimarbot.peru"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="#221D21"
+          class="bi bi-tiktok"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"
+          /></svg
+      ></a>
+    </ul>
+  </div>
+  <div class="flex flex-row space-x-5 text-center text-base ">
+    <div
+      href="#inicio"
+      (click)="preventReload($event)"
+      class="space-y-4 cursor-pointer w-1/2 bg-white rounded-tl-lg rounded-br-lg flex-col flex justify-center items-center"
+    >
+      <a
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          fill="#221D21"
+          class="bi bi-house"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"
+          />
+        </svg>
+      </a>
+      <p class="text-[#221D21]">Volver a inicio</p>
+    </div>
+    <div class="bg-white text-[#221D21] p-10 rounded-tl-lg rounded-br-lg w-1/2">
+      <p class="max-w-60">
+        ©Copyright GuimarBot. Todos los derechos reservados. 2024
+      </p>
+    </div>
+  </div>
+</footer>
