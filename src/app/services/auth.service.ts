@@ -12,9 +12,14 @@ export class AuthService {
   constructor() { };
 
 
-  // register():Observable<boolean>{
-  //   return true;
-  // }
+  async register(formValue: any){
+    const res = await this.httpClient.post<any>(`${this.baseURL}/register`, formValue);
+    return res;
+  }
 
+  async login(formValue: any){
+    const res = await this.httpClient.post<any>(`${this.baseURL}/login`, formValue, {withCredentials: true});
+    return res;
+  }
 
 }
