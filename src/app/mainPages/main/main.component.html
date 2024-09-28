@@ -1,20 +1,18 @@
-<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm">
-  <div
-    class="container mx-auto px-4 py-3 space-x-28 flex items-center justify-center"
-  >
+<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm md:bg-none bg-gradient-to-b from-white/50 to-white/100 ">
+  <div class="container mx-auto px-4 py-3 flex items-center md:justify-evenly justify-between">
     <img
       src="../assets/SVG_cabezabot.svg"
       alt="GuimarBot Logo"
-      style="width: 50px; height: 50px"
+      class="w-[50px] h-[50px]"
     />
-    <nav
-      class="hidden md:flex items-center space-x-12 bg px-12 py-2 bg-gray-200 opacity-50 rounded-full"
-      style="font-family: Poppins, sans-serif; font-weight: 400"
-    >
+    <ul
+      [class.hidden]="!isMenuOpen"
+      class="md:flex flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-12 backdrop-blur-sm text-center  bg-gradient-to-b from-white/100 to-white/50 md:backdrop-blur-none md:bg-none absolute md:relative top-full left-0 right-0 md:top-auto p-10 md:px-12 md:p-2 md:bg-gray-200 md:opacity-50 md:rounded-full"
+    style="font-family: Poppins, sans-serif; font-weight: 400;">
       <a
         href="#inicio"
         (click)="preventReload($event)"
-        class="flex items-center space-x-2 text-[#221D21] hover:text-[#FFC525]"
+        class="text-[#221D21] hover:text-[#FFC525]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -32,15 +30,15 @@
       <a
         href="#planes"
         (click)="preventReload($event)"
-        class="font-poppins text-[#221D21] hover:text-[#FFC525]"
+        class="text-[#221D21] hover:text-[#FFC525]"
         >Planes</a
       >
       <a
         href="#demo"
         (click)="preventReload($event)"
-        class="font-poppins text-[#221D21] hover:text-[#FFC525]"
+        class="text-[#221D21] hover:text-[#FFC525]"
         >Demo</a
-      >
+      >    
       <a
         href="#FAQ"
         (click)="preventReload($event)"
@@ -50,19 +48,54 @@
       <a
         href="#contacto"
         (click)="preventReload($event)"
-        class="font-poppins text-[#221D21] hover:text-[#FFC525]"
+        class="text-[#221D21] hover:text-[#FFC525]"
         >Contacto</a
       >
-    </nav>
-    <button
-      class="bg-[#221D21] text-white px-6 py-2 rounded-full"
-      style="font-family: Poppins, sans-serif; font-weight: 700"
-    >
-      Iniciar Sesión
+    </ul>
+    <div class="flex text-center md:space-x-4">
+      <button
+        class="bg-[#221D21] text-white px-6 py-2 rounded-full font-bold font-poppins"
+      >
+        Iniciar Sesión
+      </button>
+      
+    </div>
+    <button class="md:hidden" (click)="toggleMenu()" aria-label="Toggle menu">
+      @if (isMenuOpen) {
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="w-6 h-6 text-[#221D21]"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+      } @else {
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="w-6 h-6 text-[#221D21]"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+      }
     </button>
   </div>
 </header>
-<div class="min-h-screen bg-white text-black">
+<main class="min-h-screen bg-white text-black">
   <section
     id="inicio"
     class="flex justify-center items-center p-20 flex-col md:flex-row bg-white"
@@ -153,7 +186,7 @@
           50% OFF
         </div>
         <div class="bg-[#D9D9D9] h-48 w-auto lg:w-60"></div>
-        <div class="p-4 ">
+        <div class="p-4">
           <h3
             class="text-xl font-semibold text-center"
             style="font-family: Inter, sans-serif; font-weight: 400"
@@ -250,8 +283,13 @@
     </div>
   </section>
 
-  <section id="contacto" class="py-24 bg-white">
-    <h2 class="text-3xl font-bold text-center mb-8">Contacto</h2>
+  <section id="contacto" class="py-18 mb-20 bg-white">
+    <h2
+      class="text-3xl font-bold text-center mb-8"
+      style="font-family: Inter, sans-serif; font-weight: 900"
+    >
+      Contacto
+    </h2>
     <div
       class="flex justify-center items-center flex-col md:flex-row bg-white space-x-0 md:space-x-60"
     >
@@ -305,9 +343,9 @@
       </form>
     </div>
   </section>
-</div>
-<footer 
-  class=" p-10 min-h-60 bg-[#181517] text-gray-300 justify-evenly flex flex-col md:flex-row space-y-16 md:space-y-0"
+</main>
+<footer
+  class="p-10 min-h-60 bg-[#181517] text-gray-300 justify-evenly flex flex-col md:flex-row space-y-16 md:space-y-0"
   style="font-family: Inter, sans-serif; font-weight: 300"
 >
   <div class="space-y-4">
@@ -378,7 +416,7 @@
       ></a>
     </ul>
   </div>
-  <div class="flex flex-row space-x-5 text-center text-base ">
+  <div class="flex flex-row space-x-5 text-center text-base">
     <div
       href="#inicio"
       (click)="preventReload($event)"

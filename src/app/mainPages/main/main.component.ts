@@ -25,4 +25,10 @@ export class MainComponent {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
+  
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
