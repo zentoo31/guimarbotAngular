@@ -31,4 +31,10 @@ export class MainComponent {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
+  isLevitating = true;
+
+  toggleAnimation() {
+    this.isLevitating = !this.isLevitating;
+  }
 }

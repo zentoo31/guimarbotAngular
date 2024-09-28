@@ -1,18 +1,26 @@
-<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm md:bg-none bg-gradient-to-b from-white/50 to-white/100 ">
-  <div class="container mx-auto px-4 py-3 flex items-center md:justify-evenly justify-between">
+<header
+  class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm md:bg-none bg-gradient-to-b from-white/50 to-white/100"
+>
+  <div
+    id="header2"
+    class="container mx-auto px-4 py-3 flex items-center md:justify-evenly justify-between"
+  >
     <img
+      href="#inicio"
+      (click)="preventReload($event)"
       src="../assets/SVG_cabezabot.svg"
       alt="GuimarBot Logo"
-      class="w-[50px] h-[50px]"
+      class="cursor-pointer w-[50px] h-[50px]"
     />
     <ul
       [class.hidden]="!isMenuOpen"
-      class="md:flex flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-12 backdrop-blur-sm text-center  bg-gradient-to-b from-white/100 to-white/50 md:backdrop-blur-none md:bg-none absolute md:relative top-full left-0 right-0 md:top-auto p-10 md:px-12 md:p-2 md:bg-gray-200 md:opacity-50 md:rounded-full"
-    style="font-family: Poppins, sans-serif; font-weight: 400;">
+      class="md:flex flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-12 backdrop-blur-sm text-center bg-gradient-to-b from-white/100 to-white/50 md:backdrop-blur-none md:bg-none absolute md:relative top-full left-0 right-0 md:top-auto p-10 md:px-12 md:p-2 md:bg-gray-200 md:opacity-50 md:rounded-full"
+      style="font-family: Poppins, sans-serif; font-weight: 400"
+    >
       <a
         href="#inicio"
         (click)="preventReload($event)"
-        class="text-[#221D21] hover:text-[#FFC525]"
+        class="text-[#221D21] hover:text-[#4a71b9]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,35 +38,40 @@
       <a
         href="#planes"
         (click)="preventReload($event)"
-        class="text-[#221D21] hover:text-[#FFC525]"
+        class="text-[#221D21] hover:text-[#4a71b9]"
         >Planes</a
       >
       <a
         href="#demo"
         (click)="preventReload($event)"
-        class="text-[#221D21] hover:text-[#FFC525]"
+        class="text-[#221D21] hover:text-[#4a71b9]"
         >Demo</a
-      >    
+      >
       <a
         href="#FAQ"
         (click)="preventReload($event)"
-        class="font-poppins text-[#221D21] hover:text-[#FFC525]"
+        class="font-poppins text-[#221D21] hover:text-[#4a71b9]"
         >FAQ</a
       >
       <a
         href="#contacto"
         (click)="preventReload($event)"
-        class="text-[#221D21] hover:text-[#FFC525]"
+        class="text-[#221D21] hover:text-[#4a71b9]"
         >Contacto</a
       >
     </ul>
-    <div class="flex text-center md:space-x-4">
+    <div class="flex text-center md:space-x-4 space-x-4">
       <button
-        class="bg-[#221D21] text-white px-6 py-2 rounded-full font-bold font-poppins"
+        [routerLink]="['/login']"
+        class="bg-[#221D21] text-white px-6 py-2 rounded-full font-bold hover:bg-white hover:text-[#221D21] hover:border hover:border-[#221D21] transition-colors duration-300"
       >
         Iniciar Sesión
       </button>
-      
+      <button
+        class="bg-white text-[#221D21] px-6 py-2 rounded-full font-bold border border-[#221D21] hover:bg-[#221D21] hover:text-white transition-colors duration-300"
+      >
+        Registrarse
+      </button>
     </div>
     <button class="md:hidden" (click)="toggleMenu()" aria-label="Toggle menu">
       @if (isMenuOpen) {
@@ -93,7 +106,6 @@
       </svg>
       }
     </button>
-
   </div>
 </header>
 <main class="min-h-screen bg-white text-black">
@@ -101,7 +113,7 @@
     id="inicio"
     class="flex justify-center items-center p-20 flex-col md:flex-row bg-white"
   >
-    <div class="max-w-lg px-5 text-center md:text-start">
+    <div class="max-w-lg px-5 text-center md:text-start pt-14  justify-center">
       <h1
         class="text-4xl font-bold mb-4"
         style="font-family: Inter, sans-serif; font-weight: 900"
@@ -120,63 +132,63 @@
         proyectos reales para dominar la programación.
       </p>
       <button
-        class="mt-10 bg-black text-white px-8 py-3 rounded-full flex w-full items-center justify-center md:w-auto"
+        class="mt-10 bg-[#181517] text-white px-8 py-3 rounded-full flex w-full items-center justify-center md:w-auto hover:border hover:border-[#181517] hover:bg-white hover:text-[#181517] transition-colors duration-300"
         style="font-family: Poppins; font-weight: 700"
       >
-        <svg
-          width="26"
-          height="23"
-          viewBox="0 0 26 23"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg
+      width="26"
+      height="23"
+      viewBox="0 0 26 23"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="26" height="23" fill="url(#pattern0_14_17)" />
+      <defs>
+        <pattern
+          id="pattern0_14_17"
+          patternContentUnits="objectBoundingBox"
+          width="1"
+          height="1"
         >
-          <rect width="26" height="23" fill="url(#pattern0_14_17)" />
-          <defs>
-            <pattern
-              id="pattern0_14_17"
-              patternContentUnits="objectBoundingBox"
-              width="1"
-              height="1"
-            >
-              <use
-                xlink:href="#image0_14_17"
-                transform="matrix(0.00884616 0 0 0.01 0.0576922 0)"
-              />
-            </pattern>
-            <image
-              id="image0_14_17"
-              width="100"
-              height="100"
-              xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADoklEQVR4nO3dO2gUURTG8atGJYgvNHZio4KCFkF8YEwQoiIiAWXFSoUYHyA22okYkAg+sEqjaLTQwq0sNIWCpSgkqLFIpfgIwSwoBowomvxl2JE0yWQ3c2fm3jPnB9vOnHO/ndl53jVGKaWUUkoppZRSQgGbgGvAK2AIN/0AeoHzwCIjEbAaeIx/hoAmIwmwG/iOv34CG4wEwFbgF/7rA2YZnwFLgBJy7DQ+A64jy2XjK2BeuO+V5L7xFbAfeYrGV0AH8hSNr4A7yFM0vgqKT2GASkBXuHtcByzLuu+8BjIAtHp/XiAkkE6gNuv+vJNAIH+AE1n35a0EAjmZdU9esxxIZ9b9eM9iIAPV/mZQvoa2BWgBCo59gpo2AjXJjX6ygbRWuL4aoA14Dozivq9Ae2oHKJYCKVXyTQLqgX781AMs9SWQrgrWsxcYwW/PgBk+BLKvgi1jBBkO+BDI+il+M/qRo9uHQOoilt+GLCUfApl0v0r5aEqSMecDiVh2nSeHtlXxOZDNCORzIC0I5HMgBQTSQByjgTgmr4HcBtbavv0bPofWHD5yarVfyYHcSrTpcm0LgU82+5UcyJpEmx6vr91mv5IDWZBo0+P1tdrsV3IgzYk2PV7fTZv9Sg6kL+lX1IDG8AkZa/1KDuT/PfpgH3/Q8r3yI+GWMa0w8hyIszQQx2ggjtFAHKOBOEYDcYwG4hgNxDEaiGM0EMdoII7RQByjgTgm60CCiQW2AXuAw8BZ4CpwF3gEvNCLi+kFciPmsgsIZG/0qw9kZcxlFxDI3uhXP9fJ/JjLLiCQvdGfeNCORax7e8xlFxDI3uhP/obT60nW3RvnCRA0kGkP3PGIL8RH4ELUvW0NxDJgMTBsexNGt5BYoQRbgQZSgbQCmQu8sVkguoXEDmU58EEDiTQcc5irDmUF8JIq5OywtyfVQMKBnA0cBd5WUmHOAjmXbhoT78aaoh7PzFEgX4L3SoyvkBVIMPt3o/EZcgIJrmTUG99RWSCD4R/IFB373Asm9Qd2ADONBEwdSEfqU+jlGdGBPMm6vtwhOpBTWdeXO0BDRCCns64vd4DaiEsxT7OuL5eI/sOYS8FVgaxrzBVgDvBtirPfbgcOc6M+D4ArwCojAXARGYKZVRuM7yjfkQxOACVI/2pvEoBdwF/8NyrmZBY4FOeFfUcMGkkoT2nxHn+dMdJQvgEWPLj9EPgM/MZtY8C74GQ28bnflVJKKaWUUkopZZLxD1JlnZ7zx2kvAAAAAElFTkSuQmCC"
-            />
-          </defs>
-        </svg>
+          <use
+            xlink:href="#image0_14_17"
+            transform="matrix(0.00884616 0 0 0.01 0.0576922 0)"
+          />
+        </pattern>
+        <image
+          id="image0_14_17"
+          width="100"
+          height="100"
+          xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADoklEQVR4nO3dO2gUURTG8atGJYgvNHZio4KCFkF8YEwQoiIiAWXFSoUYHyA22okYkAg+sEqjaLTQwq0sNIWCpSgkqLFIpfgIwSwoBowomvxl2JE0yWQ3c2fm3jPnB9vOnHO/ndl53jVGKaWUUkoppZRSQgGbgGvAK2AIN/0AeoHzwCIjEbAaeIx/hoAmIwmwG/iOv34CG4wEwFbgF/7rA2YZnwFLgBJy7DQ+A64jy2XjK2BeuO+V5L7xFbAfeYrGV0AH8hSNr4A7yFM0vgqKT2GASkBXuHtcByzLuu+8BjIAtHp/XiAkkE6gNuv+vJNAIH+AE1n35a0EAjmZdU9esxxIZ9b9eM9iIAPV/mZQvoa2BWgBCo59gpo2AjXJjX6ygbRWuL4aoA14Dozivq9Ae2oHKJYCKVXyTQLqgX781AMs9SWQrgrWsxcYwW/PgBk+BLKvgi1jBBkO+BDI+il+M/qRo9uHQOoilt+GLCUfApl0v0r5aEqSMecDiVh2nSeHtlXxOZDNCORzIC0I5HMgBQTSQByjgTgmr4HcBtbavv0bPofWHD5yarVfyYHcSrTpcm0LgU82+5UcyJpEmx6vr91mv5IDWZBo0+P1tdrsV3IgzYk2PV7fTZv9Sg6kL+lX1IDG8AkZa/1KDuT/PfpgH3/Q8r3yI+GWMa0w8hyIszQQx2ggjtFAHKOBOEYDcYwG4hgNxDEaiGM0EMdoII7RQByjgTgm60CCiQW2AXuAw8BZ4CpwF3gEvNCLi+kFciPmsgsIZG/0qw9kZcxlFxDI3uhXP9fJ/JjLLiCQvdGfeNCORax7e8xlFxDI3uhP/obT60nW3RvnCRA0kGkP3PGIL8RH4ELUvW0NxDJgMTBsexNGt5BYoQRbgQZSgbQCmQu8sVkguoXEDmU58EEDiTQcc5irDmUF8JIq5OywtyfVQMKBnA0cBd5WUmHOAjmXbhoT78aaoh7PzFEgX4L3SoyvkBVIMPt3o/EZcgIJrmTUG99RWSCD4R/IFB373Asm9Qd2ADONBEwdSEfqU+jlGdGBPMm6vtwhOpBTWdeXO0BDRCCns64vd4DaiEsxT7OuL5eI/sOYS8FVgaxrzBVgDvBtirPfbgcOc6M+D4ArwCojAXARGYKZVRuM7yjfkQxOACVI/2pvEoBdwF/8NyrmZBY4FOeFfUcMGkkoT2nxHn+dMdJQvgEWPLj9EPgM/MZtY8C74GQ28bnflVJKKaWUUkopZZLxD1JlnZ7zx2kvAAAAAElFTkSuQmCC"
+        />
+      </defs>
+    </svg>
         <span>Ver cursos</span>
       </button>
     </div>
     <img
+      [class.animate-levitate]="isLevitating"
       src="../assets/SVG_guimarbot.svg"
       alt="Logo"
       style="width: 350px; height: 350px"
     />
   </section>
 
-  <section id="planes" class="py-24 bg-white">
+  <section id="planes" class="sticky pt-24 bg-white md:mb-5">
     <h2
-      class="text-3xl font-bold text-center mb-5"
+      class="text-3xl font-bold text-center mb-4"
       style="font-family: Inter, sans-serif; font-weight: 900"
     >
       Planes
     </h2>
     <p
-      class="text-gray-400 mb-6 text-center"
+      class="text-gray-400 text-center"
       style="font-family: Inter, sans-serif; font-weight: 300"
     >
       ¡Escoge el tiempo de suscripción que gustes!
     </p>
     <div
-      class="flex justify-center lg:space-x-8 m-20 md:m-40 space-y-20 lg:space-y-0 md:space-y-15 flex-col md:flex-col lg:flex-row"
+      class="flex justify-center lg:space-x-8 m-20 md:m-20 space-y-20 lg:space-y-0 md:space-y-15 flex-col md:flex-col lg:flex-row"
     >
       @for (item of planes; track $index) {
       <div class="bg-white rounded-md shadow-md relative">
@@ -346,7 +358,7 @@
   </section>
 </main>
 <footer
-  class="p-10 min-h-60 bg-[#181517] text-gray-300 justify-evenly flex flex-col md:flex-row space-y-16 md:space-y-0"
+  class="items-center p-10 min-h-60 bg-[#181517] text-gray-300 justify-evenly flex flex-col md:flex-row space-y-16 md:space-y-0"
   style="font-family: Inter, sans-serif; font-weight: 300"
 >
   <div class="space-y-4">
@@ -439,7 +451,9 @@
       </a>
       <p class="text-[#221D21]">Volver a inicio</p>
     </div>
-    <div class="bg-white text-[#221D21] p-10 rounded-tl-lg rounded-br-lg w-1/2">
+    <div
+      class="bg-white text-[#221D21] p-4 md:p-4 rounded-tl-lg rounded-br-lg w-1/2"
+    >
       <p class="max-w-60">
         ©Copyright GuimarBot. Todos los derechos reservados. 2024
       </p>
