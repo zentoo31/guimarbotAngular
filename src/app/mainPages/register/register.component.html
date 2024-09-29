@@ -62,7 +62,7 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
         </div>
       </div>
       <div>
-        <form class="mb-4" [formGroup]="form">
+        <form class="mb-4" [formGroup]="form" (ngSubmit)="register()">
           <div class="grid gap-2">
             <div class="grid gap-1">
               <label class="text-zinc-950" for="name">Nombres</label>

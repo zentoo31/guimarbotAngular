@@ -1,8 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { first, merge } from 'rxjs';
+import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-register',
@@ -13,6 +13,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class RegisterComponent {
   authService = inject(AuthService);
+  router = inject(Router);
   form: FormGroup;
   formErrors = {
     first_name: signal<string>(''),
@@ -123,6 +124,9 @@ export class RegisterComponent {
     if (this.form.valid) {
       const response = await this.authService.register(this.form.value);
       console.log(response);
+      if (response.message == 'Usuario registrado') {
+        this.router.navigate(['/login']);
+      }
     }
   }
 }
