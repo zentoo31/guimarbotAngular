@@ -1,18 +1,23 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { merge } from 'rxjs';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
+import { ToastComponent } from '../../ui-components/toast/toast.component';
+import { ToastService } from '../../services/toast.service';
+
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, ToastComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  @ViewChild(ToastComponent) toast!: ToastComponent;
   authService = inject(AuthService);
+  toastService = inject(ToastService)
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(8)]);
   errorMessageEmail = signal('');
@@ -23,6 +28,14 @@ export class LoginComponent {
       email: this.email,
       password: this.password
   });
+
+  ngAfterViewInit(){
+    this.toastService.registerToast(this.toast);
+  }
+
+  showToast(message:string) {
+    this.toastService.show(message);
+  }
 
   constructor() {
     merge([this.email.statusChanges, this.email.valueChanges, this.password.statusChanges, this.password.valueChanges])
@@ -60,7 +73,9 @@ export class LoginComponent {
       if(this.form.valid){
         try {
           const response = await this.authService.login(this.form.value);
-          console.log(response.message);
+          if(response){
+            this.showToast(response.message);
+          }
         } catch (error) {
           console.error(error);
         }

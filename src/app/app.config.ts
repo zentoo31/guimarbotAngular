@@ -12,7 +12,6 @@ export const appConfig: ApplicationConfig = {
               provideAuth({
                 config: {
                   authority: 'https://accounts.google.com',
-                  // Verifica si estamos en el cliente, si no, proporciona una URL por defecto
                   redirectUrl: typeof window !== 'undefined' ? window.location.origin : 'http://localhost:4200',
                   postLogoutRedirectUri: typeof window !== 'undefined' ? window.location.origin : 'http://localhost:4200',
                   clientId: '87730492966-s2pnul5lcu28ivho3qocppanpu01ek9l.apps.googleusercontent.com',

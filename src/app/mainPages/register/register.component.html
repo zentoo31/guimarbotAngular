@@ -1,16 +1,16 @@
 <div class="flex flex-col justify-center items-center bg-white h-[100vh]">
   <div
-    class="mx-auto flex w-full flex-col justify-center px-5 pt-0 md:h-[unset] md:max-w-[50%] lg:h-[100vh] min-h-[100vh] lg:max-w-[50%] lg:px-6"
+    class="mx-auto flex w-full flex-col justify-center px-5 pt-0 md:h-[unset] md:max-w-[50%] lg:h-[100vh] min-h-[100vh] lg:max-w-[50%] lg:px-6 relative"
   >
     <div
-      class="my-auto mb-auto mt-8 flex flex-col md:mt-[10px] w-[350px] max-w-[450px] mx-auto md:max-w-[450px] lg:mt-[50px] lg:max-w-[450px] animate-fade-in-down"
+      class="my-auto mb-auto mt-20 flex flex-col md:mt-[10px] w-[350px] max-w-[450px] mx-auto md:max-w-[450px] lg:mt-[50px] lg:max-w-[450px] animate-fade-in-down"
     >
-      <p class="text-[32px] font-bold text-zinc-950">Registro</p>
+      <p class="text-[32px] font-bold text-zinc-950" style="font-family: Poppins, sans-serif; font-weight: 700;">Registro</p>
       <p class="mb-2.5 mt-2.5 font-normal text-zinc-950">
         Ingresa tus datos para poder registrarte!
       </p>
       <div class="mt-8">
-        <form class="pb-2" >
+        <form class="pb-2">
           <input type="hidden" name="provider" value="google" /><button
             class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 w-full text-zinc-950 py-6"
             type="submit"
@@ -62,7 +62,7 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
         </div>
       </div>
       <div>
-        <form class="mb-4" [formGroup]="form" (ngSubmit)="register()">
+        <form class="mb-4" [formGroup]="form" (ngSubmit)="register()"  style="font-family: Inter, sans-serif; font-weight: 300;">
           <div class="grid gap-2">
             <div class="grid gap-1">
               <label class="text-zinc-950" for="name">Nombres</label>
@@ -132,8 +132,9 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
               <p class="text-red-400">{{ formErrors.password() }}</p>
             </div>
             <button
-              class="whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-[#221D21] text-white hover:bg-white hover:text-[#221D21] border-2 hover:border-[#221D21] mt-2 flex h-[unset] w-full items-center justify-center rounded-lg px-4 py-4 text-sm font-medium"
+              class="whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-[#221D21] text-white hover:bg-white hover:text-[#221D21] border-2 hover:border-[#221D21] active:animate-squeeze hover:animate-squeeze  mt-2 flex h-[unset] w-full items-center justify-center rounded-lg px-4 py-4 text-sm font-medium"
               type="submit"
+              style="font-family: Poppins, sans-serif; font-weight: 700; animation-duration: 900ms; animation-iteration-count: infinite;"
             >
               Registrate
             </button>
@@ -146,5 +147,11 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
         </p>
       </div>
     </div>
+    <button class="shadow-lg absolute top-4 left-1 p-3 rounded-lg border-2 bg-[#221D21] hover:bg-white hover:text-[#221D21] text-white transition-colors animate-fade-in-down" [routerLink]="['/home']">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+      </svg>    
+    </button> 
   </div>
+  <toast/>
 </div>
