@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'lm': '425px',
+        'pe': '375px'
+      },
       keyframes: {
         levitate: {
           '0%, 100%': { transform: 'translate(0, 0)' },
