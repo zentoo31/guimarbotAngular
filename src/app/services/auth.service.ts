@@ -25,5 +25,8 @@ export class AuthService {
     return this.httpClient.post<any>(`${this.baseURL}/logout`, null, {withCredentials: true});
   }
 
-
+  isAuth(){
+    const res = this.httpClient.get<boolean>(`${this.baseURL}/verify-token`, {withCredentials: true});
+    return res;
+  }
 }
