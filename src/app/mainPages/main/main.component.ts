@@ -97,7 +97,6 @@ export class MainComponent {
   selectedDescriptionIndex: number = 0;
   feedbackColor: string = '';
   isAnswerCorrect: boolean = false;
-
   isDemoFinished: boolean = false;
 
   checkAnswer(answer: string): void {
@@ -109,37 +108,33 @@ export class MainComponent {
       this.feedbackMessage = '¡Correcto!';
       this.feedbackColor = 'green';
       this.isAnswerCorrect = true;
-
-      if (this.isLastQuestion()) {
-        this.isDemoFinished = true;
-      }
     } else if (incorrectIndex !== -1) {
       this.feedbackMessage = this.why_answer[incorrectIndex];
       this.feedbackColor = 'red';
       this.isAnswerCorrect = false;
     } else {
       this.feedbackMessage = '';
-      this.isAnswerCorrect = false; 
+      this.isAnswerCorrect = false;
     }
   }
 
   finishDemo(): void {
-    // Aquí puedes realizar cualquier lógica adicional si es necesario
-    // Reiniciar el estado si se desea volver a jugar
-    this.restartDemo();
+    if (this.isAnswerCorrect && this.isLastQuestion()) {
+      this.isFinished = true;
+    }
   }
 
   animateFadeIn: boolean = false;
   isFinished: boolean = false;
 
   nextQuestion(): void {
-    this.selectedQuestionIndex++;
-    this.selectedTitleIndex++;
-    this.selectedDescriptionIndex++;
-
-    if (this.isLastQuestion()) {
-      this.isFinished = true;
+    if (this.isLastQuestion() && this.isAnswerCorrect) {
+      return;
     } else {
+      this.selectedQuestionIndex++;
+      this.selectedTitleIndex++;
+      this.selectedDescriptionIndex++;
+
       if (this.selectedQuestionIndex >= this.question_demo.length) {
         this.selectedQuestionIndex = 0;
       }
@@ -149,27 +144,28 @@ export class MainComponent {
       if (this.selectedDescriptionIndex >= this.description_demo.length) {
         this.selectedDescriptionIndex = 0;
       }
+
+      this.selectedAnswer = null;
+      this.feedbackMessage = '';
+      this.feedbackClass = '';
     }
 
-    this.selectedAnswer = null;
-    this.feedbackMessage = '';
-    this.feedbackClass = '';
-
     this.animateFadeIn = true;
-
     setTimeout(() => {
       this.animateFadeIn = false;
     }, 700);
-    
   }
 
   restartDemo(): void {
-    // Reiniciar todos los estados para comenzar de nuevo
     this.selectedQuestionIndex = 0;
+    this.selectedTitleIndex = 0;
+    this.selectedDescriptionIndex = 0;
     this.selectedAnswer = null;
     this.feedbackMessage = '';
-    this.isDemoFinished = false;
-    // Reiniciar otros estados si es necesario...
+    this.feedbackClass = '';
+    this.isAnswerCorrect = false;
+    this.isFinished = false;
+    this.animateFadeIn = false;
   }
 
   isNextButtonEnabled(): boolean {
@@ -178,5 +174,10 @@ export class MainComponent {
 
   isLastQuestion(): boolean {
     return this.selectedQuestionIndex === this.question_demo.length - 1;
+  }
+
+  selectAnswer(answer: string) {
+    this.selectedAnswer = answer;
+    this.checkAnswer(answer);
   }
 }

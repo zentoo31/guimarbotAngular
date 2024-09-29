@@ -226,77 +226,204 @@
     </p>
     <div
       class="bg-[#222222] text-green-400 p-6 rounded-[20px] max-w-3xl m-10 md:mx-auto"
-      style="font-family: 'Cascadia Code', monospace; font-weight: 700"
     >
-      <p class="mb-4 text-[#FFC525]">
+      <p
+        class="mb-4 text-[#FFC525]"
+        style="font-family: 'Cascadia Code', monospace; font-weight: 800"
+      >
         ¡Bienvenido!, aprenderemos la introducción básica de JavaScript.
       </p>
-      <h3 class="bg-[#B727F0] rounded-md mb-2 inline-block px-4 text-white"
-      [class.animate-fade-in]="animateFadeIn">
+      @if(!isFinished) {
+      <h3
+        class="bg-[#B727F0] rounded-md mb-2 inline-block px-4 text-white"
+        style="font-family: 'Cascadia Code', monospace; font-weight: 800"
+        [class.animate-fade-in]="animateFadeIn"
+      >
         {{ title_demo[selectedTitleIndex] }}
       </h3>
-      <p class="text-white mb-16"
-      [class.animate-fade-in]="animateFadeIn">
+      <p
+        class="text-white mb-16"
+        style="font-family: 'Cascadia Code', monospace; font-weight: 400"
+        [class.animate-fade-in]="animateFadeIn"
+      >
         {{ description_demo[selectedDescriptionIndex] }}
       </p>
+
       <div
         class="bg-[#151515] p-4 rounded-[15px] relative border-white border-2"
         style="font-family: 'Cascadia Code', monospace; font-weight: 700"
       >
         <div
           class="absolute flex items-center justify-center p-1 px-3 text-sm text-black bg-white rounded-full -top-4 left-7 gap-x-2"
+          style="font-family: 'Cascadia Code', monospace; font-weight: 800"
         >
           Examen interactivo
         </div>
-        @if(!isFinished) {
-          <div class="m-4">
-              <p class="mb-2 text-[#FFC525]" [class.animate-fade-in]="animateFadeIn">
-                  {{ question_demo[selectedQuestionIndex] }}
+        <div class="m-4">
+          <p
+            class="mb-2 text-[#FFC525]"
+            style="font-family: 'Cascadia Code', monospace; font-weight: 800"
+            [class.animate-fade-in]="animateFadeIn"
+          >
+            {{ question_demo[selectedQuestionIndex] }}
+          </p>
+          <div
+            class="text-white"
+            style="font-family: 'Cascadia Code', monospace; font-weight: 400"
+            [class.animate-fade-in]="animateFadeIn"
+          >
+            <div
+              class="mb-2 pl-4 py-4 rounded-lg bg-[#0d0b13]"
+              (click)="selectAnswer(answers[selectedQuestionIndex * 2])"
+            >
+              <label class="flex items-center cursor-pointer">
+                <input
+                  type="radio"
+                  name="answer"
+                  value="{{ answers[selectedQuestionIndex * 2] }}"
+                  (click)="checkAnswer(answers[selectedQuestionIndex * 2])"
+                  [checked]="
+                    selectedAnswer === answers[selectedQuestionIndex * 2]
+                  "
+                />
+                <span class="ml-2">{{
+                  answers[selectedQuestionIndex * 2]
+                }}</span>
+              </label>
+            </div>
+            <div
+              class="mb-2 pl-4 py-4 rounded-lg bg-[#0d0b13]"
+              (click)="selectAnswer(answers[selectedQuestionIndex * 2 + 1])"
+            >
+              <label class="flex items-center cursor-pointer">
+                <input
+                  type="radio"
+                  name="answer"
+                  value="{{ answers[selectedQuestionIndex * 2 + 1] }}"
+                  (click)="checkAnswer(answers[selectedQuestionIndex * 2 + 1])"
+                  [checked]="
+                    selectedAnswer === answers[selectedQuestionIndex * 2 + 1]
+                  "
+                />
+                <span class="ml-2">{{
+                  answers[selectedQuestionIndex * 2 + 1]
+                }}</span>
+              </label>
+            </div>
+            <div>
+              <p [style.color]="feedbackColor === 'green' ? 'green' : 'red'">
+                {{ feedbackMessage }}
               </p>
-              <div class="text-white" [class.animate-fade-in]="animateFadeIn">
-                  <div>
-                      <label>
-                          <input type="radio" name="answer" value="{{ answers[selectedQuestionIndex * 2] }}"
-                                 (click)="checkAnswer(answers[selectedQuestionIndex * 2])"
-                                 [checked]="selectedAnswer === answers[selectedQuestionIndex * 2]" />
-                          {{ answers[selectedQuestionIndex * 2] }}
-                      </label>
-                  </div>
-                  <div>
-                      <label>
-                          <input type="radio" name="answer" value="{{ answers[selectedQuestionIndex * 2 + 1] }}"
-                                 (click)="checkAnswer(answers[selectedQuestionIndex * 2 + 1])"
-                                 [checked]="selectedAnswer === answers[selectedQuestionIndex * 2 + 1]" />
-                          {{ answers[selectedQuestionIndex * 2 + 1] }}
-                      </label>
-                  </div>
-                  <div>
-                      <p [style.color]="feedbackColor === 'green' ? 'green' : 'red'">{{ feedbackMessage }}</p>
-                  </div>
-              </div>
-              <div class="flex justify-end mt-4">
-                  <button [disabled]="!isNextButtonEnabled()" (click)="nextQuestion()"
-                          class="bg-[#FFC525] hover:bg-[#d1a52e] hover:text-white text-black px-7 py-3 rounded">
-                      {{ isLastQuestion() ? 'Finalizar' : 'Siguiente' }}
-                  </button>
-              </div>
+            </div>
           </div>
-      }@else {
-        <div class="text-center mt-10">
-            <svg width="104" height="105" viewBox="0 0 104 105" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M46.115 6.53a3.45 3.45 0 0 1 2.438-1.01h.394c.915 0 1.791.363 2.438 1.01l4.62 4.62a3.44 3.44 0 0 1 .992 2.094l1.34 13.4a3.45 3.45 0 0 1-.992 2.781l-8.866 8.866-4.604-5.146 7.516-7.415-1.016-10.46-2.437-2.438a3.447 3.447 0 0 1-4.875 4.875l-1.625-1.625a3.447 3.447 0 0 1 0-4.875zM5.885 46.905l4.678-4.678a3.447 3.447 0 0 1 4.874 0l1.626 1.626a3.447 3.447 0 0 1-4.875 4.874l2.437 2.438 10.461 1.016 6.471-6.573 5.755 3.995-8.531 8.531a3.45 3.45 0 0 1-2.781.993l-13.4-1.34a3.45 3.45 0 0 1-2.095-.993l-4.62-4.62a3.45 3.45 0 0 1-1.01-2.438v-.394c0-.914.364-1.79 1.01-2.437" fill="#FA9F0C"/>
-                <path d="m9.75 36.395 6.328 6.327a34.47 34.47 0 0 0 27.797 9.923L52 44.519a34.54 34.54 0 0 0-2.235-16.08 34.5 34.5 0 0 0-7.687-11.717l-6.328-6.328-21.472 21.473z" fill="#FFB531"/>
-            </svg>
-            <p class="text-white mt-4">
-                Felicidades, culminaste con éxito la demo, si deseas más de este tipo de aprendizaje incluso de otros lenguajes, no olvides de adquirir tu membresía.
-            </p>
-            <button (click)="restartDemo()"
-                    class="mt-4 bg-[#FFC525] hover:bg-[#d1a52e] text-black px-7 py-3 rounded">
-                Volver a inicio
+          <div
+            class="flex justify-end mt-4"
+            style="font-family: 'Cascadia Code', monospace; font-weight: 700"
+          >
+            <button
+              [disabled]="!isNextButtonEnabled()"
+              (click)="isLastQuestion() ? finishDemo() : nextQuestion()"
+              class="bg-[#FFC525] hover:bg-[#d1a52e] hover:text-white text-black px-7 py-3 rounded"
+            >
+              {{ isLastQuestion() ? "Finalizar" : "Siguiente" }}
             </button>
+          </div>
         </div>
-    }
       </div>
+      }@else {
+      <div class="text-center mt-10 flex flex-col items-center">
+        <div
+          class="animate-pulsing"
+          style="animation-iteration-count: infinite"
+        >
+          <svg
+            width="104"
+            height="105"
+            viewBox="0 0 104 105"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M46.115 6.53a3.45 3.45 0 0 1 2.438-1.01h.394c.915 0 1.791.363 2.438 1.01l4.62 4.62a3.44 3.44 0 0 1 .992 2.094l1.34 13.4a3.45 3.45 0 0 1-.992 2.781l-8.866 8.866-4.604-5.146 7.516-7.415-1.016-10.46-2.437-2.438a3.447 3.447 0 0 1-4.875 4.875l-1.625-1.625a3.447 3.447 0 0 1 0-4.875zM5.885 46.905l4.678-4.678a3.447 3.447 0 0 1 4.874 0l1.626 1.626a3.447 3.447 0 0 1-4.875 4.874l2.437 2.438 10.461 1.016 6.471-6.573 5.755 3.995-8.531 8.531a3.45 3.45 0 0 1-2.781.993l-13.4-1.34a3.45 3.45 0 0 1-2.095-.993l-4.62-4.62a3.45 3.45 0 0 1-1.01-2.438v-.394c0-.914.364-1.79 1.01-2.437"
+              fill="#FA9F0C"
+            />
+            <path
+              d="m9.75 36.395 6.328 6.327a34.47 34.47 0 0 0 27.797 9.923L52 44.519a34.54 34.54 0 0 0-2.235-16.08 34.5 34.5 0 0 0-7.687-11.717l-6.328-6.328-21.472 21.473z"
+              fill="#FFB531"
+            />
+            <path
+              d="m36.899 18.438 1.73 1.731q.36.359.707.73l-2.375 2.22a28 28 0 0 0-.63-.652l-1.73-1.73zm10.224 19.405-3.23.353a26.2 26.2 0 0 0-5.076-12.863l2.6-1.948a29.47 29.47 0 0 1 5.706 14.458"
+              fill="#FFC361"
+            />
+            <path
+              d="M76.384 68.892 52.012 44.52l-8.123 8.124L68.26 77.015z"
+              fill="#FA9F0C"
+            />
+            <path
+              d="M66.23 81.895a6.88 6.88 0 0 0 2.02 4.875l1.625 1.625 7.41-7.41L87.75 70.52l-1.625-1.625a6.896 6.896 0 0 0-9.75 0L68.25 77.02l-.043.046a6.87 6.87 0 0 0-1.976 4.829"
+              fill="#FFB531"
+            />
+            <path
+              d="m66.625 91.645 8.125 8.124 24.375-24.375L91 67.27 73.312 84.958z"
+              fill="#92563A"
+            />
+            <path
+              d="m64.721 80.548 5.154-5.154-19.5-19.5-5.154 5.154a6.5 6.5 0 0 0 0 9.193L55.53 80.548a6.5 6.5 0 0 0 9.192 0"
+              fill="#FEB784"
+            />
+            <path
+              d="m60.6 45.669-9.076 9.077a3.923 3.923 0 0 0 0 5.548l13.952 13.952a3.923 3.923 0 0 0 5.548 0l9.077-9.077a3.923 3.923 0 0 0 0-5.548L66.149 45.669a3.924 3.924 0 0 0-5.548 0"
+              fill="#FEC9A3"
+            />
+            <path
+              d="M66.159 52.168 63.86 49.87 52.488 61.244l2.298 2.297zm4.875 4.874-2.298-2.297-11.373 11.373 2.298 2.297zm4.875 4.874-2.298-2.298-11.373 11.374 2.298 2.297z"
+              fill="#FEB784"
+            />
+            <path
+              d="m53.625 52.645 9.75 9.75-.731.73a7.15 7.15 0 0 1-9.019.894 7.15 7.15 0 0 1-.894 9.02l-2.356 2.355-5.154-5.153a6.5 6.5 0 0 1 0-9.193z"
+              fill="#FFD5B8"
+            />
+            <path
+              d="M9.75 99.77h32.5l8.125-8.126-16.25-16.25z"
+              fill="#4D5E78"
+            />
+            <path
+              d="M58.513 83.517 42.265 67.269l-8.124 8.124L50.39 91.641z"
+              fill="#E0E0DE"
+            />
+            <path d="M52 81.895h-3.25v3.25H52z" fill="#4D5E78" />
+            <path
+              d="m66.625 91.645 8.125 8.124 6.756-6.755-8.194-8.056z"
+              fill="#804A32"
+            />
+            <path
+              d="m9.75 36.395 6.327 6.327a34.47 34.47 0 0 0 27.798 9.923L52 44.519q.113-1.136.15-2.27c-12.541-.858-25.476-3.982-37.873-10.382zm56.48 45.5a6.87 6.87 0 0 0 2.02 4.875l1.625 1.625 7.41-7.41a109 109 0 0 1-9.078-3.919 6.87 6.87 0 0 0-1.976 4.829"
+              fill="#FCAC1F"
+            />
+            <path d="M9.75 99.77h32.5l5.346-5.347h-32.5z" fill="#485870" />
+            <path
+              d="M78 12.02a10.28 10.28 0 0 1-6.5-6.5 10.28 10.28 0 0 1-6.5 6.5 10.28 10.28 0 0 1 6.5 6.5 10.28 10.28 0 0 1 6.5-6.5"
+              fill="#FFB531"
+            />
+          </svg>
+        </div>
+        <p
+          class="text-white mt-4"
+          style="font-family: 'Cascadia Code', monospace; font-weight: 400"
+        >
+          Felicidades, culminaste con éxito la demo, si deseas más de este tipo
+          de aprendizaje incluso de otros lenguajes, no olvides de adquirir tu
+          membresía.
+        </p>
+        <button
+          (click)="restartDemo()"
+          class="mt-4 bg-[#FFC525] hover:bg-[#d1a52e] text-black px-7 py-3 rounded"
+          style="font-family: 'Cascadia Code', monospace; font-weight: 800"
+        >
+          Volver a inicio
+        </button>
+      </div>
+      }
     </div>
   </section>
 
