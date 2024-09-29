@@ -1,12 +1,20 @@
 <div class="flex flex-col justify-center items-center bg-white h-[100vh]">
   <div
-    class="mx-auto flex w-full flex-col justify-center px-5 pt-0 md:h-[unset] md:max-w-[50%] lg:h-[100vh] min-h-[100vh] lg:max-w-[50%] lg:px-6"
+    class="mx-auto flex w-full flex-col px-5 justify-center pt-0 md:h-[unset] md:max-w-[50%] lg:h-[100vh] min-h-[100vh] lg:max-w-[50%] lg:px-6 relative"
   >
     <div
-      class="my-auto mb-auto mt-8 flex flex-col md:mt-[70px] w-[350px] max-w-[450px] mx-auto md:max-w-[450px] lg:mt-[130px] lg:max-w-[450px] animate-fade-in-down"
+      class="my-auto mb-auto mt-20 flex flex-col md:mt-[70px] w-[350px] max-w-[450px] mx-auto md:max-w-[450px] lg:mt-[130px] lg:max-w-[450px] animate-fade-in-down"
     >
-      <p class="text-[32px] font-bold text-zinc-950" style="font-family: Poppins, sans-serif; font-weight: 700;">Iniciar sesión</p>
-      <p class="mb-2.5 mt-2.5 font-normal text-zinc-950" style="font-family: Inter, sans-serif; font-weight: 300;">
+      <p
+        class="text-[32px] font-bold text-zinc-950"
+        style="font-family: Poppins, sans-serif; font-weight: 700"
+      >
+        Iniciar sesión
+      </p>
+      <p
+        class="mb-2.5 mt-2.5 font-normal text-zinc-950"
+        style="font-family: Inter, sans-serif; font-weight: 300"
+      >
         Ingresa tu correo y tu contraseña para inciar sesión!
       </p>
       <div class="mt-8">
@@ -62,56 +70,63 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
         </div>
       </div>
       <div>
-        <form [formGroup]= "form" (ngSubmit)="login()" class="mb-4">
+        <form
+          [formGroup]="form"
+          (ngSubmit)="login()"
+          class="mb-4"
+          style="font-family: Inter, sans-serif; font-weight: 300"
+        >
           <div class="grid gap-2">
             <div class="grid gap-1">
-              <label class="text-zinc-950" for="email">Email</label>
+              <label class="text-zinc-950" for="email">Correo</label>
               <input
                 class="mr-2.5 mb-2 h-full min-h-[44px] w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-950 placeholder:text-zinc-400 focus:outline-0"
                 id="email"
-                placeholder="name@example.com"
+                placeholder="nombre@ejemplo.com"
                 type="email"
-                [formControl] = "email"
+                [formControl]="email"
                 (blur)="updateErrorMessageEmail()"
-                [class.invalid] = "isEmailInvalid"
+                [class.invalid]="isEmailInvalid"
                 autocapitalize="none"
                 autocomplete="email"
                 autocorrect="off"
                 name="email"
                 required
               />
-              <p class="text-red-400">{{errorMessageEmail()}}</p>
-              <label class="text-zinc-950 mt-2" for="password">Password</label>
+              <p class="text-red-400">{{ errorMessageEmail() }}</p>
+              <label class="text-zinc-950 mt-2" for="password"
+                >Contraseña</label
+              >
               <input
                 id="password"
-                placeholder="Password"
-                [formControl] = "password"
+                placeholder="Contraseña"
+                [formControl]="password"
                 (blur)="updateErrorMessagePassword()"
-                [class.invalid] = "isPasswordInvalid"
-                type="password" 
+                [class.invalid]="isPasswordInvalid"
+                type="password"
                 autocomplete="current-password"
                 class="mr-2.5 mb-2 h-full min-h-[44px] w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-950 placeholder:text-zinc-400 focus:outline-0"
                 name="password"
                 required
               />
-              <p class="text-red-400">{{errorMessagePassword()}}</p>
+              <p class="text-red-400">{{ errorMessagePassword() }}</p>
             </div>
             <button
-              class="whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 
-              focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50
-              bg-[#221D21] text-primary-foreground hover:bg-[#473e45] mt-2 flex h-[unset] w-full items-center justify-center rounded-lg 
-              px-4 py-4 text-sm font-medium text-white"
-              style="font-family: Poppins, sans-serif; font-weight: 700;"
+              class="whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-[#221D21] hover:bg-white hover:text-[#221D21] border-2 hover:border-[#221D21] mt-2 flex h-[unset] w-full items-center justify-center rounded-lg hover:animate-squeeze px-4 py-4 text-sm font-medium text-white"
+              style="
+                font-family: Poppins, sans-serif;
+                font-weight: 700;
+                animation-duration: 900ms;
+                animation-iteration-count: infinite;
+              "
               type="submit"
             >
-              Sign in
+              Iniciar sesión
             </button>
           </div>
         </form>
         <p>
-          <a
-            href="/"
-            class="font-medium text-zinc-950 text-sm"
+          <a href="/" class="font-medium text-zinc-950 text-sm"
             >¿Olvidaste tu contraseña?</a
           >
         </p>
@@ -124,5 +139,25 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
         </p>
       </div>
     </div>
+    <button
+      class="shadow-lg absolute top-4 left-1 p-3 rounded-lg border-2 bg-[#221D21] hover:bg-white hover:text-[#221D21] text-white transition-colors animate-fade-in-down"
+      [routerLink]="['/home']"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+        />
+      </svg>
+    </button>
   </div>
+  <toast/>
 </div>

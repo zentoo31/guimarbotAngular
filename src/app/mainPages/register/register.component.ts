@@ -1,18 +1,22 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ViewChild } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {FormControl, FormGroup, Validators,FormsModule,ReactiveFormsModule,} from '@angular/forms';
 import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ToastComponent } from '../../ui-components/toast/toast.component';
+import { ToastService } from '../../services/toast.service';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, FormsModule, ReactiveFormsModule],
+  imports: [RouterLink, FormsModule, ReactiveFormsModule, ToastComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
+  @ViewChild(ToastComponent) toast!: ToastComponent;
   authService = inject(AuthService);
+  toastService = inject(ToastService);
   router = inject(Router);
   form: FormGroup;
   formErrors = {
@@ -22,6 +26,14 @@ export class RegisterComponent {
     email: signal<string>(''),
     password: signal<string>(''),
   };
+
+  ngAfterViewInit() {
+    this.toastService.registerToast(this.toast);
+  }
+
+  showToast(message: string) {
+    this.toastService.show(message);
+  }
 
   formInvalidState = {
     first_name: false,
@@ -122,10 +134,18 @@ export class RegisterComponent {
 
   async register() {
     if (this.form.valid) {
-      const response = await this.authService.register(this.form.value);
-      console.log(response);
-      if (response.message == 'Usuario registrado') {
-        this.router.navigate(['/login']);
+      try {
+        const response = await this.authService.register(this.form.value);
+        if (response) {
+          this.showToast(response.message);
+        }
+        if (response.message == 'Usuario registrado') {
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 2000);
+        }
+      } catch (error) {
+        console.error(error);
       }
     }
   }
