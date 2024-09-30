@@ -12,7 +12,7 @@ export class ToastService {
     this.toast = toast;
   };
 
-  show(message:string){
-    this.toast.show(message);
+  show(message:string, bg_color:string){
+    this.toast.show(message, bg_color);
   }
 }

@@ -21,8 +21,8 @@ export class AuthService {
     return res;
   }
 
-  async logout(){
-    return this.httpClient.post<any>(`${this.baseURL}/logout`, null, {withCredentials: true});
+  logout(){
+    return this.httpClient.post<any>(`${this.baseURL}/logout`, {}, {withCredentials: true});
   }
 
   isAuth(){
