@@ -31,10 +31,6 @@ export class RegisterComponent {
     this.toastService.registerToast(this.toast);
   }
 
-  showToast(message: string) {
-    this.toastService.show(message);
-  }
-
   formInvalidState = {
     first_name: false,
     last_name: false,
@@ -137,7 +133,7 @@ export class RegisterComponent {
       try {
         const response = await this.authService.register(this.form.value);
         if (response) {
-          this.showToast(response.message);
+          this.toastService.show(response.message, 'bg-[#60ff93]');
         }
         if (response.message == 'Usuario registrado') {
           setTimeout(() => {

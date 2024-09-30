@@ -32,11 +32,6 @@ export class LoginComponent {
   ngAfterViewInit(){
     this.toastService.registerToast(this.toast);
   }
-
-  showToast(message:string) {
-    this.toastService.show(message);
-  }
-
   constructor() {
     merge([this.email.statusChanges, this.email.valueChanges, this.password.statusChanges, this.password.valueChanges])
     .pipe(takeUntilDestroyed())
@@ -74,7 +69,7 @@ export class LoginComponent {
         try {
           const response = await this.authService.login(this.form.value);
           if(response){
-            this.showToast(response.message);
+            this.toastService.show(response.message, 'bg-[#60ff93]');
           }
         } catch (error) {
           console.error(error);
