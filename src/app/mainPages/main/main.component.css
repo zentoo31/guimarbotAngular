@@ -1,80 +1,95 @@
 .item {
-    width: 200px;
-    height: 100px;
-    border-radius: 6px;
-    position: absolute;
-    left: calc(200px * 15);
-    animation-name: scrollLeft;
-    animation-duration: 30s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  margin: 0px;
+  position: absolute;
+  left: calc(200px * 15);
+  animation-name: scrollLeft;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 .wrapper {
-    width: 100%;
-    max-width: 1536px;
-    margin-inline: auto;
-    position: relative;
-    height: 100px;
-    margin-top: 5rem;
-    overflow: hidden;
-    mask-image: linear-gradient(
-        to right,
-        rgba(0,0,0,0),
-        rgba(0,0,0,1) 20%,
-        rgba(0,0,0,1) 60%,
-        rgba(0,0,0,0)
-    );
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0)
+  );
 }
 
 @keyframes scrollLeft {
-    to {
-        left: -200px;
-    }
+  to {
+    left: -100px;
+  }
 }
 
-.item-1 {   
-    animation-delay: calc(30s / 15 * (15 - 1) * -1);
+.item-1 {
+  animation-delay: calc(30s / 15 * (15 - 1) * -1);
 }
 .item-2 {
-    animation-delay: calc(30s / 15 * (15 - 2) * -1);
+  animation-delay: calc(30s / 15 * (15 - 2) * -1);
 }
 .item-3 {
-    animation-delay: calc(30s / 15 * (15 - 3) * -1);
+  animation-delay: calc(30s / 15 * (15 - 3) * -1);
 }
 .item-4 {
-    animation-delay: calc(30s / 15 * (15 - 4) * -1);
+  animation-delay: calc(30s / 15 * (15 - 4) * -1);
 }
 .item-5 {
-    animation-delay: calc(30s / 15 * (15 - 5) * -1);
+  animation-delay: calc(30s / 15 * (15 - 5) * -1);
 }
 .item-6 {
-    animation-delay: calc(30s / 15 * (15 - 6) * -1);
+  animation-delay: calc(30s / 15 * (15 - 6) * -1);
 }
 .item-7 {
-    animation-delay: calc(30s / 15 * (15 - 7) * -1);
+  animation-delay: calc(30s / 15 * (15 - 7) * -1);
 }
 .item-8 {
-    animation-delay: calc(30s / 15 * (15 - 8) * -1);
+  animation-delay: calc(30s / 15 * (15 - 8) * -1);
 }
 .item-9 {
-    animation-delay: calc(30s / 15 * (15 - 9) * -1);
+  animation-delay: calc(30s / 15 * (15 - 9) * -1);
 }
 .item-10 {
-    animation-delay: calc(30s / 15 * (15 - 10) * -1);
+  animation-delay: calc(30s / 15 * (15 - 10) * -1);
 }
 .item-11 {
-    animation-delay: calc(30s / 15 * (15 - 11) * -1);
+  animation-delay: calc(30s / 15 * (15 - 11) * -1);
 }
 .item-12 {
-    animation-delay: calc(30s / 15 * (15 - 12) * -1);
+  animation-delay: calc(30s / 15 * (15 - 12) * -1);
 }
 .item-13 {
-    animation-delay: calc(30s / 15 * (15 - 13) * -1);
+  animation-delay: calc(30s / 15 * (15 - 13) * -1);
 }
 .item-14 {
-    animation-delay: calc(30s / 15 * (15 - 14) * -1);
+  animation-delay: calc(30s / 15 * (15 - 14) * -1);
 }
 .item-15 {
-    animation-delay: calc(30s / 15 * (15 - 15) * -1);
+  animation-delay: calc(30s / 15 * (15 - 15) * -1);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in forwards;
+}
+
+#guimarbotLogo {
+  transition: box-shadow 0.1s, transform 0.1s;
+}
+
+#guimarbotLogo-hover {
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
 }

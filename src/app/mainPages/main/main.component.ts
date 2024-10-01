@@ -48,10 +48,6 @@ export class MainComponent {
 
   selectedAccordion: number | null = null;
 
-  toggleAccordion(index: number) {
-    this.selectedAccordion = this.selectedAccordion === index ? null : index;
-  }
-
   title_demo: string[] = [
     '¿Qué es JavaScript?',
     'Tipos de datos',
@@ -180,4 +176,10 @@ export class MainComponent {
     this.selectedAnswer = answer;
     this.checkAnswer(answer);
   }
+
+  
+  toggleAccordion(index: number) {
+    this.selectedAccordion = this.selectedAccordion === index ? null : index;
+  }
+
 }
