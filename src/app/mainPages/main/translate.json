@@ -1,0 +1,137 @@
+{
+    "main":[
+        "Learn to programmer, Create without limits"
+    ],
+
+    "description": [
+        "We train children and young people in programming, electronics and robotics throughout the year!"
+    ],
+
+    "buttonlogin": [
+        "Login"
+    ],
+
+    "buttonregister": [
+        "Register"
+    ],
+
+    "buttonseecourse": [
+        "See Course"
+    ],
+
+    "txtplans": [
+        "Plans"
+    ],
+
+    "txtdescription": [
+        "¡Choose the subscription time you like!"
+    ],
+
+    "plans": [
+        "Monthly",
+        "Bimonthly",
+        "Quarterly",
+        "Annual"
+    ],
+
+    "txtdemo": [
+        "¡Learn the basics of JavaScript!"
+    ],
+
+    "captcha": [
+        "¡Welcome! We will learn the basic introduction of JavaScript."
+    ],
+
+    "captchacuestion": [
+        "What is JavaScript?",
+        "Data types",
+        "console.log()"
+    ],
+
+    "captchadescription": [
+        "JavaScript is one of the most popular and versatile languages, born in 1995 to provide interactivity to web pages, but today it is used for almost anything, from web development to artificial intelligence. It is the only language that browsers understand natively, it has a fast learning curve and is in high demand in the job market due to its multiple applications.",
+        "In JavaScript, fundamental data types include Number, which represents any number, whether integer or decimal; String, which is used for text and is placed in quotes; Boolean, which can only be true or false; Null, indicating the absence of value; Undefined, which indicates that a variable has been declared but has no value assigned; Symbol, a special type for creating unique identifiers; and BigInt, which allows handling very large numbers. These types are essential for managing information in programming.",
+        "The console.log() function in JavaScript is used to print messages to the browser or code editor console, being very useful for debugging and checking the value of variables during development. To use it, simply write console.log() followed by the message or variable you want to display in parentheses. In addition to console.log(), there are other methods such as console.error(), console.warn() and console.info(), which allow printing error, warning and information messages, respectively, making it easier to identify different types of messages on the console."
+    ],
+
+    "interactiveexam": [
+        "interactiveexam"
+    ],
+
+    "examcuestion": [
+        "Can JavaScript only be used to create web pages?",
+        "Which of the following data types in JavaScript is used to represent text?",
+        "Which of the following methods is used to print an error message to the console?"
+    ],
+
+    "answer": [
+        "True",
+        "False",
+        "Number",
+        "String",
+        "console.error()",
+        "console.warn()"
+    ],
+
+    "buttonnext": [
+        "next",
+        "Finish"
+    ],
+
+    "incorrect": [
+        "That is not so! JavaScript is a general purpose programming language. Although it was born to add interactivity to web pages, today it is used in many other environments, such as servers, desktop applications, robots, etc.",
+        "No :(! The String data type is used to represent text in JavaScript. It is enclosed in single or double quotes, and is essential for working with character strings.",
+        "Incorrect! The console.error() method is used to print error messages to the browser or code editor console. It is very useful for identifying and correcting errors during development."
+    ],
+
+    "correct": [
+        "Correct!"
+    ],
+
+    "questionsource": [
+        "Questions Source (FAQ)"
+    ],
+
+    "questionsoursedetails":[
+        "Find out about GuimarBot!"
+    ],
+
+    "question": [
+        "What is Gimarbot?",
+        "Suport",
+        "vision and mission",
+        "Languages ​​Used"
+    ],
+
+    "detailsquestion": [
+        "GuimarBot is an educational company committed to technological learning, founded by Jorge Luis Cordova Lopez. We believe that programming is an essential skill in the modern world and our goal is to make it easy for everyone to learn. We offer courses designed for children, adolescents and adults, adapting to the needs and rhythms of each student.",
+        "Do you need help? Contact us by these means: Email: jorge.l.corda.lopez@gmail.com Whatsapp: 921297778 / 923984845 Contact: Eng. Jorge Córdova",
+        "Vision: To be a leader in programming teaching, promoting the development of technological and creative skills in people of all ages to build a more innovative and digitally competent society. Mission: Democratize programming education by providing accessible, quality tools and resources, creating an inclusive environment that prepares students for the challenges of the digital future.",
+        " JavaScript, Python, Scratch, C"
+    ],
+
+    "contact": [
+        "Email",
+        "affair",
+        "Mnesaje"
+    ],
+
+    "buttonsend": [
+        "send"
+    ],
+
+    "descriptioncontact": [
+        "We are GuimarBot, your trusted programming workshop."
+
+    ],
+
+    "guimarbotdescription": [
+        "Organization of education in technologies and personal growth for children and young people.",
+        "©Copyright GuimarBot. All rights reserved. 2024"
+    ],
+
+    "buttonstart": [
+        "return to the beginning"
+    ]
+
+}
