@@ -22,7 +22,7 @@ import { Component } from '@angular/core';
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+      background-color: rgba(255, 255, 255, 1); /* Fondo semitransparente */
       z-index: 9999; /* Para asegurarse de que esté por encima de otros elementos */
     }
     .animate-spin-clockwise {
