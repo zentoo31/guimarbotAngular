@@ -1,5 +1,10 @@
-<img src="{{user?.profile_picture}}" alt="" class="rounded-full border-black border-2 w-60 h-60">
-<p> {{user?.email}} asdfasdf</p>
-
-
-<button class="bg-red-500 p-3 rounded-md text-white" (click)="logout()">Cerrar sesión</button>
+<div class="min-h-screen">
+    <img src="{{user?.profile_picture}}" alt="" class="rounded-full border-black border-2 w-60 h-60">
+    <h1 class="text-3xl font-bold">{{user?.first_name}} {{user?.last_name}}</h1>
+    <h2 class="text-xl font-bold">{{user?.email}}</h2>
+    <p>Rol: {{user?.role}} <br>Fecha de creación: {{user?.creation_date}} <br>Suscripción: {{user?.subscription}}</p>
+    <button class="bg-red-500 p-3 rounded-md text-white" (click)="logout()">Cerrar sesión</button>
+    @if (isLoading) {
+        <app-spinner></app-spinner>
+    }
+</div>
