@@ -1,0 +1,18 @@
+{ 
+    "time": [
+        "Mensual",
+            "Semestral",
+        "Anual"
+    ],
+    "price": [
+        "60",
+        "325",
+        "660"
+    ],
+    "description": [
+        
+    ],
+    "characteristics": [
+        
+    ]
+}
