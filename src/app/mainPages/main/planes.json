@@ -1,18 +1,30 @@
-{ 
-    "time": [
-        "Mensual",
-            "Semestral",
-        "Anual"
-    ],
-    "price": [
-        "60",
-        "325",
-        "660"
-    ],
-    "description": [
-        
-    ],
-    "characteristics": [
-        
-    ]
+{
+  "time": ["Mensual", "Semestral", "Anual"],
+  "price": ["60", "270", "510"],
+  "description": [
+    "¡Perfecto si deseas introducirte por primera vez en el mundo de la programación! Con este plan, tendrás acceso a todos nuestros cursos básicos y a un tutor personalizado que te guiará en tu aprendizaje.",
+    "¡Ideal para consolidar tus conocimientos y avanzar en tu formación! Con este plan, tendrás acceso a todos nuestros cursos intermedios y avanzados, además de un tutor personalizado que te ayudará a superar tus retos.",
+    "¡La mejor opción para convertirte en un experto en programación! Con este plan, tendrás acceso a todos nuestros cursos, talleres y eventos, así como a un tutor personalizado que te acompañará en tu camino hacia la excelencia."
+  ],
+  "characteristics": [
+    {
+      "Mensual": [
+        "Acceso a todos los cursos básicos de programación (Python, JavaScript, HTML, CSS).",
+        "Proyectos prácticos para aplicar lo aprendido.",
+        "Certificado de finalización"
+      ],
+      "Semestral": [
+        "Acceso a cursos intermedios de programación (desarrollo web, bases de datos, etc.)",
+        "Clases en vivo para resolver dudas",
+        "Participación en hackathons",
+        "Certificado de finalización con habilidades adquiridas"
+      ],
+      "Anual": [
+        "Acceso a todos los cursos, incluyendo niveles avanzados y especializados (inteligencia artificial, desarrollo de aplicaciones móviles, etc.).",
+        "Tutor personalizado",
+        "Acceso a una comunidad activa de programadores",
+        "Certificado de finalización con portafolio de proyectos"
+      ]
+    }
+  ]
 }
