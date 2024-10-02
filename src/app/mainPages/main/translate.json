@@ -131,7 +131,14 @@
     ],
 
     "buttonstart": [
-        "return to the beginning"
-    ]
+        "Return to the beginning"
+    ],
+
+    "panels": [
+        "Plans",
+        "Demo",
+        "FAQ",
+        "Contact"
+    ] 
 
 }
