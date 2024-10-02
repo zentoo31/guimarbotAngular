@@ -2,9 +2,9 @@
   "time": ["Mensual", "Semestral", "Anual"],
   "price": ["60", "270", "510"],
   "description": [
-    "¡Perfecto si deseas introducirte por primera vez en el mundo de la programación! Con este plan, tendrás acceso a todos nuestros cursos básicos y a un tutor personalizado que te guiará en tu aprendizaje.",
-    "¡Ideal para consolidar tus conocimientos y avanzar en tu formación! Con este plan, tendrás acceso a todos nuestros cursos intermedios y avanzados, además de un tutor personalizado que te ayudará a superar tus retos.",
-    "¡La mejor opción para convertirte en un experto en programación! Con este plan, tendrás acceso a todos nuestros cursos, talleres y eventos, así como a un tutor personalizado que te acompañará en tu camino hacia la excelencia."
+    "Este plan es ideal para principiantes en programación, ofreciendo acceso a cursos básicos y un tutor personalizado para guiar el aprendizaje.",
+    "Este plan ofrece acceso a cursos intermedios y avanzados, junto con un tutor personalizado para apoyarte en tus desafíos.",
+    "La mejor opción para volverte un experto en programación con acceso a todos los cursos, talleres, eventos y un tutor personalizado para guiarte hacia la excelencia."
   ],
   "characteristics": [
     {

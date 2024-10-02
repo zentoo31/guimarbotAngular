@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Plan } from './plan.interfaces';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +10,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './main.component.css',
 })
 export class MainComponent {
-  planes: string[] = ['Mensual', 'Semestral', 'Anual'];
   preventReload(event: Event) {
     event.preventDefault();
     const target =
@@ -182,4 +182,5 @@ export class MainComponent {
     this.selectedAccordion = this.selectedAccordion === index ? null : index;
   }
 
+  plans: Plan = require('./planes.json');  
 }
