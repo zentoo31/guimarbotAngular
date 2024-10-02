@@ -10,7 +10,8 @@ import { Component } from '@angular/core';
         <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-blue-800 dark:text-blue-200">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-            </svg>              
+            </svg> 
+            <i class ="bi bi-check-lg"></i>         
         </div>
         <div class="ms-3 text-sm font-normal">{{message}}</div>
         <button type="button" class="ms-auto -mx-1.5 -my-1.5 text-white hover:text-gray-900 {{bg_color}} rounded-lg focus:ring-2 focus:ring-green-300 p-1.5 hover:bg-green-100 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#toast-default" aria-label="Close">
