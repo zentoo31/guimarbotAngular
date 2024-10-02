@@ -6,5 +6,5 @@ export interface User {
     email: string,
     profile_picture: string,
     subscription: string,
-    creation_date: Date,
+    creation_date: string,
 }

@@ -17,6 +17,7 @@ export class ProfileComponent{
   userService: UserService = inject(UserService);
   authService: AuthService = inject(AuthService);
   isLoading:boolean  = true;
+
   ngOnInit(){
     this.loadUser();
   }
@@ -25,6 +26,7 @@ export class ProfileComponent{
     this.userService.getUser().then(
       response => {
         this.user = response;
+        this.user.creation_date = this.parseDate(response.creation_date);
         this.isLoading = false;
       }
     ).catch(
@@ -39,6 +41,18 @@ export class ProfileComponent{
         this.router.navigate(['/login']);
       }
     );
+  }
+
+  parseDate(dateStr: string) {
+    let date = new Date(dateStr);
+    let options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    };
+    return date.toLocaleString('es-ES', options); 
   }
 
 }
