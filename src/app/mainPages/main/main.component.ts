@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './main.component.css',
 })
 export class MainComponent {
-  planes: string[] = ['Mensual', 'Bimestral', 'Trimestral', 'Anual'];
+  planes: string[] = ['Mensual', 'Semestral', 'Anual'];
   preventReload(event: Event) {
     event.preventDefault();
     const target =
