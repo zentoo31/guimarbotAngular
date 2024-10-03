@@ -65,7 +65,8 @@
       class="flex text-center space-x-4 lg:space-x-4 sm:text-base md:text-base text-[9px] lm:text-base pe:text-[11px]"
       style="font-family: Poppins, sans-serif"
     >
-      <button
+      @if (!user) {
+        <button
         style="animation-iteration-count: infinite; font-weight: 800"
         [routerLink]="['/login']"
         class="hover:animate-squeeze bg-[#221D21] text-white px-6 py-2 rounded-full hover:bg-white hover:text-[#221D21] hover:border hover:border-[#221D21] transition-colors duration-300"
@@ -79,6 +80,18 @@
       >
         Registrarse
       </button>
+      }@else {
+      <div class="flex items-center space-x-4">
+        <a [routerLink]="['/profile']" class="items-center">
+          <img
+          src="{{ user.profile_picture }}"
+          alt="Profile Picture"
+          class="w-10 h-10 rounded-full border-2"
+          />
+          <span>{{user.username}}</span>
+        </a>
+        </div>
+      }
     </div>
     <button class="lg:hidden" (click)="toggleMenu()" aria-label="Toggle menu">
       @if (isMenuOpen) {
@@ -928,3 +941,6 @@
     </div>
   </div>
 </footer>
+@if (isLoading) {
+  <app-spinner></app-spinner>
+}

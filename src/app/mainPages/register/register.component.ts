@@ -64,6 +64,8 @@ export class RegisterComponent {
     ])
       .pipe(takeUntilDestroyed())
       .subscribe(() => {});
+    
+    document.title = "Registrarse | GuimarBot";
   }
 
   errorMessages: {

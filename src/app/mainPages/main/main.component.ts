@@ -1,15 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Plan } from './plan.interfaces';
+import { UserService } from '../../services/user.service';
+import { inject } from '@angular/core';
+import { User } from '../../models/user';
+import { SpinnerComponent } from '../../ui-components/spinner/spinner.component';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, SpinnerComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })
 export class MainComponent {
+  user: User | undefined;
+  isLoading: boolean = true;
+  userService: UserService = inject(UserService);
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.document.title = 'GuimarBot | Inicio';
+  }
+
+  ngOnInit() {
+    this.loadUser();
+  }
+
+  loadUser() {
+    this.userService
+      .getUser()
+      .then((response) => {
+        this.user = response;
+      })
+      .catch((error) => {
+        if (error.status === 401) {
+          this.user = undefined;
+        }
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
+  }
+
   preventReload(event: Event) {
     event.preventDefault();
     const target =
@@ -177,10 +210,9 @@ export class MainComponent {
     this.checkAnswer(answer);
   }
 
-  
   toggleAccordion(index: number) {
     this.selectedAccordion = this.selectedAccordion === index ? null : index;
   }
 
-  plans: Plan = require('./planes.json');  
+  plans: Plan = require('./planes.json');
 }
