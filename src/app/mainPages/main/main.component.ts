@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Plan } from './plan.interfaces';
+import { UserService } from '../../services/user.service';
+import { inject } from '@angular/core';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-main',
@@ -10,6 +13,26 @@ import { Plan } from './plan.interfaces';
   styleUrl: './main.component.css',
 })
 export class MainComponent {
+  user: User | undefined;
+  userService: UserService = inject(UserService);
+
+  ngOnInit() {
+    this.loadUser();
+  }
+
+  loadUser() {
+    this.userService
+      .getUser()
+      .then((response) => {
+        this.user = response;
+      })
+      .catch((error) => {
+        if (error.status === 401) {
+          this.user = undefined;
+        }
+      });
+  }
+
   preventReload(event: Event) {
     event.preventDefault();
     const target =
@@ -177,10 +200,9 @@ export class MainComponent {
     this.checkAnswer(answer);
   }
 
-  
   toggleAccordion(index: number) {
     this.selectedAccordion = this.selectedAccordion === index ? null : index;
   }
 
-  plans: Plan = require('./planes.json');  
+  plans: Plan = require('./planes.json');
 }
