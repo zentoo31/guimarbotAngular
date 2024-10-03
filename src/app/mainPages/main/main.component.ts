@@ -27,12 +27,14 @@ export class MainComponent {
       .getUser()
       .then((response) => {
         this.user = response;
-        this.isLoading = false;
       })
       .catch((error) => {
         if (error.status === 401) {
           this.user = undefined;
         }
+      })
+      .finally(() => {
+        this.isLoading = false;
       });
   }
 
