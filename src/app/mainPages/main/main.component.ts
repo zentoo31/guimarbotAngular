@@ -4,16 +4,18 @@ import { Plan } from './plan.interfaces';
 import { UserService } from '../../services/user.service';
 import { inject } from '@angular/core';
 import { User } from '../../models/user';
+import { SpinnerComponent } from '../../ui-components/spinner/spinner.component';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, SpinnerComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })
 export class MainComponent {
   user: User | undefined;
+  isLoading: boolean = true;
   userService: UserService = inject(UserService);
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class MainComponent {
       .getUser()
       .then((response) => {
         this.user = response;
+        this.isLoading = false;
       })
       .catch((error) => {
         if (error.status === 401) {
