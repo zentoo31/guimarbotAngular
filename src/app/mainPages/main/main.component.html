@@ -188,57 +188,63 @@
       Planes
     </h2>
     <p
-      class="text-gray-400 text-center"
+      class="text-gray-400 text-center pb-20"
       style="font-family: Inter, sans-serif; font-weight: 300"
     >
       ¡Escoge el tiempo de suscripción que gustes!
     </p>
     <div
-      class="flex justify-center lg:space-x-8 m-20 md:m-20 md:space-y-20 lg:space-y-0 md:space-y-15 flex-col md:flex-col lg:flex-row "
+      class="flex lg:flex-row bg-white space-x-14 justify-center"
     >
       @for (time of plans.time; track time; let i = $index) {
-      <div class="rounded-md shadow-lg relative mb-24">
+      <div class="rounded-md shadow-lg 2xl:h-[525px] xl:h-[575px] w-[425px] relative">
         <div
           class="absolute flex items-center justify-center p-1 px-3 text-sm text-[#89BB54] bg-[#DCEDC8] rounded-full -top-4 right-7 gap-x-2"
           style="font-family: Inter, sans-serif; font-weight: 300"
         >
           50% OFF
         </div>
-        <div class="p-4 h-full flex flex-col rounded-xl md:w-[400px]">
+        <div class="rounded-xl flex flex-col m-5">
           <h3
-            class="text-[30px] font-semibold text-center my-3"
+            class="text-[30px] text-center"
             style="font-family: Inter, sans-serif; font-weight: 600"
           >
             S/. {{ plans.price[i] }}
           </h3>
           <h3
-            class="my-3"
+            class="pt-4"
             style="font-family: Inter, sans-serif; font-weight: 700"
           >
             {{ time }}
           </h3>
           <p
-            class="text-sm my-3 md:pb-5 h-[70px] mb-14"
+            class="text-sm pt-2"
             style="font-family: Inter, sans-serif; font-weight: 300"
           >
             {{ plans.description[i] }}
           </p>
-          <button
-            class="hover:bg-[#181517] hover:text-white my-8 bg-[white] text-[#181517] px-8 py-3 border-[#181517] border-[1px] rounded-full flex items-center justify-center md:w-auto transition-colors duration-300"
-            style="
-              font-family: Poppins;
-              font-weight: 700;
-            "
-          >
-            <div class="flex flex-row space-x-3">Comenzar</div>
-          </button>
+          <div class="my-10 flex flex-row justify-center">
+            <button
+              class="hover:bg-[#181517] hover:text-white bg-[white] text-[#181517] px-14 py-3 border-[#181517] border-[1px] rounded-full transition-colors duration-300"
+              style="
+                font-family: Poppins;
+                font-weight: 700;
+              "
+            >
+              <div class="flex flex-row space-x-3">Comenzar</div>
+            </button>
+          </div>
           <ul
-            class="text-sm my-3"
+            class="text-sm list-none mt-4 "
             style="font-family: Inter, sans-serif; font-weight: 300"
           >
           @for (characteristic of plans.characteristics[0][time]; track characteristic) {
-            <li class="my-3 flex align-items-center gap-3">
-              <i class="bi bi-patch-check-fill"></i>
+            <li class="flex items-start mb-3 gap-2">
+              <div class="flex-shrink-0 w-4 h-4 mt-1 mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                  <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                </svg>
+              </div>
               {{ characteristic }}
             </li>
             }
