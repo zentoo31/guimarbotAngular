@@ -1,9 +1,10 @@
-import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, inject, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { SpinnerComponent } from '../../ui-components/spinner/spinner.component';
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -18,6 +19,9 @@ export class ProfileComponent{
   authService: AuthService = inject(AuthService);
   isLoading:boolean  = true;
 
+  constructor(@Inject(DOCUMENT) private document: Document){
+  }
+
   ngOnInit(){
     this.loadUser();
   }
@@ -27,6 +31,7 @@ export class ProfileComponent{
       response => {
         this.user = response;
         this.user.creation_date = this.parseDate(response.creation_date);
+        this.document.title = `${this.user?.username} | Perfil`;
         this.isLoading = false;
       }
     ).catch(

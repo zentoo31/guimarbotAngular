@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Plan } from './plan.interfaces';
 import { UserService } from '../../services/user.service';
 import { inject } from '@angular/core';
 import { User } from '../../models/user';
 import { SpinnerComponent } from '../../ui-components/spinner/spinner.component';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-main',
@@ -17,6 +18,10 @@ export class MainComponent {
   user: User | undefined;
   isLoading: boolean = true;
   userService: UserService = inject(UserService);
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.document.title = 'GuimarBot | Inicio';
+  }
 
   ngOnInit() {
     this.loadUser();

@@ -1,4 +1,4 @@
-import { Component, inject, signal, ViewChild } from '@angular/core';
+import { Component, Inject, inject, signal, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { merge } from 'rxjs';
@@ -6,6 +6,7 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { ToastComponent } from '../../ui-components/toast/toast.component';
 import { ToastService } from '../../services/toast.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -32,10 +33,11 @@ export class LoginComponent {
   ngAfterViewInit(){
     this.toastService.registerToast(this.toast);
   }
-  constructor() {
+  constructor(@Inject(DOCUMENT) private document: Document) {
     merge([this.email.statusChanges, this.email.valueChanges, this.password.statusChanges, this.password.valueChanges])
     .pipe(takeUntilDestroyed())
     .subscribe(() => {});
+    this.document.title = 'Iniciar sesión | GuimarBot';
   }
 
   updateErrorMessageEmail(){
