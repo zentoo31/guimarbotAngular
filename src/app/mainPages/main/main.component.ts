@@ -7,6 +7,7 @@ import { User } from '../../models/user';
 import { SpinnerComponent } from '../../ui-components/spinner/spinner.component';
 import { DOCUMENT } from '@angular/common';
 
+
 @Component({
   selector: 'app-main',
   standalone: true,
@@ -19,13 +20,36 @@ export class MainComponent {
   isLoading: boolean = true;
   userService: UserService = inject(UserService);
 
+
+
+  ngOnInit() {
+    this.loadUser();
+    this.animation();
+  }
+
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.document.title = 'GuimarBot | Inicio';
   }
 
-  ngOnInit() {
-    this.loadUser();
+  animation(){
+    const el = this.document.getElementById('card');
+    const height = el?.clientHeight;
+    const width = el?.clientWidth;
+
+    el?.addEventListener('mousemove', (e) => {
+      const {layerX, layerY} = e;
+      const yRotation = width ? ((layerX - width/2) / width) * 90 : 0;
+      const xRotation = height ? ((layerY - height/2) / height) * 90 : 0;
+      const string = `perspective(600px) scale(1.2) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+      el.style.transform = string;
+    });
+
+    el?.addEventListener('mouseout', () => {
+      el.style.transform = 
+        `perspective(800px) scale(1) rotateX(0deg) rotateY(0deg)`;
+    });
   }
+
 
   loadUser() {
     this.userService
