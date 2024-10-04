@@ -4,24 +4,19 @@ import { Plan } from './plan.interfaces';
 import { UserService } from '../../services/user.service';
 import { inject } from '@angular/core';
 import { User } from '../../models/user';
-import { SpinnerComponent } from '../../ui-components/spinner/spinner.component';
 import { DOCUMENT } from '@angular/common';
 
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [RouterLink, SpinnerComponent],
+  imports: [RouterLink],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })
 export class MainComponent {
   user: User | undefined;
-  isLoading: boolean = true;
   userService: UserService = inject(UserService);
-
-
-
   ngOnInit() {
     this.loadUser();
     this.animation();
@@ -62,9 +57,6 @@ export class MainComponent {
           this.user = undefined;
         }
       })
-      .finally(() => {
-        this.isLoading = false;
-      });
   }
 
   preventReload(event: Event) {
