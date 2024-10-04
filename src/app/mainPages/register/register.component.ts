@@ -1,4 +1,4 @@
-import { Component, inject, signal, ViewChild } from '@angular/core';
+import { Component, Inject, inject, signal, ViewChild } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import {FormControl, FormGroup, Validators,FormsModule,ReactiveFormsModule,} from '@angular/forms';
@@ -6,6 +6,7 @@ import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ToastComponent } from '../../ui-components/toast/toast.component';
 import { ToastService } from '../../services/toast.service';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -22,6 +23,7 @@ export class RegisterComponent {
   formErrors = {
     first_name: signal<string>(''),
     last_name: signal<string>(''),
+    age: signal<string>(''),
     username: signal<string>(''),
     email: signal<string>(''),
     password: signal<string>(''),
@@ -34,15 +36,17 @@ export class RegisterComponent {
   formInvalidState = {
     first_name: false,
     last_name: false,
+    age: false,
     username: false,
     email: false,
     password: false,
   };
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) private document: Document) {
     this.form = new FormGroup({
       first_name: new FormControl('', [Validators.required]),
       last_name: new FormControl('', [Validators.required]),
+      age: new FormControl('', [Validators.required]),
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
@@ -64,8 +68,7 @@ export class RegisterComponent {
     ])
       .pipe(takeUntilDestroyed())
       .subscribe(() => {});
-    
-    document.title = "Registrarse | GuimarBot";
+    this.document.title = 'Registro';
   }
 
   errorMessages: {
@@ -84,6 +87,9 @@ export class RegisterComponent {
     },
     last_name: {
       required: 'Ingresa tu apellido',
+    },
+    age:{
+      required: 'Ingresa tu edad',
     },
     username: {
       required: 'Ingresa tu nombre de usuario',
@@ -119,6 +125,10 @@ export class RegisterComponent {
     this.updateErrorMessage(
       this.form.controls['username'] as FormControl,
       'username'
+    );
+    this.updateErrorMessage(
+      this.form.controls['age'] as FormControl,
+      'age'
     );
     this.updateErrorMessage(
       this.form.controls['email'] as FormControl,
