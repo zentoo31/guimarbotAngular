@@ -81,14 +81,14 @@
         Registrarse
       </button>
       }@else {
-      <div class="flex items-center space-x-4">
-        <a [routerLink]="['/profile']" class="items-center">
+      <div class="flex items-center hover-grow">
+        <a [routerLink]="['/profile']" class="items-center flex-row flex space-x-3">
           <img
           src="{{ user.profile_picture }}"
           alt="Profile Picture"
-          class="w-10 h-10 rounded-full border-2"
+          class="w-5 h-5"
           />
-          <span>{{user.username}}</span>
+          <span style="font-family: Inter, sans-serif; font-weight: 400;">{{user.username}}</span>
         </a>
         </div>
       }

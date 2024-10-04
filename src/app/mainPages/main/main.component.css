@@ -87,10 +87,12 @@
   animation: fadeIn 1s ease-in forwards;
 }
 
-#guimarbotLogo {
-  transition: box-shadow 0.1s, transform 0.1s;
+
+
+.hover-grow {
+  transition: transform 0.3s ease-in-out;
 }
 
-#guimarbotLogo-hover {
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+.hover-grow:hover {
+  transform: scale(1.050);
 }
