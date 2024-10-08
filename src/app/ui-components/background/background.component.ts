@@ -7,8 +7,7 @@ import { Component, Inject, PLATFORM_ID, AfterViewInit, OnDestroy } from '@angul
   template: `<canvas id="floatingCanvas"></canvas>`,
   styles: [`
     canvas {
-      background: rgb(2,2,2);
-      background: linear-gradient(0deg, rgba(2,2,2,1) 0%, rgba(46,41,174,1) 64%, rgba(255,255,255,1) 100%, rgba(0,212,255,1) 020202%);
+      background-image: radial-gradient(ellipse 100% 120% at top, #fff -10%, #3e3bb3 30%, #0e0e0e 70%);
       position: fixed;
       top: 0;
       left: 0;
