@@ -1,5 +1,4 @@
 <div class="min-h-screen animate-fade-in-down justify-center items-center mx-auto w-full flex flex-col">
-    @if (!isLoading) {
         <img src="{{user?.profile_picture}}" alt="" class="rounded-full border-black border-2 w-60 h-60 ">
         <h1 class="text-3xl font-bold">{{user?.first_name}} {{user?.last_name}}</h1>
         <h2 class="text-xl font-bold">{{user?.email}}</h2>
@@ -10,8 +9,30 @@
             Suscripción: {{user?.subscription}}
         </p>           
         <button class="bg-red-500 p-3 rounded-md text-white" (click)="logout()">Cerrar sesión</button>
-    }
-    @if (isLoading) {
+
+        <div class="subs-container">
+            <h1 class="text-2xl font-bold">Suscripciones</h1>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="border-black border-2 rounded-lg">
+                    <h2 class="text-xl font-bold">Suscripción</h2>
+                    <p>Propietario: {{sub?.owner_id}}</p>
+                    <p>ID tipo de sub: {{sub?.subscription_id}}</p>
+                    <p>Fecha de inicio: {{sub?.start_date}}</p>
+                    <p>Fecha de fin: {{sub?.end_date}}</p>
+                    <p>Estado: {{sub?.status}}</p>
+                    <p>Tipo: {{sub?.type}}</p>
+                    <p>Beneficiarios: 
+                        @for (item of sub?.beneficiary_user_id; track $index) {
+                            {{item}}
+                            @if ($index < (sub?.beneficiary_user_id?.length || 0) - 1) {
+                                {{', '}}
+                            }
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    @if (isLoading1 && isLoading2) {
         <app-spinner></app-spinner>
     }
 </div>

@@ -1,10 +1,12 @@
 import { Component, ElementRef, Inject, inject, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
+import { SubService } from '../../services/sub.service';
 import { SpinnerComponent } from '../../ui-components/spinner/spinner.component';
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
 import { DOCUMENT } from '@angular/common';
+import { Sub } from '../../models/sub';
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -14,16 +16,20 @@ import { DOCUMENT } from '@angular/common';
 })
 export class ProfileComponent{
   user: User | undefined;
+  sub: Sub | undefined;
   router: Router = inject(Router);
   userService: UserService = inject(UserService);
+  subService: SubService = inject(SubService);
   authService: AuthService = inject(AuthService);
-  isLoading:boolean  = true;
+  isLoading1:boolean  = true;
+  isLoading2:boolean  = true;
 
   constructor(@Inject(DOCUMENT) private document: Document){
   }
 
   ngOnInit(){
     this.loadUser();
+    this.loadSubs();
   }
 
   loadUser() {
@@ -32,7 +38,18 @@ export class ProfileComponent{
         this.user = response;
         this.user.creation_date = this.parseDate(response.creation_date);
         this.document.title = `${this.user?.username} | Perfil`;
-        this.isLoading = false;
+        this.isLoading1 = false;
+      }
+    ).catch(
+      error => console.error(error)
+    );
+  }
+
+  loadSubs(){
+    this.subService.getSubs().then(
+      response => {
+        this.sub = response;
+        this.isLoading2 = false;
       }
     ).catch(
       error => console.error(error)
