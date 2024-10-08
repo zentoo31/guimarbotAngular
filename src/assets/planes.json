@@ -1,0 +1,29 @@
+{
+  "Modo": ["Básico", "Expert", "Expert"],
+  "students": ["1 estudiante", "2 estudiantes", "4 estudiantes"],
+  "price": ["200", "350", "500"],
+  "characteristics": [
+      {
+        "Include": ["Certificado digital", "Contenido profesional"],
+        "NoInclude": [
+          "Eventos exclusivos organizado por GuimarBot.",
+          "Accede a precios especiales en talleres y cursos especializados.",
+          "Monitorea tu progreso con evaluaciones interactivas y recibe retroalimentación constante.",
+          "Atención individualizada a través de foros y chat con nuestros expertos.",
+          "Realiza proyectos reales para reforzar lo aprendido y construir tu portafolio profesional."
+        ]
+      },
+      {
+        "Include": [
+          "Certificado digital",
+          "Contenido profesional",
+          "Eventos exclusivos organizado por GuimarBot.",
+          "Accede a precios especiales en talleres y cursos especializados.",
+          "Monitorea tu progreso con evaluaciones interactivas y recibe retroalimentación constante.",
+          "Atención individualizada a través de foros y chat con nuestros expertos.",
+          "Realiza proyectos reales para reforzar lo aprendido y construir tu portafolio profesional."
+        ]
+        
+      }
+  ]
+}

@@ -1,9 +1,13 @@
-export interface Plan {
-    time: string[];
-    price: string[];
-    description: string[];
-    characteristics: {
-      [key: string]: string[];
-    }[];
-  }
-  
+export 
+interface CourseDetails {
+  Modo: string[];
+  students: string[];
+  price: string[];
+  characteristics: Characteristic[];
+}
+
+export
+interface Characteristic {
+  Include: string[];
+  NoInclude: string[];
+}

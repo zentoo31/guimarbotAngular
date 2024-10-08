@@ -1,50 +1,80 @@
 import { Component, Inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Plan } from './plan.interfaces';
 import { UserService } from '../../services/user.service';
 import { inject } from '@angular/core';
 import { User } from '../../models/user';
 import { DOCUMENT } from '@angular/common';
-
+import { HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { CourseDetails } from './plan.interfaces';
+import { firstValueFrom } from 'rxjs';
+import { Characteristic } from './plan.interfaces';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })
 export class MainComponent {
   user: User | undefined;
+  plan: CourseDetails | undefined;
+  target=[1,2,3];
+  characteristic: Characteristic | undefined;
   userService: UserService = inject(UserService);
+  http: HttpClient = inject(HttpClient);
+
   ngOnInit() {
     this.loadUser();
     this.animation();
+    this.getPlanInfo();
+  }
+
+  async getPlan(): Promise<CourseDetails> {
+    const responsive = await firstValueFrom(
+      this.http.get<CourseDetails>(`assets/planes.json`)
+    );
+    return responsive;
+  }
+
+  getPlanInfo() {
+    this.getPlan().then((response) => {
+      this.plan = response;
+    });
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    const scrollPosition = window.scrollY;
+    const element = document.getElementById('movableElement');
+    if (element) {
+      element.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+    }
   }
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.document.title = 'GuimarBot | Inicio';
   }
 
-  animation(){
+  animation() {
     const el = this.document.getElementById('card');
     const height = el?.clientHeight;
     const width = el?.clientWidth;
 
     el?.addEventListener('mousemove', (e) => {
-      const {layerX, layerY} = e;
-      const yRotation = width ? ((layerX - width/2) / width) * 90 : 0;
-      const xRotation = height ? ((layerY - height/2) / height) * 90 : 0;
+      const { layerX, layerY } = e;
+      const yRotation = width ? ((layerX - width / 2) / width) * 80 : 0;
+      const xRotation = height ? ((layerY - height / 2) / height) * 80 : 0;
       const string = `perspective(600px) scale(1.2) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
       el.style.transform = string;
     });
 
     el?.addEventListener('mouseout', () => {
-      el.style.transform = 
-        `perspective(800px) scale(1) rotateX(0deg) rotateY(0deg)`;
+      el.style.transform = `perspective(800px) scale(1) rotateX(0deg) rotateY(0deg)`;
     });
   }
-
 
   loadUser() {
     this.userService
@@ -56,7 +86,7 @@ export class MainComponent {
         if (error.status === 401) {
           this.user = undefined;
         }
-      })
+      });
   }
 
   preventReload(event: Event) {
@@ -229,6 +259,4 @@ export class MainComponent {
   toggleAccordion(index: number) {
     this.selectedAccordion = this.selectedAccordion === index ? null : index;
   }
-
-  plans: Plan = require('./planes.json');
 }
