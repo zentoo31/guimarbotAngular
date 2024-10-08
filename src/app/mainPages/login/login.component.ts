@@ -7,12 +7,11 @@ import { RouterLink } from '@angular/router';
 import { ToastComponent } from '../../ui-components/toast/toast.component';
 import { ToastService } from '../../services/toast.service';
 import { DOCUMENT } from '@angular/common';
-import { BackgroundComponent } from '../../ui-components/background/background.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, ToastComponent, BackgroundComponent],
+  imports: [ReactiveFormsModule, RouterLink, ToastComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
