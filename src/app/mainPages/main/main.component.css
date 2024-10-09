@@ -35,49 +35,46 @@
 }
 
 .item-1 {
-  animation-delay: calc(30s / 15 * (15 - 1) * -1);
+  animation-delay: calc(30s / 14 * (14 - 1) * -1);
 }
 .item-2 {
-  animation-delay: calc(30s / 15 * (15 - 2) * -1);
+  animation-delay: calc(30s / 14 * (14 - 2) * -1);
 }
 .item-3 {
-  animation-delay: calc(30s / 15 * (15 - 3) * -1);
+  animation-delay: calc(30s / 14 * (14 - 3) * -1);
 }
 .item-4 {
-  animation-delay: calc(30s / 15 * (15 - 4) * -1);
+  animation-delay: calc(30s / 14 * (14 - 4) * -1);
 }
 .item-5 {
-  animation-delay: calc(30s / 15 * (15 - 5) * -1);
+  animation-delay: calc(30s / 14 * (14 - 5) * -1);
 }
 .item-6 {
-  animation-delay: calc(30s / 15 * (15 - 6) * -1);
+  animation-delay: calc(30s / 14 * (14 - 6) * -1);
 }
 .item-7 {
-  animation-delay: calc(30s / 15 * (15 - 7) * -1);
+  animation-delay: calc(30s / 14 * (14 - 7) * -1);
 }
 .item-8 {
-  animation-delay: calc(30s / 15 * (15 - 8) * -1);
+  animation-delay: calc(30s / 14 * (14 - 8) * -1);
 }
 .item-9 {
-  animation-delay: calc(30s / 15 * (15 - 9) * -1);
+  animation-delay: calc(30s / 14 * (14 - 9) * -1);
 }
 .item-10 {
-  animation-delay: calc(30s / 15 * (15 - 10) * -1);
+  animation-delay: calc(30s / 14 * (14 - 10) * -1);
 }
 .item-11 {
-  animation-delay: calc(30s / 15 * (15 - 11) * -1);
+  animation-delay: calc(30s / 14 * (14 - 11) * -1);
 }
 .item-12 {
-  animation-delay: calc(30s / 15 * (15 - 12) * -1);
+  animation-delay: calc(30s / 14 * (14 - 12) * -1);
 }
 .item-13 {
-  animation-delay: calc(30s / 15 * (15 - 13) * -1);
-}
-.item-14 {
-  animation-delay: calc(30s / 15 * (15 - 14) * -1);
+  animation-delay: calc(30s / 14 * (14 - 13) * -1);
 }
 .item-15 {
-  animation-delay: calc(30s / 15 * (15 - 15) * -1);
+  animation-delay: calc(30s / 14 * (14 - 14) * -1);
 }
 
 @keyframes fadeIn {

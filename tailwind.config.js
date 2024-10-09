@@ -11,8 +11,13 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       screens: {
-        'lm': '425px',
-        'pe': '375px'
+        's': '320px',
+        'm': '375px',
+        'l': '425px',
+        'tablet': '768px',
+        'laptop': '1024px',
+        'laptopL': '1440px',
+        '4k': '2560px'
       },
       keyframes: {
         levitate: {

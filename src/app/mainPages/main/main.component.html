@@ -107,17 +107,16 @@
   <main class="bg-[#0e0e0e] text-white">
     <section>
       <div
-        id="movableElement"
-        class="h-[1000px] flex flex-col items-center justify-center text-center p-4 bg-gradient-custom relative"
-        style="position: relative"
+        id="inicio"
+        class="md:h-[1000px] h-[600px] flex flex-col items-center justify-center text-center md:p-4 bg-gradient-custom relative"
       >
-        <div
-          class="absolute inset-0 flex justify-center items-center z-0 mt-10"
+        <div class="absolute inset-0 flex justify-center items-center z-0"
+          
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="1407"
-            height="522"
+            width="1551"
+            height="576"
             viewBox="0 0 1383 513"
             fill="none"
           >
@@ -625,7 +624,7 @@
           </svg>
         </div>
 
-        <h1 class="text-[55px] -m-5 font-black text-white z-10">
+        <h1 class="md:text-[55px] text-[26px] md:-m-5 font-black text-white z-10">
           <span style="font-family: Roboto Serif, serif; font-weight: 900"
             >Aprende a
           </span>
@@ -635,13 +634,13 @@
           <span class="text-white font-['Cascadia_Code_PL']">,</span>
         </h1>
         <h2
-          class="text-[58px] font-black mb-6 text-white opacity-75 z-10"
+          class="md:text-[58px] text-[24px] font-black mb-6 text-white opacity-75 z-10"
           style="font-family: Roboto Serif, serif; font-weight: 900"
         >
           crea sin límites.
         </h2>
         <p
-          class="opacity-50 text-white mb-14 text-[14px] z-10"
+          class="opacity-50 text-white mb-14 md:text-[14px] text-[12px] z-10"
           style="font-family: Inter; font-weight: 200"
         >
           Aprende a programar desde cero, con clases interactivas.<span
@@ -650,7 +649,7 @@
           >
         </p>
         <button
-          class="space-x-2 flex flex-row bg-[#423A85] items-center text-white text-[17px] py-4 px-12 rounded-full hover:bg-[#554bb1] transition duration-300 z-10"
+          class="space-x-2 flex flex-row bg-[#423A85] items-center text-white md:text-[17px] md:py-4 md:px-12 text-[10px] py-2 px-8 rounded-full hover:bg-[#554bb1] transition duration-300 z-10"
           style="font-family: Poppins, sans-serif; font-weight: 600"
         >
           <div>
@@ -688,28 +687,28 @@
           </div>
           <div>Ver más</div>
         </button>
-      </div>
+       </div>
     </section>
 
-    <section id="planes" class="sticky pt-10 md:mb-5 bg-[#0e0e0e]">
-      <div class="pt-6">
+    <section id="planes" class="sticky pt-10 md:mb-5 s:mb-0 bg-[#0e0e0e]">
+      <div class="tablet:pt-0 laptop:pt-0">
         <h2
-          class="text-3xl font-bold text-center pb-10 text-[60px] text-[#FFF4E5]"
+          class="text-[40px] font-bold text-center pb-2 md:text-[60px] text-[#FFF4E5]"
           style="font-family: Roboto Serif, sans-serif; font-weight: 900"
         >
           Planes
         </h2>
         <p
-          class="text-gray-400 text-center pb-20 text-[20px]"
+          class="text-gray-400 text-center pb-20 laptop:pb-5 text-[14px] md:text-[20px]"
           style="font-family: Inter, sans-serif; font-weight: 300"
         >
           ¡Escoge la modalidad de suscripción que deseas!
         </p>
         <div
-          class="lg:space-x-14 h-[575px] flex md:flex-row flex-col justify-center items-center"
+          class="laptop:space-x-6 tablet:h-[1800px] s:h-[2150px] m:h-[1975px] l:h-[1955px] laptop:h-[625px] laptopL:h-[575px] laptopL:space-x-14 laptop:m-8 laptop:space-y-0 tablet:space-y-20 s:space-y-20 flex laptop:flex-row flex-col justify-center items-center"
         >
           <div
-            class="rounded-[15px] w-[375px] shadow-lg h-full bg-[#181818]"
+            class="rounded-[15px] w-[375px] s:w-[265px] m:w-[325px] l:w-[365px] tablet:w-[600px] laptop:w-[500px] laptopL:w-[400px] shadow-lg h-full bg-[#181818]"
           >
             <div style="position: relative">
               <div
@@ -779,7 +778,7 @@
                   @for (item of plan?.characteristics?.[0]?.NoInclude; track
                   $index) {
                   <li class="flex flex-row mt-3 items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 12 13" fill="none"><path fill="url(#a)" d="M0 0h12v13H0z"/><defs><pattern id="a" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#b" transform="matrix(.01 0 0 .00923 0 .038)"/></pattern><image id="b" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC20lEQVR4nO3dPW7UUBSGYVdEqaBgF5AVkBQsgCwAalAEFUUqKEA0LAFRAi1QQHNnM9DyUyEo4UWWYkEmPxPb99rf8f3ePppz/YxnJlF0pmmcc84555xzzjnnnHPOORcp4CrwEHgBPAF2mmABN4GnwCNgH9hqIgbsAd853m/gJbDdiAdsA+852WfgRhMpYBf4wdmtlFGALeDjOfP/au+cZiEY0ihsxoiD0gNDEoWLY+ijDMCQQqE/hi7KCAwJFIZj6KEcYfxkfGkOlKNPU+1jj629BrtTz79+mCvAN/KVpkTJiNH1tb0mU81/2oHukb80BUoBjK47pWc/71DPKVMqiVIQo+1ZqbkvcrD7lGtVAiXDG/imDnLP3Odw1ylbyolS+M5o+wNcyzXv0EO+JgAK5THaXuW5qtovAaNfviLMmDXlAyM8W9EUD47gTJOmdAEQmmXWFC4EAjNINecFwRg6KBhD507BGFK/kKWJHiPGe8amJnr2lizOG3hPlA/EKy0OIzBKWixGQJS0eIxAKKkajAAoqToMYZRULYYgSqoeQwglGUPnTknG0Hn5SsbQeU9JxtD6u9fKIDoYXUYRwugyihBGl1GEMLqMIoTRVS+KIEa9KMIY9aEEwKgHJRDG8lECYiwXJTDG8lD8j3L13Rnpv38lLf1X4rh3ypQYzfHHNIoCRpdRhDC6jCKE0VU9ihJGUzuKIka1KMoYVaIAbwofNAVarfEuz1UdfsidwgdMwZbPtO3lmnfIAR8UPNgq6Hqmw9wz9zmcF5id7PGcIHfJXwq+4u9W6dk3LcFsFz/mKgVfgvkJuDTV/Gcdymti/62J1VjS3w7iRcpoLFLOgCLxCxVLWjU+AkUCY5HL+AegSGEs8usqeqBIYizyC13WUNqvB1rvrTLG2kfi01bgfpl96f7IZ9r+0RdqHcp8LOy/LPqgXSEO3AYu9/l555xzzjnnnHPOOeecc841c/cXTn0fC9sJIJwAAAAASUVORK5CYII="/></defs></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 12 13" fill="none"><path fill="url(#a)" d="M0 0h12v13H0z"/><defs><pattern id="a" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#b" transform="matrix(.01 0 0 .00923 0 .038)"/></pattern><image id="b" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC20lEQVR4nO3dPW7UUBSGYVdEqaBgF5AVkBQsgCwAalAEFUUqKEA0LAFRAi1QQHNnM9DyUyEo4UWWYkEmPxPb99rf8f3ePppz/YxnJlF0pmmcc84555xzzjnnnHPOORcp4CrwEHgBPAF2mmABN4GnwCNgH9hqIgbsAd853m/gJbDdiAdsA+852WfgRhMpYBf4wdmtlFGALeDjOfP/au+cZiEY0ihsxoiD0gNDEoWLY+ijDMCQQqE/hi7KCAwJFIZj6KEcYfxkfGkOlKNPU+1jj629BrtTz79+mCvAN/KVpkTJiNH1tb0mU81/2oHukb80BUoBjK47pWc/71DPKVMqiVIQo+1ZqbkvcrD7lGtVAiXDG/imDnLP3Odw1ylbyolS+M5o+wNcyzXv0EO+JgAK5THaXuW5qtovAaNfviLMmDXlAyM8W9EUD47gTJOmdAEQmmXWFC4EAjNINecFwRg6KBhD507BGFK/kKWJHiPGe8amJnr2lizOG3hPlA/EKy0OIzBKWixGQJS0eIxAKKkajAAoqToMYZRULYYgSqoeQwglGUPnTknG0Hn5SsbQeU9JxtD6u9fKIDoYXUYRwugyihBGl1GEMLqMIoTRVS+KIEa9KMIY9aEEwKgHJRDG8lECYiwXJTDG8lD8j3L13Rnpv38lLf1X4rh3ypQYzfHHNIoCRpdRhDC6jCKE0VU9ihJGUzuKIka1KMoYVaIAbwofNAVarfEuz1UdfsidwgdMwZbPtO3lmnfIAR8UPNgq6Hqmw9wz9zmcF5id7PGcIHfJXwq+4u9W6dk3LcFsFz/mKgVfgvkJuDTV/Gcdymti/62J1VjS3w7iRcpoLFLOgCLxCxVLWjU+AkUCY5HL+AegSGEs8usqeqBIYizyC13WUNqvB1rvrTLG2kfi01bgfpl96f7IZ9r+0RdqHcp8LOy/LPqgXSEO3AYu9/l555xzzjnnnHPOOeecc841c/cXTn0fC9sJIJwAAAAASUVORK5CYII="/></defs></svg>
                     <p
                       class="text-[12px] text-[#fff] opacity-50 w-full leading-tight"
                       style="font-family: Poppins, sans-serif; font-weight: 300"
@@ -800,8 +799,8 @@
               </div>
             </div>
           </div>
-          <div
-            class="rounded-[15px] w-[375px] shadow-lg bg-[#181818] h-full relative"
+          <div  
+            class="rounded-[15px] w-[375px] s:w-[265px] m:w-[325px] l:w-[365px] tablet:w-[600px] laptop:w-[500px] laptopL:w-[400px]  shadow-lg h-full bg-[#181818]"
           >
             <div style="position: relative">
               <div
@@ -877,7 +876,7 @@
             </div>
           </div>
           <div
-            class="rounded-[15px] w-[375px] shadow-lg h-full bg-[#181818]"
+            class="rounded-[15px] w-[375px] s:w-[265px] m:w-[325px] l:w-[365px] tablet:w-[600px] laptop:w-[500px] laptopL:w-[400px]  shadow-lg h-full bg-[#181818]"
           >
             <div style="position: relative">
               <div
@@ -956,16 +955,16 @@
       </div>
     </section>
 
-    <section id="FAQ" class="pt-40 pb-10 bg-[#0e0e0e]">
+    <section id="FAQ" class="sticky pt-40 pb-10 bg-[#0e0e0e]">
       <h2
-        class="text-3xl font-bold text-center pb-10 text-[60px] text-[#FFF4E5]"
+        class="font-bold text-center pb-10 l:text-[40px] m:text-[45px] s:text-[40px] tablet:text-[35px] laptop:text-[60px] leading-none l:leading-10 tablet:leading-normal text-[#FFF4E5]"
         style="font-family: Roboto Serif, sans-serif; font-weight: 900"
       >
         Preguntas frecuentes (FAQ)
       </h2>
       <div class="flex flex-row justify-center">
         <p
-          class="text-gray-400 pb-12 max-w-[650px] text-center text-[20px]"
+          class="text-gray-400 pb-12 max-w-[650px] text-center text-[14px] mx-10 md:mx-0 md:text-[20px]"
           style="font-family: Inter, sans-serif; font-weight: 300"
         >
           ¡Revisa las preguntas más frecuentes de GuimarBot!, si tienes alguna
@@ -1002,7 +1001,7 @@
     </section>
 
     <div
-      class="wrapper w-full md:max-w-[1536px] md:mx-auto relative h-[100px] mt-20 overflow-hidden"
+      class="sticky wrapper w-full md:max-w-[1536px] md:mx-auto h-[100px] mt-20 overflow-hidden"
     >
       <div class="item item-1">
         <svg
@@ -1184,59 +1183,7 @@
           />
         </svg>
       </div>
-      <div class="item item-14">
-        <svg
-          data-testid="geist-icon"
-          height="80"
-          stroke-linejoin="round"
-          viewBox="0 0 16 16"
-          width="80"
-          style="color: currentcolor"
-        >
-          <g clip-path="url(#a)">
-            <circle
-              cx="8"
-              cy="8"
-              r="7.375"
-              stroke="var(--ds-gray-1000)"
-              stroke-linecap="round"
-            />
-            <path d="M10.63 11V5" stroke="url(#b)" stroke-miterlimit="1.414" />
-            <path
-              fill-rule="evenodd"
-              d="M5.995 5h-1.25v6h1.25V6.968l6.366 7.74q.527-.344.992-.763z"
-              fill="url(#c)"
-            />
-          </g>
-          <defs>
-            <linearGradient
-              id="b"
-              x1="11.13"
-              y1="5"
-              x2="11.13"
-              y2="11"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stop-color="#fff" />
-              <stop offset=".609" stop-color="#fff" stop-opacity=".57" />
-              <stop offset=".797" stop-color="#fff" stop-opacity="0" />
-              <stop offset="1" stop-color="#fff" stop-opacity="0" />
-            </linearGradient>
-            <linearGradient
-              id="c"
-              x1="9.938"
-              y1="9.063"
-              x2="13.557"
-              y2="13.399"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stop-color="#fff" />
-              <stop offset="1" stop-color="#fff" stop-opacity="0" />
-            </linearGradient>
-            <clipPath id="a"><path fill="red" d="M0 0h16v16H0z" /></clipPath>
-          </defs>
-        </svg>
-      </div>
+
       <div class="item item-15">
         <svg
           style="width: 80px; height: 80px"
@@ -1252,31 +1199,30 @@
       </div>
     </div>
 
-    <section id="contacto" class="py-18 pt-40 pb-20 bg-[#0e0e0e]">
+    <section id="contacto" class="sticky py-18 pt-40 pb-20 bg-[#0e0e0e]">
       <h2
-        class="text-3xl font-bold text-center pb-10 text-[60px] text-[#FFF4E5]"
+        class="font-bold text-center pb-10 md:text-[60px] text-[40px] s:text-[35px] text-[#FFF4E5]"
         style="font-family: Roboto Serif, sans-serif; font-weight: 900"
       >
         Contáctanos
       </h2>
       <div
-        class="flex justify-center items-center flex-col md:flex-row bg-[#0e0e0e] space-x-0 md:space-x-60"
+        class="flex justify-center items-center l:flex-col tablet:flex-row bg-[#0e0e0e] space-y-20 xl:space-y-0 space-x-0 tablet:space-x-12 laptop:space-x-32 laptopL:space-x-44 l:space-x-0"
       >
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col mb-6 items-center space-y-4 xl:space-y-0 md:h-[225px] md:w-[225px] h-[150px] w-[150px]">
           <img
             src="../assets/SVG_cabezabot.svg"
             alt="GuimarBot Logo"
-            style="width: 225px; height: 225px"
           />
           <p
-            class="text-[#FFF4E5] mb-6 text-center max-w-60"
+            class="text-[#FFF4E5] s:text-[15px] text-center"
             style="font-family: Poppins, sans-serif; font-weight: 400"
           >
             "Somos GuimarBot, tu taller de programación de confianza."
           </p>
         </div>
         <form
-          class="md:w-1/4"
+          class="tablet:w-1/2 laptop:w-1/4"
           style="font-family: Poppins, sans-serif; font-weight: 700"
         >
           <div class="mb-8">
@@ -1391,30 +1337,11 @@
         ></a>
       </ul>
     </div>
-    <div class="flex flex-row space-x-5 text-center text-base">
+    <div class="flex flex-row space-x-5 text-center text-[15px]">
+      
       <div
-        href="#inicio"
-        (click)="preventReload($event)"
-        class="space-y-4 cursor-pointer w-1/2 bg-white rounded-tl-lg rounded-br-lg flex-col flex justify-center items-center"
-      >
-        <a
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            fill="#221D21"
-            class="bi bi-house"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"
-            />
-          </svg>
-        </a>
-        <p class="text-[#221D21]">Volver a inicio</p>
-      </div>
-      <div
-        class="bg-white text-[#221D21] p-4 md:p-4 rounded-tl-lg rounded-br-lg w-1/2"
+        class="bg-white text-[#221D21] p-4 md:p-4 rounded-lg bg-opacity-85 w-full"
+        style="font-family: Poppins, sans-serif; font-weight: 400"
       >
         <p class="max-w-60">
           ©Copyright GuimarBot. Todos los derechos reservados. 2024
