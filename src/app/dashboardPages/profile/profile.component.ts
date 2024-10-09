@@ -21,15 +21,15 @@ export class ProfileComponent{
   userService: UserService = inject(UserService);
   subService: SubService = inject(SubService);
   authService: AuthService = inject(AuthService);
-  isLoading1:boolean  = true;
-  isLoading2:boolean  = true;
+  isLoading1:boolean  = false; //cambiar a true
+  isLoading2:boolean  = false;  //cambiar a true
 
   constructor(@Inject(DOCUMENT) private document: Document){
   }
 
   ngOnInit(){
-    this.loadUser();
-    this.loadSubs();
+    // this.loadUser();
+    // this.loadSubs();
   }
 
   loadUser() {
