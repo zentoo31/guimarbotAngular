@@ -5,12 +5,14 @@ import { NotFoundComponent } from './mainPages/not-found/not-found.component';
 import { RegisterComponent } from './mainPages/register/register.component';
 import { ProfileComponent } from './dashboardPages/profile/profile.component';
 import { authGuard } from './guards/auth.guard';
+import { DashboardComponent } from './dashboardPages/dashboard/dashboard.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "home", pathMatch: "full"},
     {path: "home", component: MainComponent},
     {path: "login", component: LoginComponent},
     {path: "register", component: RegisterComponent},
+    {path: "dashboard", component: DashboardComponent},
     {path: "profile", component: ProfileComponent, canActivate: [authGuard]},
     {path: "**", component: NotFoundComponent}
 ];
