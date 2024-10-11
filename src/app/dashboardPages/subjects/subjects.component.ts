@@ -17,7 +17,7 @@ export class SubjectsComponent {
       {
         id: '7b04399d-d953-4f77-8032-9ed984e65b3b',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWXW4On2_DBbF7L82gzLUhRvCYncrc_Sg1rA&s',
-        title: 'React',
+        title: 'Angular',
         author: 'Prof. Julia Fernández',
         level: 'Avanzado',
         hours: '20h',
