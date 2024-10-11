@@ -24,6 +24,14 @@ module.exports = {
           '0%, 100%': { transform: 'translate(0, 0)' },
           '50%': { transform: 'translate(15px, 18px)' },
         },
+        meteor: {
+          '0%': { transform: 'rotate(215deg) translateX(0)', opacity: 1 },
+          '70%': { opacity: 1 },
+          '100%': {
+            transform: 'rotate(215deg) translateX(-500px)',
+            opacity: 0,
+          },
+        }
       },
       animation: {
         levitate: 'levitate 2s ease-out infinite',
