@@ -6,11 +6,11 @@ import { RegisterComponent } from './mainPages/register/register.component';
 import { ProfileComponent } from './dashboardPages/profile/profile.component';
 import { BlogComponent } from './dashboardPages/blog/blog.component';
 import { CommunityComponent } from './dashboardPages/community/community.component';
-import { FreeCoursesComponent } from './dashboardPages/free-courses/free-courses.component';
 import { WorkshopComponent } from './dashboardPages/workshop/workshop.component';
 import { authGuard } from './guards/auth.guard';
 import { DashboardComponent } from './dashboardPages/dashboard/dashboard.component';
 import { PostDetailComponent } from './dashboardPages/community/post-detail/post-detail.component';
+import { SubjectsComponent } from './dashboardPages/subjects/subjects.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "home", pathMatch: "full"},
@@ -22,8 +22,8 @@ export const routes: Routes = [
         {path: "profile", component: ProfileComponent},
         {path: "blog", component: BlogComponent},
         {path: "community", component: CommunityComponent},
+        {path: "subjects", component: SubjectsComponent},
         {path: "community/:id", component: PostDetailComponent},
-        {path: "free-courses", component: FreeCoursesComponent},
         {path: "workshop", component: WorkshopComponent}
     ]},
     {path: "**", component: NotFoundComponent}
