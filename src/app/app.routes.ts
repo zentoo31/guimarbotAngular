@@ -10,6 +10,7 @@ import { FreeCoursesComponent } from './dashboardPages/free-courses/free-courses
 import { WorkshopComponent } from './dashboardPages/workshop/workshop.component';
 import { authGuard } from './guards/auth.guard';
 import { DashboardComponent } from './dashboardPages/dashboard/dashboard.component';
+import { PostDetailComponent } from './dashboardPages/community/post-detail/post-detail.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "home", pathMatch: "full"},
@@ -21,6 +22,7 @@ export const routes: Routes = [
         {path: "profile", component: ProfileComponent},
         {path: "blog", component: BlogComponent},
         {path: "community", component: CommunityComponent},
+        {path: "community/:id", component: PostDetailComponent},
         {path: "free-courses", component: FreeCoursesComponent},
         {path: "workshop", component: WorkshopComponent}
     ]},
