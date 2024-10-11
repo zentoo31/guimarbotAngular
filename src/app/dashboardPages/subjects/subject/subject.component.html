@@ -1,6 +1,6 @@
 <div class="flex flex-col text-white shadow-lg">   
     <div class="p-4 bg-[#1f2937] rounded-t-xl space-y-3">
-        <img [src]="subject.image" alt="" class="rounded-md w-[300px] h-[168px]" >
+        <img [src]="subject.image" alt="" class="rounded-md w-[300px] h-[168px]" [style.view-transition-name]="'transition-image-' + subject.id">
         <div>
             <h1 class="font-bold text-xl">{{subject.title}}</h1>
             <span class="text-[#d3d4d6]">{{subject.author}}</span>
@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="bg-[#374151] flex flex-col w-full rounded-b-xl p-4 space-y-2">
-        <button class="p-2 bg-[#4f46e5] rounded-xl">Compra Curso</button>
-        <button class="p-2 border-2 border-[#4f46e5] rounded-xl text-[#4f46e5]">Ver Detalles</button>
+        <button class="p-2 bg-[#4f46e5] rounded-xl" [routerLink]="['/home']">Compra Curso</button>
+        <button class="p-2 border-2 border-[#4f46e5] rounded-xl text-[#4f46e5]" [routerLink]="['/dashboard/subjects/' + subject.id]">Ver Detalles</button>
     </div>
 </div>
