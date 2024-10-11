@@ -71,7 +71,7 @@ export class LoginComponent {
         try {
           const response = await this.authService.login(this.form.value);
           if(response){
-            this.toastService.show(response.message, 'bg-[#60ff93]');
+            this.toastService.show(response.message, 'bg-[#fff]');
           }
         } catch (error) {
           console.error(error);
