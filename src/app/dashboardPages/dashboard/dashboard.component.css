@@ -2,11 +2,11 @@
     background-color: rgb(31 41 55 / var(--tw-bg-opacity)) /* #1f2937 */;
 }
 
-.fixed {
-    transition: width 0.3s;
-  }
-  
-  .fixed.closed {
-    width: 60px; 
-  }
-  
+.hidden{
+    opacity: 0;
+}
+
+.main-content {
+    max-width: 98%; /* Limita el ancho al 100% del contenedor */
+    overflow: hidden; /* Evita el scroll */
+}

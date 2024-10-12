@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Subject } from '../../../models/subject';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-subject-detail',
@@ -15,7 +16,7 @@ export class SubjectDetailComponent {
   subjectDetail!: Subject[];
   id!:string;
   private route = inject(ActivatedRoute);
-
+  
   constructor() {
     const id = this.route.snapshot.params['id'];
     this.subjectDetail = [

@@ -1,16 +1,16 @@
-<div class="flex flex-col items-start content-start min-h-screen bg-[#0c0c0c] w-full">
-    <div class="ml-24 mt-4 flex flex-col space-y-3">
+<div class="flex flex-col items-start content-start min-h-screen bg-[#0c0c0c] md:ml-64 md:mt-20 mb-20">
+    <div class="flex flex-col space-y-3">
         <h1 class="text-white text-2xl font-bold">Cursos</h1>
-        <div class="flex flex-row space-x-3 text-white">
+        <div class="flex flex-col md:flex-row space-x-3 text-white">
             <button class="rounded-lg bg-[#374151] p-3 flex flex-row"><svg width = "24" height ="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M4 19V6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C5.52 3 6.08 3 7.2 3h9.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C20 4.52 20 5.08 20 6.2V17H6a2 2 0 0 0-2 2m0 0a2 2 0 0 0 2 2h14M9 7h6m-6 4h6m4 6v4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Todos</button>
             <button class="rounded-lg bg-[#374151] p-3 flex flex-row"><svg viewBox="0 0 24 24" width = "24" height = "24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M17.684 3.603c.521-.659.03-1.603-.836-1.603h-6.716a1.06 1.06 0 0 0-.909.502l-5.082 8.456c-.401.666.103 1.497.908 1.497h3.429l-3.23 8.065c-.467 1.02.795 1.953 1.643 1.215L20 9.331h-6.849z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Gratis</button>
             <button class="rounded-lg bg-[#374151] p-3 flex flex-row"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="m20 7-5.846 5.938c-.105.106-.158.16-.205.202-.76.68-1.907.68-2.667 0a5 5 0 0 1-.205-.203c-.105-.106-.158-.16-.205-.202a2 2 0 0 0-2.667 0 5 5 0 0 0-.204.202L4 17M20 7v6m0-6h-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Populares</button>
             <button class="rounded-lg bg-[#374151] p-3 flex flex-row"><svg viewBox="0 0 24 24" fill="none" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M3 9h18M7 3v2m10-2v2M6 12h4v4H6zm.2 9h11.6c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C21 19.48 21 18.92 21 17.8V8.2c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C19.48 5 18.92 5 17.8 5H6.2c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C3 6.52 3 7.08 3 8.2v9.6c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874C4.52 21 5.08 21 6.2 21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Recientes</button>
             <button class="rounded-lg bg-[#374151] p-3 flex flex-row"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4"/></svg>Económicos</button>
         </div>  
-        <div class="flex flex-wrap gap-4">
+        <div class="flex flex-wrap gap-4 justify-center">
             @for (item of subjectList; track $index) {
-                <subject [subject]="item" class="animate-slide-up-fade"></subject>
+                <subject [subject]="item"></subject>
             }
         </div>          
     </div>

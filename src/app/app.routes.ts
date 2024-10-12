@@ -4,10 +4,10 @@ import { LoginComponent } from './mainPages/login/login.component';
 import { NotFoundComponent } from './mainPages/not-found/not-found.component';
 import { RegisterComponent } from './mainPages/register/register.component';
 import { ProfileComponent } from './dashboardPages/profile/profile.component';
-import { BlogComponent } from './dashboardPages/blog/blog.component';
 import { CommunityComponent } from './dashboardPages/community/community.component';
-import { WorkshopComponent } from './dashboardPages/workshop/workshop.component';
 import { authGuard } from './guards/auth.guard';
+import { FavoritesComponent } from './dashboardPages/favorites/favorites.component';
+import { AchievementsComponent } from './dashboardPages/achievements/achievements.component';
 import { DashboardComponent } from './dashboardPages/dashboard/dashboard.component';
 import { PostDetailComponent } from './dashboardPages/community/post-detail/post-detail.component';
 import { SubjectsComponent } from './dashboardPages/subjects/subjects.component';
@@ -21,12 +21,12 @@ export const routes: Routes = [
     {path: "dashboard", component: DashboardComponent, children: [
         {path: "", redirectTo: "profile", pathMatch: "full"},
         {path: "profile", component: ProfileComponent},
-        {path: "blog", component: BlogComponent},
+        {path: "favorites", component: FavoritesComponent},
         {path: "community", component: CommunityComponent},
         {path: "community/:id", component: PostDetailComponent},
         {path: "subjects", component: SubjectsComponent},
         {path: "subjects/:id", component: SubjectDetailComponent},
-        {path: "workshop", component: WorkshopComponent}
+        {path: "achievements", component: AchievementsComponent}
     ]},
     {path: "**", component: NotFoundComponent}
 ];

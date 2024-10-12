@@ -1,46 +1,54 @@
-<div class="flex flex-row min-h-screen bg-[#0c0c0c] px-48 py-12">
-    <div class="flex flex-col space-y-2 w-4/5">
+<div class="flex flex-col md:flex-row min-h-screen md:px-48 bg-[#0c0c0c] md:ml-64 md:mt-20 md:p-auto p-5 space-y-4 md:space-y-0 mb-20">
+    <button
+        class="shadow-lg flex flex-row space-x-2 md:absolute md:top-20 md:left-56 p-3 rounded-lg bg-[#9facc9] hover:bg-white hover:text-[#221D21] text-white transition-colors animate-fade-in-down"
+        [routerLink]="['/dashboard/subjects']">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"/>
+        </svg>
+        <span>Atrás</span>
+     </button>
+    <div class="flex flex-col  space-y-2 md:w-4/5 justify-center items-center md:justify-normal md:items-start">
         <img [src]="subject.image" [alt]="subject.title" [style.view-transition-name]="'transition-image-' + subject.id" class="w-3/4 h-auto rounded-xl border-2 border-slate-700">
-        <span class="bg-blue-400 rounded-2xl text-white p-2 w-1/2  text-center">Próximamente más clases disponibles</span>
+        <span class="bg-blue-400 rounded-2xl text-white p-2 md:w-1/2  text-center">Próximamente más clases disponibles</span>
         <h1 class="text-white text-4xl font-bold">{{subject.title}}</h1>
         <div>
             <h1 class="text-white text-xl font-bold">Descripción</h1>
-            <p class = "text-white w-3/4"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            <p class = "text-white md:w-3/4"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
                 Quisquam harum quis deserunt voluptates excepturi saepe minima, dolore voluptas commodi 
                 asperiores delectus qui minus dolores odio animi ad cupiditate non. Fugit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, esse non consequatur ducimus est distinctio, maiores voluptas praesentium necessitatibus, inventore mollitia consectetur odio nobis voluptatem! Natus dolores hic neque accusamus.</p>
         </div>
-        <div>
+        <div class="w-full md:w-auto">
             <h1 class="text-white text-xl font-bold">Contenido del curso</h1>
-            <div class="border-2 border-slate-600 text-white rounded-md w-3/4 p-5">
+            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
                 <p>S1: lorem</p>
             </div>
-            <div class="border-2 border-slate-600 text-white rounded-md w-3/4 p-5">
+            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
                 <p>S1: lorem</p>
             </div>
-            <div class="border-2 border-slate-600 text-white rounded-md w-3/4 p-5">
+            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
                 <p>S1: lorem</p>
             </div>
-            <div class="border-2 border-slate-600 text-white rounded-md w-3/4 p-5">
+            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
                 <p>S1: lorem</p>
             </div>
-            <div class="border-2 border-slate-600 text-white rounded-md w-3/4 p-5">
+            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
                 <p>S1: lorem</p>
             </div>
-            <div class="border-2 border-slate-600 text-white rounded-md w-3/4 p-5">
+            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
                 <p>S1: lorem</p>
             </div>
-            <div class="border-2 border-slate-600 text-white rounded-md w-3/4 p-5">
+            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
                 <p>S1: lorem</p>
             </div>
-            <div class="border-2 border-slate-600 text-white rounded-md w-3/4 p-5">
+            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
                 <p>S1: lorem</p>
             </div>
-            <div class="border-2 border-slate-600 text-white rounded-md w-3/4 p-5">
+            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
                 <p>S1: lorem</p>
             </div>
         </div>
     </div>
-    <div class="flex flex-col bg-[#212f4d] w-1/5 rounded-xl p-2 border-2 border-slate-700 space-y-6 h-screen">
+    <div class="flex flex-col bg-[#212f4d] md:w-1/5 rounded-xl p-2 border-2 border-slate-700 space-y-6 md:h-screen">
         <h1 class="text-white text-2xl font-bold">Información: </h1>
         <div class="flex flex-row  space-x-1">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7v5l2.5-1.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -65,11 +73,4 @@
             <progress class="w-full h-4 appearance-none" value="50" max="100"></progress>
         </button>
     </div>
-    <button
-      class="shadow-lg absolute top-4 left-20 p-3 rounded-lg bg-[#212f4d] hover:bg-white hover:text-[#221D21] text-white transition-colors animate-fade-in-down"
-      [routerLink]="['/dashboard/subjects']">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"/>
-      </svg>
-    </button>
 </div>
