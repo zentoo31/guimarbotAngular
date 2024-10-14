@@ -1,21 +1,21 @@
-<div class="flex flex-col items-start content-start min-h-screen bg-[#0c0c0c] text-white md:ml-64 md:mt-20">
-  <div class="rounded-[25px] flex flex-row justify-stretch">
-    <div class=" rounded-[25px]  m-8 flex flex-col items-center pt-24 space-y-2">
+<div class="flex flex-col justify-center items-start content-start min-h-screen bg-[#0c0c0c] text-white md:ml-64 md:mt-20 mb-20">
+  <div class="rounded-[25px] flex flex-col md:flex-row justify-between w-full ">
+    <div class=" rounded-[25px] m-8 flex flex-col items-center space-y-2 md:1/2">
       <img
-        src="{{ user?.profile_picture }}"
+        src="{{ user?.profile_picture ?? 'https://via.placeholder.com/44' }}"
         alt=""
         class="rounded-full border-black border-[0.25px] w-44 h-44"/>
-      <h1 class="text-3xl font-bold">
-        {{ user?.first_name }} {{ user?.last_name }}
+      <h1 class="text-3xl font-bold text-center">
+        {{ user?.first_name ?? 'Juan Jose' }} {{ user?.last_name ?? 'Perez Melendez' }}
       </h1>
       <h2 class="text-xl font-bold">{{ user?.email }}</h2>
       <p
-        class="justify-center text-center pb-8"
+        class="justify-center text-start pb-8"
         style="font-family: Poppins, sans-serif; font-weight: 600">
-        Rol: {{ user?.role }} <br />
-        Edad: {{ user?.age }} <br />
-        Fecha de creación: {{ user?.creation_date }} <br />
-        Suscripción: {{ user?.subscription }}
+        Rol: {{ user?.role ?? 'Estudiante' }} <br />
+        Edad: {{ user?.age ?? '19' }} <br />
+        Fecha de creación: {{ user?.creation_date ?? 'Abr. 18 2024' }} <br />
+        Suscripción: {{ user?.subscription ?? 'Duo anual'}}
       </p>
 
       <button
@@ -33,10 +33,28 @@
       <button (click)="openUploadWidget()">Subir imagen</button>
     </div>
     
-    <div class="subs-container rounded-[25px] w-[1300px]">
-      <h1 class="text-2xl font-bold">Suscripciones</h1>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="border-black border-2 rounded-lg">
+    <div class="rounded-[25px] md:w-1/2 m-8">
+      <h1 class="text-2xl font-bold">Suscripciones Activas</h1>
+      <div class="grid gap-4">
+        <div class="bg-cardBackground text-center border-2 border-cardBackground rounded-lg shadow-lg">
+          <h2 class="text-xl font-bold">Suscripción</h2>
+          <p>Propietario: {{ sub?.owner_id }}</p>
+          <p>ID tipo de sub: {{ sub?.subscription_id }}</p>
+          <p>Fecha de inicio: {{ sub?.start_date }}</p>
+          <p>Fecha de fin: {{ sub?.end_date }}</p>
+          <p>Estado: {{ sub?.status }}</p>
+          <p>Tipo: {{ sub?.type }}</p>
+          <p>
+            Beneficiarios: 
+            @for (item of sub?.beneficiary_user_id; track $index){
+                {{ item }}
+              @if ($index < (sub?.beneficiary_user_id?.length || 0) - 1) {
+                {{ ", " }}
+              } 
+            }
+          </p>
+        </div>
+        <div class="border-cardBackground bg-cardBackground text-center border-2 rounded-lg shadow-lg">
           <h2 class="text-xl font-bold">Suscripción</h2>
           <p>Propietario: {{ sub?.owner_id }}</p>
           <p>ID tipo de sub: {{ sub?.subscription_id }}</p>

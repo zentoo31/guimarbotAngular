@@ -1,7 +1,8 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 import { SubjectComponent } from './subject/subject.component';
 import { Subject } from '../../models/subject';
 import { DOCUMENT } from '@angular/common';
+import { ThemeService } from '../../services/theme.service';
 @Component({
   selector: 'app-subjects',
   standalone: true,
@@ -11,6 +12,8 @@ import { DOCUMENT } from '@angular/common';
 })
 export class SubjectsComponent {
   subjectList!: Subject[];
+  backgroundColor: string = '';
+  themeService: ThemeService = inject(ThemeService);
 
   constructor(@Inject(DOCUMENT) private document: Document){
     this.subjectList = [
@@ -116,6 +119,10 @@ export class SubjectsComponent {
       },
     ];
     this.document.title = "Cursos / GuimarBot";
+  }
+
+  ngOnInit(){
+    this.backgroundColor = this.themeService.getBackgroundColor();
   }
 
 }

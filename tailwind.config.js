@@ -36,6 +36,13 @@ module.exports = {
       animation: {
         levitate: 'levitate 2s ease-out infinite',
       },
+      colors:{
+        normalBackground: '#0c0c0c',
+        normalSidebar: '#121212',
+        youngBackground: '#fff',
+        youngSidebar: '#eff6ff',
+        cardBackground: '#1f2937',
+      },
     },
   },
   plugins: [animations],

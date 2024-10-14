@@ -1,6 +1,7 @@
 import { isPlatformBrowser, ViewportScroller } from '@angular/common';
-import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, inject, Inject, PLATFORM_ID } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterModule } from '@angular/router';
+import { ThemeService } from '../../services/theme.service';
 
 
 @Component({
@@ -14,10 +15,13 @@ export class DashboardComponent {
   isNotMobile = true;
   width1: string = "0px";
   width2: string = "100vh";
+  backgroundColor: string = '';
+  backgroundSideBar: string = '';
+  themeService: ThemeService = inject(ThemeService);
   
   constructor(private router: Router,  @Inject(PLATFORM_ID) private platformId: Object){
   }
-
+  
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.checkScreenSize();
@@ -33,6 +37,9 @@ export class DashboardComponent {
         }
       });
     }
+    this.backgroundColor = this.themeService.getBackgroundColor();
+    this.backgroundSideBar = this.themeService.getSideBarColor();     
+    
   }
 
   checkScreenSize() {
