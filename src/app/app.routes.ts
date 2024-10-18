@@ -15,6 +15,7 @@ import { SubjectDetailComponent } from './dashboardPages/subjects/subject-detail
 import { PayuComponent } from './mainPages/payu/payu.component';
 import { RoutesSubjectComponent } from './dashboardPages/subjects/routes-subject/routes-subject.component';
 import { ScholarshipComponent } from './dashboardPages/scholarship/scholarship.component';
+import { BuyComponent } from './dashboardPages/buy/buy.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "home", pathMatch: "full"},
@@ -32,6 +33,7 @@ export const routes: Routes = [
         {path: "subjects/:id", component: SubjectDetailComponent},
         {path: "achievements", component: AchievementsComponent},
         {path: "routes-subject", component: RoutesSubjectComponent},
+        {path: "buy", component: BuyComponent},
         {path: "scholarship", component: ScholarshipComponent}
         
     ]},

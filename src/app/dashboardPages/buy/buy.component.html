@@ -1,1 +1,31 @@
-<p>buy works!</p>
+<div class="flex flex-col items-start content-start min-h-screen md:ml-64 md:mt-20 mb-20 text-white w-full gap-5 animate-fade-in-down">
+    <div class="flex flex-row gap-2 w-full">
+        <h1 class="text-2xl font-bold">Carrito de compras</h1>
+        <svg viewBox="0 0 32 32" width = "30" height = "30" enable-background="new 0 0 32 32" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Home"></g> <g id="Print"></g> <g id="Mail"></g> <g id="Camera"></g> <g id="Video"></g> <g id="Film"></g> <g id="Message"></g> <g id="Telephone"></g> <g id="User"></g> <g id="File"></g> <g id="Folder"></g> <g id="Map"></g> <g id="Download"></g> <g id="Upload"></g> <g id="Video_Recorder"></g> <g id="Schedule"></g> <g id="Cart"> <path d="M30,1h-4c-0.5,0-0.9,0.4-1,0.8L24,8h-8H2C1.7,8,1.4,8.1,1.2,8.3C1,8.6,1,8.9,1,9.2l2,12 C3.1,21.6,3.5,22,4,22h12h6.9c0.5,0,0.9-0.4,1-0.8l1.9-12l1-6.1H30c0.5,0,1-0.5,1-1S30.5,1,30,1z" fill="#ffff"></path> <g> <circle cx="7" cy="27" fill="#ffffff" r="4"></circle> </g> <g> <circle cx="20" cy="27" fill="#ffffff" r="4"></circle> </g> </g> <g id="Setting"></g> <g id="Search"></g> <g id="Pencils"></g> <g id="Group"></g> <g id="Record"></g> <g id="Headphone"></g> <g id="Music_Player"></g> <g id="Sound_On"></g> <g id="Sound_Off"></g> <g id="Lock"></g> <g id="Lock_open"></g> <g id="Love"></g> <g id="Favorite"></g> <g id="Film_1_"></g> <g id="Music"></g> <g id="Puzzle"></g> <g id="Turn_Off"></g> <g id="Book"></g> <g id="Save"></g> <g id="Reload"></g> <g id="Trash"></g> <g id="Tag"></g> <g id="Link"></g> <g id="Like"></g> <g id="Bad"></g> <g id="Gallery"></g> <g id="Add"></g> <g id="Close"></g> <g id="Forward"></g> <g id="Back"></g> <g id="Buy"></g> <g id="Mac"></g> <g id="Laptop"></g> </g></svg>   
+    </div>
+    <div class="flex flex-row gap-3">
+        <div class="flex flex-row w-3/4 gap-3">
+            @for (item of subjectList; track $index) {
+                <subject [subject]="item"></subject>
+            }
+        </div>
+        <div class="flex flex-col w-1/4 bg-cardBackground rounded-md p-4 gap-3">
+            <h1>Cursos:</h1>
+            <p class="font-bold border-y">
+                Python
+            </p>
+            <p class="font-bold border-y">
+                Java
+            </p>
+            <p class="font-bold border-y">
+                C++
+            </p>
+            <p class="font-bold border-y">
+                Ruby
+            </p>
+
+        <button class="w-full rounded-lg bg-slate-700 p-3 flex flex-row gap-2" [routerLink]="['/pay']">        <svg viewBox="0 0 32 32" width = "30" height = "30" enable-background="new 0 0 32 32" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Home"></g> <g id="Print"></g> <g id="Mail"></g> <g id="Camera"></g> <g id="Video"></g> <g id="Film"></g> <g id="Message"></g> <g id="Telephone"></g> <g id="User"></g> <g id="File"></g> <g id="Folder"></g> <g id="Map"></g> <g id="Download"></g> <g id="Upload"></g> <g id="Video_Recorder"></g> <g id="Schedule"></g> <g id="Cart"> <path d="M30,1h-4c-0.5,0-0.9,0.4-1,0.8L24,8h-8H2C1.7,8,1.4,8.1,1.2,8.3C1,8.6,1,8.9,1,9.2l2,12 C3.1,21.6,3.5,22,4,22h12h6.9c0.5,0,0.9-0.4,1-0.8l1.9-12l1-6.1H30c0.5,0,1-0.5,1-1S30.5,1,30,1z" fill="#ffff"></path> <g> <circle cx="7" cy="27" fill="#ffffff" r="4"></circle> </g> <g> <circle cx="20" cy="27" fill="#ffffff" r="4"></circle> </g> </g> <g id="Setting"></g> <g id="Search"></g> <g id="Pencils"></g> <g id="Group"></g> <g id="Record"></g> <g id="Headphone"></g> <g id="Music_Player"></g> <g id="Sound_On"></g> <g id="Sound_Off"></g> <g id="Lock"></g> <g id="Lock_open"></g> <g id="Love"></g> <g id="Favorite"></g> <g id="Film_1_"></g> <g id="Music"></g> <g id="Puzzle"></g> <g id="Turn_Off"></g> <g id="Book"></g> <g id="Save"></g> <g id="Reload"></g> <g id="Trash"></g> <g id="Tag"></g> <g id="Link"></g> <g id="Like"></g> <g id="Bad"></g> <g id="Gallery"></g> <g id="Add"></g> <g id="Close"></g> <g id="Forward"></g> <g id="Back"></g> <g id="Buy"></g> <g id="Mac"></g> <g id="Laptop"></g> </g></svg>   
+            Comprar </button>
+        </div>
+    </div>    
+</div>
