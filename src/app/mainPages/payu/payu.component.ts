@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-payu',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './payu.component.css'
 })
 export class PayuComponent {
-
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.document.title = "Pagar / Guimarbot"
+  }
 }
