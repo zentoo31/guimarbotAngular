@@ -12,12 +12,14 @@ import { DashboardComponent } from './dashboardPages/dashboard/dashboard.compone
 import { PostDetailComponent } from './dashboardPages/community/post-detail/post-detail.component';
 import { SubjectsComponent } from './dashboardPages/subjects/subjects.component';
 import { SubjectDetailComponent } from './dashboardPages/subjects/subject-detail/subject-detail.component';
+import { PayuComponent } from './mainPages/payu/payu.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "home", pathMatch: "full"},
     {path: "home", component: MainComponent},
     {path: "login", component: LoginComponent},
     {path: "register", component: RegisterComponent},
+    {path: "pay", component: PayuComponent},
     {path: "dashboard", component: DashboardComponent, children: [
         {path: "", redirectTo: "profile", pathMatch: "full"},
         {path: "profile", component: ProfileComponent},
@@ -27,6 +29,7 @@ export const routes: Routes = [
         {path: "subjects", component: SubjectsComponent},
         {path: "subjects/:id", component: SubjectDetailComponent},
         {path: "achievements", component: AchievementsComponent}
+        
     ]},
     {path: "**", component: NotFoundComponent}
 ];
