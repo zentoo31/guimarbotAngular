@@ -2,11 +2,13 @@ import { Component, inject, Inject } from '@angular/core';
 import { SubjectComponent } from './subject/subject.component';
 import { Subject } from '../../models/subject';
 import { DOCUMENT } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { ThemeService } from '../../services/theme.service';
+
 @Component({
   selector: 'app-subjects',
   standalone: true,
-  imports: [SubjectComponent],
+  imports: [SubjectComponent, RouterLink],
   templateUrl: './subjects.component.html',
   styleUrl: './subjects.component.css'
 })

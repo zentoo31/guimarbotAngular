@@ -13,6 +13,8 @@ import { PostDetailComponent } from './dashboardPages/community/post-detail/post
 import { SubjectsComponent } from './dashboardPages/subjects/subjects.component';
 import { SubjectDetailComponent } from './dashboardPages/subjects/subject-detail/subject-detail.component';
 import { PayuComponent } from './mainPages/payu/payu.component';
+import { RoutesSubjectComponent } from './dashboardPages/subjects/routes-subject/routes-subject.component';
+import { ScholarshipComponent } from './dashboardPages/scholarship/scholarship.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "home", pathMatch: "full"},
@@ -28,7 +30,9 @@ export const routes: Routes = [
         {path: "community/:id", component: PostDetailComponent},
         {path: "subjects", component: SubjectsComponent},
         {path: "subjects/:id", component: SubjectDetailComponent},
-        {path: "achievements", component: AchievementsComponent}
+        {path: "achievements", component: AchievementsComponent},
+        {path: "routes-subject", component: RoutesSubjectComponent},
+        {path: "scholarship", component: ScholarshipComponent}
         
     ]},
     {path: "**", component: NotFoundComponent}
