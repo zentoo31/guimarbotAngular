@@ -7,10 +7,13 @@ import { Router } from '@angular/router';
 import { User } from '../../models/user';
 import { DOCUMENT } from '@angular/common';
 import { Sub } from '../../models/sub';
+import { InputIconModule } from 'primeng/inputicon';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputTextModule } from 'primeng/inputtext';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [SpinnerComponent],
+  imports: [SpinnerComponent, InputIconModule, IconFieldModule, InputTextModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -21,15 +24,16 @@ export class ProfileComponent{
   userService: UserService = inject(UserService);
   subService: SubService = inject(SubService);
   authService: AuthService = inject(AuthService);
-  isLoading1:boolean  = false; //cambiar a true
-  isLoading2:boolean  = false;  //cambiar a true
+  isLoading1:boolean  = true; //cambiar a true
+  isLoading2:boolean  = true;  //cambiar a true
 
   constructor(@Inject(DOCUMENT) private document: Document){
+    this.document.title = 'Guimarbot / Perfil';
   }
 
   ngOnInit(){
-    // this.loadUser();
-    // this.loadSubs();
+     this.loadUser();
+     //this.loadSubs();
   }
 
   openUploadWidget() {
@@ -91,6 +95,7 @@ export class ProfileComponent{
       response => {
         this.user = response;
         this.user.creation_date = this.parseDate(response.creation_date);
+        this.user.birthdate = this.calcAge(response.birthdate);
         this.document.title = `${this.user?.username} | Perfil`;
         this.isLoading1 = false;
       }
@@ -119,7 +124,7 @@ export class ProfileComponent{
     );
   }
 
-  parseDate(dateStr: string) {
+  parseDate(dateStr: string):string {
     let date = new Date(dateStr);
     let options: Intl.DateTimeFormatOptions = {
       year: 'numeric',
@@ -129,6 +134,20 @@ export class ProfileComponent{
       minute: '2-digit',
     };
     return date.toLocaleString('es-ES', options); 
+  }
+
+  calcAge(date:string):string{
+    const birthDate = new Date(date);
+    const today = new Date();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    const dayDiff = today.getDate() - birthDate.getDate();
+
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+      age--;
+    }
+    return age.toString();
   }
 
 }

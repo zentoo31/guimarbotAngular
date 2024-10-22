@@ -6,11 +6,12 @@ import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ToastComponent } from '../../ui-components/toast/toast.component';
 import { ToastService } from '../../services/toast.service';
+import { CalendarModule } from 'primeng/calendar';
 import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, FormsModule, ReactiveFormsModule, ToastComponent],
+  imports: [RouterLink, FormsModule, ReactiveFormsModule, ToastComponent, CalendarModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
@@ -23,7 +24,7 @@ export class RegisterComponent {
   formErrors = {
     first_name: signal<string>(''),
     last_name: signal<string>(''),
-    age: signal<string>(''),
+    birthdate: signal<string>(''),
     username: signal<string>(''),
     email: signal<string>(''),
     password: signal<string>(''),
@@ -36,7 +37,7 @@ export class RegisterComponent {
   formInvalidState = {
     first_name: false,
     last_name: false,
-    age: false,
+    birthdate: false,
     username: false,
     email: false,
     password: false,
@@ -46,7 +47,7 @@ export class RegisterComponent {
     this.form = new FormGroup({
       first_name: new FormControl('', [Validators.required]),
       last_name: new FormControl('', [Validators.required]),
-      age: new FormControl('', [Validators.required]),
+      birthdate: new FormControl(Date, [Validators.required]),
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
@@ -88,8 +89,8 @@ export class RegisterComponent {
     last_name: {
       required: 'Ingresa tu apellido',
     },
-    age:{
-      required: 'Ingresa tu edad',
+    birthdate:{
+      required: 'Ingresa tu fecha de nacimiento',
     },
     username: {
       required: 'Ingresa tu nombre de usuario',
@@ -127,8 +128,8 @@ export class RegisterComponent {
       'username'
     );
     this.updateErrorMessage(
-      this.form.controls['age'] as FormControl,
-      'age'
+      this.form.controls['birthdate'] as FormControl,
+      'birthdate'
     );
     this.updateErrorMessage(
       this.form.controls['email'] as FormControl,
