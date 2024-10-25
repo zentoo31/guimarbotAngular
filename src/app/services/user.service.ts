@@ -11,11 +11,16 @@ export class UserService {
   httpClient:HttpClient = inject(HttpClient);
   constructor() { }
 
+  async getHeaderUser(): Promise<User>{
+    const user = await firstValueFrom(this.httpClient.get<User>(this.baseURL + '/get-headers', {withCredentials: true}));
+    return user ?? {};  
+  }
+
   async getUser():Promise<User>{
     const user = await firstValueFrom(this.httpClient.get<User>(this.baseURL + '/get-info', {withCredentials: true}));
     return user ?? {};
   }
 
-
+  
 
 }

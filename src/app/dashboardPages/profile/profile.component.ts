@@ -6,6 +6,7 @@ import { SpinnerComponent } from '../../ui-components/spinner/spinner.component'
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
 import { DOCUMENT } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { Sub } from '../../models/sub';
 import { InputIconModule } from 'primeng/inputicon';
 import { IconFieldModule } from 'primeng/iconfield';
@@ -13,7 +14,7 @@ import { InputTextModule } from 'primeng/inputtext';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [SpinnerComponent, InputIconModule, IconFieldModule, InputTextModule],
+  imports: [SpinnerComponent, InputIconModule, IconFieldModule, InputTextModule, DatePipe],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -26,14 +27,15 @@ export class ProfileComponent{
   authService: AuthService = inject(AuthService);
   isLoading1:boolean  = true; //cambiar a true
   isLoading2:boolean  = true;  //cambiar a true
+  edit:boolean = true;
 
   constructor(@Inject(DOCUMENT) private document: Document){
     this.document.title = 'Guimarbot / Perfil';
   }
 
   ngOnInit(){
-     this.loadUser();
-     //this.loadSubs();
+     this.loadUser();     
+     this.loadSubs();
   }
 
   openUploadWidget() {
@@ -95,9 +97,9 @@ export class ProfileComponent{
       response => {
         this.user = response;
         this.user.creation_date = this.parseDate(response.creation_date);
-        this.user.birthdate = this.calcAge(response.birthdate);
+        this.user.birthdate = response.birthdate;
         this.document.title = `${this.user?.username} | Perfil`;
-        this.isLoading1 = false;
+        this.isLoading1 = false;        
       }
     ).catch(
       error => console.error(error)
@@ -148,6 +150,10 @@ export class ProfileComponent{
       age--;
     }
     return age.toString();
+  }
+
+  switchEdit(){
+    this.edit = !this.edit;
   }
 
 }
