@@ -53,15 +53,15 @@
         }@else {
         <div class="flex items-center hover-grow">
           <a
-            [routerLink]="['/profile']"
+            [routerLink]="['/dashboard']"
             class="items-center flex-row flex space-x-3"
           >
             <img
               src="{{ user.profile_picture }}"
               alt="Profile Picture"
-              class="w-5 h-5"
+              class="w-5 h-5 rounded-full"
             />
-            <span style="font-family: Inter, sans-serif; font-weight: 400">{{
+            <span style="font-family: Inter, sans-serif; font-weight: 400" class="text-[#bebee2]">{{
               user.username
             }}</span>
           </a>

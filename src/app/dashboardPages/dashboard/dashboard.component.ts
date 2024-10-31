@@ -1,13 +1,14 @@
 import { isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { Component, HostListener, inject, Inject, PLATFORM_ID } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterModule } from '@angular/router';
+import { IconFieldModule } from 'primeng/iconfield';
 import { ThemeService } from '../../services/theme.service';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterModule, RouterLink],
+  imports: [RouterModule, RouterLink, IconFieldModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

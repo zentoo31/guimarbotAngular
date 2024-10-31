@@ -1,5 +1,10 @@
 .actived{
     background-color: rgb(55 65 81 / var(--tw-bg-opacity)) /* #374151 */;
+    border: 2px solid #677fa5;
+
+    p{
+        color: #677fa5;
+    }
 }
 
 .hidden{
