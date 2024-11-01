@@ -55,7 +55,7 @@ export class FavoritesComponent {
         price: '19.99',
       }
     ];
-    this.document.title = "Favoritos / GuimarBot";
+    this.document.title = "Favoritos | GuimarBot";
   }
 
 }

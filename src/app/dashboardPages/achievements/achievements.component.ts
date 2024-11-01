@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './achievements.component.css'
 })
 export class AchievementsComponent {
+  constructor() {
+    globalThis.document.title = "Logros | Guimarbot";
+  }
+
 
 }

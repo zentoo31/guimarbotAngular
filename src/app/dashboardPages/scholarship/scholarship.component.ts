@@ -23,6 +23,9 @@ export class ScholarshipComponent {
       certificados: [null],
       terminos: [false, Validators.requiredTrue]
     });
+
+    globalThis.document.title = "Postular a una beca | GuimarBot";
+
   }
 
   onFileChange(event: any, fileType: 'cv' | 'certificados') {

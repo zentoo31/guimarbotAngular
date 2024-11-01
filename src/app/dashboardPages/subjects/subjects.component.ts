@@ -120,7 +120,7 @@ export class SubjectsComponent {
         price: '39.99',
       },
     ];
-    this.document.title = "Cursos / GuimarBot";
+    this.document.title = "Cursos | GuimarBot";
   }
 
   ngOnInit(){

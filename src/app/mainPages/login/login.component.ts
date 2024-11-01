@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
 import { ToastComponent } from '../../ui-components/toast/toast.component';
 import { ToastService } from '../../services/toast.service';
 import { DOCUMENT } from '@angular/common';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -18,7 +18,8 @@ import { DOCUMENT } from '@angular/common';
 export class LoginComponent {
   @ViewChild(ToastComponent) toast!: ToastComponent;
   authService = inject(AuthService);
-  toastService = inject(ToastService)
+  toastService = inject(ToastService);
+  router = inject(Router);
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(8)]);
   errorMessageEmail = signal('');
@@ -72,6 +73,9 @@ export class LoginComponent {
           const response = await this.authService.login(this.form.value);
           if(response){
             this.toastService.show(response.message, 'bg-[#fff]');
+            setTimeout(() => {
+              this.router.navigate(['/dashboard']);
+            }, 2000);
           }
         } catch (error) {
           console.error(error);

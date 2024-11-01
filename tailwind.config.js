@@ -37,7 +37,7 @@ module.exports = {
         levitate: 'levitate 2s ease-out infinite',
       },
       colors:{
-        normalBackground: '#0c0c0c',
+        normalBackground: '#121212',
         normalSidebar: '#121212',
         youngBackground: '#fff',
         youngSidebar: '#eff6ff',

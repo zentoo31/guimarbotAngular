@@ -1,1 +1,11 @@
-<p>404</p>
+<div class="flex flex-col items-center content-center justify-center min-h-screen gap-5 bg-[#0c0c0c] text-white">
+    <div class="flex flex-row gap-3 items-center">
+        <img src="../assets/SVG_cabezabot.svg" alt="" class="w-20 h-20">
+        <h1 class="text-4xl font-bold" style="font-family: Inter, sans-serif; font-weight: 500;">Guimarbot</h1>
+    </div>
+    <ng-lottie 
+    [options]="options404"
+    (animationCreated)="animationCreated($event)"
+    />
+    <h2 class="font-bold" style="font-family: Inter, sans-serif; font-weight: 500;" >La página que buscabas no se encuentra</h2>
+</div>
