@@ -64,24 +64,21 @@
       </button>
     </div>
     
-    <div class="rounded-[25px] md:w-1/2 m-8 h-full">
-      <h1 class="text-2xl font-bold">Suscripciones Activas</h1>
-      <div class="grid gap-4 h-full">
+    <div class="rounded-[25px] md:w-1/2 m-8 h-full border-2 border-gray-500 p-5 flex flex-col gap-2" style="font-family: Poppins, sans-serif; font-weight: 500">
+      <h1 class="text-2xl font-bold border-b-2 border-gray-500 text-center">Suscripciones</h1>
+      <div class="grid gap-4 h-full place-items-center">
         @if (user?.subscription?.length == 0){
-          <div class=" flex flex-col md:flex-row bg-cardBackground text-start p-5 border-2 border-cardBackground rounded-lg shadow-lg">
-            <div>
-              <h2 class="text-xl font-bold">Suscripción</h2>
-              <p>Propietario: {{ sub?.owner_id }}</p>
-              <p>ID tipo de sub: {{ sub?.subscription_id }}</p>
-              <p>Fecha de inicio: {{ sub?.start_date }}</p>
-              <p>Fecha de fin: {{ sub?.end_date }}</p>
-              <p>Estado: {{ sub?.status }}</p>
-              <p>Tipo: {{ sub?.type }}</p>
-            </div>
-            <div>
-              <img src="" alt="">
-            </div>
-          </div>
+          <ng-lottie 
+          [options]="options"
+          (animationCreated)="animationCreated($event)"
+          class="w-1/2 mx-auto"
+          />
+          <h2 class="font-bold text-xl text-center">¡Nada por aquí!</h2>
+          <button
+          class="bg-cardBackground px-12 py-2 flex w-1/2 flex-row rounded-md text-white justify-center" (click)="switchEdit()">
+            
+            <p class="pl-2" style="font-family: Poppins, sans-serif; font-weight: 700">Suscribirse</p>  
+        </button>
         }@else{
           <div class="h-full w-full bg-cardBackground rounded-lg shadow-md p-10"> 
               <h1 class="text-2xl text-white font-bold">No tienes suscripciones activas</h1>

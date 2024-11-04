@@ -11,10 +11,12 @@ import { Sub } from '../../models/sub';
 import { InputIconModule } from 'primeng/inputicon';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputTextModule } from 'primeng/inputtext';
+import { AnimationItem } from 'lottie-web';
+import { LottieComponent, AnimationOptions } from 'ngx-lottie';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [SpinnerComponent, InputIconModule, IconFieldModule, InputTextModule, DatePipe],
+  imports: [SpinnerComponent, InputIconModule, IconFieldModule, InputTextModule, DatePipe, LottieComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -30,7 +32,7 @@ export class ProfileComponent{
   edit:boolean = true;
 
   constructor(@Inject(DOCUMENT) private document: Document){
-    this.document.title = 'Guimarbot / Perfil';
+    this.document.title = 'Guimarbot | Perfil';
   }
 
   ngOnInit(){
@@ -154,6 +156,15 @@ export class ProfileComponent{
 
   switchEdit(){
     this.edit = !this.edit;
+  }
+
+  options: AnimationOptions = {
+    path: '../assets/animations-json/nothing-here.animation.json',
+    loop: true
+  };
+
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
   }
 
 }

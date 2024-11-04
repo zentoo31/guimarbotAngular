@@ -1,6 +1,6 @@
 <main class="flex flex-col h-full bg-[#0F0F0F]">
     <header class="bg-[#121212] w-full flex md:flex-row md:fixed md:z-50 justify-between items-center p-4 text-white space-y-2 md:space-y-0" style="font-family: Inter, sans-serif; font-weight: 500;">
-        <div class="flex flex-col md:flex-row items-center justify-center space-x-0 md:space-x-6">
+        <div class="flex flex-col md:flex-row items-center justify-center space-x-0 md:space-x-3">
             <img
             src="../assets/SVG_cabezabot.svg"
             alt="GuimarBot Logo"
@@ -23,8 +23,8 @@
     </header>
 
     <div class="flex flex-col md:flex-row">
-        <div [class.hidden]="!isNotMobile" class="justify-start md:fixed lg:w-[10%]  md:z-20 md:mt-20 md:h-screen  bg-[#121212] flex flex-col space-y-6 p-3  text-white" style="font-family: Inter, sans-serif; font-weight: 500;">
-            <a [routerLink]="['/dashboard/profile']" routerLinkActive="actived" [class.justify-center]="!isNotMobile" class="hover:bg-gray-700 rounded-lg h-[55px] flex flex-row items-center space-x-5 text-lg p-3 border-[2px] border-transparent">
+        <div [class.hidden]="!isNotMobile" class="justify-start md:fixed lg:w-[10%]  md:z-20 md:mt-20 md:h-screen  bg-[#121212] flex flex-col space-y-6 p-3 border-r border-gray-500 text-white" style="font-family: Inter, sans-serif; font-weight: 500;">
+            <a [routerLink]="['/dashboard/profile']" routerLinkActive="actived" [class.justify-center]="!isNotMobile" class="hover:bg-gray-700 rounded-lg h-[55px] flex flex-row items-center space-x-4 text-lg p-3 border-[2px] border-transparent">
                 <div class="flex justify-center items-center w-7 h-7">
                     <img [src]="user?.profile_picture" [alt]="user?.username" class="rounded-full">
                 </div>
