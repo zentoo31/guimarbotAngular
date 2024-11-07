@@ -133,6 +133,7 @@ export class SubjectDetailComponent {
     ];
     this.id = id;
     this.loadSubject();
+    globalThis.document.title = this.subject.title + " - Curso | Guimarbot";
   }
 
   loadSubject(){

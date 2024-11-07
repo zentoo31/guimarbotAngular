@@ -1,15 +1,16 @@
-<div class="flex flex-col md:flex-row min-h-screen md:px-48 bg-[#121212] md:ml-64 md:mt-20 md:p-auto p-5 space-y-4 md:space-y-0 mb-20">
-    <button
-        class="shadow-lg flex flex-row space-x-2 md:absolute md:top-20 md:left-56 p-3 rounded-lg bg-[#9facc9] hover:bg-white hover:text-[#221D21] text-white transition-colors animate-fade-in-down"
-        [routerLink]="['/dashboard/subjects']">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"/>
-        </svg>
-        <span>Atrás</span>
-     </button>
-    <div class="flex flex-col  space-y-2 md:w-4/5 justify-center items-center md:justify-normal md:items-start">
-        <img [src]="subject.image" [alt]="subject.title" [style.view-transition-name]="'transition-image-' + subject.id" class="w-3/4 h-auto rounded-xl border-2 border-slate-700">
-        <span class="bg-blue-400 rounded-2xl text-white p-2 md:w-1/2  text-center">Próximamente más clases disponibles</span>
+<div class="flex flex-col gap-2 min-h-screen w-full justify-center bg-[#121212] md:ml-64 md:mt-20 md:p-auto p-5 space-y-4 md:space-y-0 mb-20" style="font-family: Inter, sans-serif; font-weight: 500;">
+    <div class="bg-image-gradient lg:h-72 w-full"  [attr.style]="'background-image: url(' + subject.image + ');'"></div>
+    <div class="flex flex-col md:flex-row gap-5 w-full">
+        <button
+            class="shadow-lg flex flex-row space-x-2 md:absolute md:top-20 md:left-56 p-3 rounded-lg bg-[#9facc9] hover:bg-white hover:text-[#221D21] text-white transition-colors animate-fade-in-down"
+            [routerLink]="['/dashboard/subjects']">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"/>
+            </svg>
+            <span>Atrás</span>
+        </button>
+    <div class="flex flex-col space-y-2 md:w-3/5 justify-center items-center md:justify-normal md:items-start">
+        <img [src]="subject.image" [alt]="subject.title" [style.view-transition-name]="'transition-image-' + subject.id" class="w-full h-auto rounded-xl border-2 border-slate-700">
         <h1 class="text-white text-4xl font-bold">{{subject.title}}</h1>
         <div>
             <h1 class="text-white text-xl font-bold">Descripción</h1>
@@ -48,7 +49,7 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-col bg-[#212f4d] md:w-1/5 rounded-xl p-2 border-2 border-slate-700 space-y-6 md:h-screen">
+    <div class="flex flex-col bg-[#212f4d] md:w-1/5 rounded-xl p-2 space-y-6 md:h-screen">
         <h1 class="text-white text-2xl font-bold">Información: </h1>
         <div class="flex flex-row  space-x-1">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7v5l2.5-1.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -72,5 +73,6 @@
             Continuar
             <progress class="w-full h-4 appearance-none" value="50" max="100"></progress>
         </button>
+    </div>
     </div>
 </div>
