@@ -23,6 +23,7 @@ export class RoutesSubjectComponent {
         hours: '20h',
         rate: '5.0',
         price: '29.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: '9083268a-b00c-4eab-ac52-7668d2864bf9',
@@ -33,6 +34,7 @@ export class RoutesSubjectComponent {
         hours: '30h',
         rate: '4.5',
         price: '39.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: '98cbb786-3bca-40d7-9a3b-dec1ca17f07c',
@@ -43,6 +45,7 @@ export class RoutesSubjectComponent {
         hours: '40h',
         rate: '4.7',
         price: '29.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       }
     ];
     this.document.title = "Ruta desarrollador web / GuimarBot";

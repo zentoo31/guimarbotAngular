@@ -6,5 +6,6 @@ export interface Subject {
     level: string,
     hours: string,
     rate: string,
-    price: string
+    price: string,
+    tags: string[]
 }

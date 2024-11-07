@@ -27,8 +27,6 @@ export const routes: Routes = [
         {path: "", redirectTo: "profile", pathMatch: "full"},
         {path: "profile", component: ProfileComponent},
         {path: "favorites", component: FavoritesComponent},
-        {path: "community", component: CommunityComponent},
-        {path: "community/:id", component: PostDetailComponent},
         {path: "subjects", component: SubjectsComponent},
         {path: "subjects/:id", component: SubjectDetailComponent},
         {path: "achievements", component: AchievementsComponent},

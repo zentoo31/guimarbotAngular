@@ -29,6 +29,7 @@ export class SubjectDetailComponent {
         hours: '20h',
         rate: '5.0',
         price: '29.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: '9083268a-b00c-4eab-ac52-7668d2864bf9',
@@ -39,6 +40,7 @@ export class SubjectDetailComponent {
         hours: '30h',
         rate: '4.5',
         price: '39.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: '98cbb786-3bca-40d7-9a3b-dec1ca17f07c',
@@ -49,6 +51,7 @@ export class SubjectDetailComponent {
         hours: '40h',
         rate: '4.7',
         price: '29.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: 'b48b8311-a33a-4500-aaa9-04614dfc2f0c',
@@ -59,6 +62,7 @@ export class SubjectDetailComponent {
         hours: '35h',
         rate: '4.8',
         price: '39.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: '4e479ebc-e400-4b89-a881-3afdbd9df273',
@@ -69,6 +73,7 @@ export class SubjectDetailComponent {
         hours: '35h',
         rate: '4.8',
         price: '19.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: 'bd9cf778-d8a0-4a5e-8b8d-2fcd707ce64d',
@@ -79,6 +84,7 @@ export class SubjectDetailComponent {
         hours: '30h',
         rate: '5.0',
         price: '29.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: 'b9e56252-3b96-472f-b3f1-1b35d65fa3d6',
@@ -89,6 +95,7 @@ export class SubjectDetailComponent {
         hours: '30h',
         rate: '5.0',
         price: '49.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: 'f2438b46-279c-4918-9d09-b9232b8380bc',
@@ -99,6 +106,7 @@ export class SubjectDetailComponent {
         hours: '25h',
         rate: '4.8',
         price: '19.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: '4c005ca8-f226-4d6b-b129-7d42e9c78687',
@@ -109,6 +117,7 @@ export class SubjectDetailComponent {
         hours: '20h',
         rate: '4.9',
         price: '49.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: 'd98cfbdf-110f-44e7-854d-c8fefe44b1c7',
@@ -119,6 +128,7 @@ export class SubjectDetailComponent {
         hours: '20h',
         rate: '4.5',
         price: '39.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },  
     ];
     this.id = id;

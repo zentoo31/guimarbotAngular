@@ -24,6 +24,7 @@ export class BuyComponent {
         hours: '35h',
         rate: '4.8',
         price: '19.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: 'bd9cf778-d8a0-4a5e-8b8d-2fcd707ce64d',
@@ -34,6 +35,7 @@ export class BuyComponent {
         hours: '30h',
         rate: '5.0',
         price: '29.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: 'b9e56252-3b96-472f-b3f1-1b35d65fa3d6',
@@ -44,6 +46,7 @@ export class BuyComponent {
         hours: '30h',
         rate: '5.0',
         price: '49.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       },
       {
         id: 'f2438b46-279c-4918-9d09-b9232b8380bc',
@@ -54,6 +57,7 @@ export class BuyComponent {
         hours: '25h',
         rate: '4.8',
         price: '19.99',
+        tags: ['Web Development', 'Frontend', 'JavaScript']
       }
     ];
     this.document.title = "Carrito de compras / GuimarBot";
