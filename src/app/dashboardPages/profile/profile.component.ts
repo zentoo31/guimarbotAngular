@@ -1,4 +1,5 @@
 import { Component, ElementRef, Inject, inject, OnInit, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { SubService } from '../../services/sub.service';
@@ -16,7 +17,7 @@ import { LottieComponent, AnimationOptions } from 'ngx-lottie';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [SpinnerComponent, InputIconModule, IconFieldModule, InputTextModule, DatePipe, LottieComponent],
+  imports: [SpinnerComponent, InputIconModule, IconFieldModule, InputTextModule, DatePipe, LottieComponent, RouterLink],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
