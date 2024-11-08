@@ -1,13 +1,14 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { Subject } from '../../../models/subject';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { RouterLink } from '@angular/router';
-import { ViewportScroller } from '@angular/common';
+import Plyr from 'plyr';
+import { AccordionModule } from 'primeng/accordion';
 
 @Component({
   selector: 'app-subject-detail',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, AccordionModule],
   templateUrl: './subject-detail.component.html',
   styleUrl: './subject-detail.component.css'
 })
@@ -15,8 +16,11 @@ export class SubjectDetailComponent {
   subject!: Subject;
   subjectDetail!: Subject[];
   id!:string;
+  openSections: Set<number> = new Set();
   private route = inject(ActivatedRoute);
-  
+  @ViewChild('plyrVideo', { static: true }) plyrVideo!: ElementRef;
+  player!: Plyr;
+
   constructor() {
     const id = this.route.snapshot.params['id'];
     this.subjectDetail = [
@@ -136,6 +140,42 @@ export class SubjectDetailComponent {
     globalThis.document.title = this.subject.title + " - Curso | Guimarbot";
   }
 
+  toggleAccordion(section: number): void {
+    if (this.openSections.has(section)) {
+      this.openSections.delete(section);  // Close section
+    } else {
+      this.openSections.add(section);     // Open section
+    }
+  }
+
+  isOpen(section: number): boolean {
+    return this.openSections.has(section);
+  }
+
+  ngOnInit(){
+    this.loadDisqus();
+  }
+
+  async loadDisqus(){
+    (await function() { 
+   var d = document, s = d.createElement('script');
+   s.src = 'https://guimarbot.disqus.com/embed.js';
+   s.setAttribute('data-timestamp', '' + new Date());
+   s.setAttribute('data-theme', 'dark');
+   (d.head || d.body).appendChild(s);
+   })();
+ }
+  ngAfterViewInit() {
+    this.player = new Plyr(this.plyrVideo.nativeElement, {
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.player) {
+      this.player.destroy();
+    }
+  }
+
   loadSubject(){
     switch(this.id){
       case '7b04399d-d953-4f77-8032-9ed984e65b3b':
@@ -173,3 +213,5 @@ export class SubjectDetailComponent {
     }
   }
 }
+
+

@@ -1,5 +1,39 @@
-<div class="flex flex-col gap-2 min-h-screen w-full justify-center bg-[#121212] md:ml-64 md:mt-20 md:p-auto p-5 space-y-4 md:space-y-0 mb-20" style="font-family: Inter, sans-serif; font-weight: 500;">
+<div class="flex flex-col gap-5 min-h-screen w-full justify-center bg-[#121212] md:ml-64 md:mt-20 md:p-auto p-5 space-y-4 md:space-y-0 mb-20" style="font-family: Inter, sans-serif; font-weight: 500;">
     <div class="bg-image-gradient lg:h-72 w-full"  [attr.style]="'background-image: url(' + subject.image + ');'"></div>
+    <div class="flex flex-row justify-between w-full" >
+        <div class="w-1/2 flex flex-col gap-2">
+            <h1 class="text-white text-2xl font-bold">Información: </h1>
+            <div class="flex flex-row gap-9">
+               <div class="flex flex-col gap-2">
+                    <div class="flex flex-row  space-x-1">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7v5l2.5-1.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <p class="text-white">Horas de video: {{subject.hours}}</p>
+                    </div>
+                    <div class="flex flex-row  space-x-1">
+                        <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M159.6 354.9c0-27.1-19.5-49.8-45.2-54.7V21.4c0-5.8-4.7-10.4-10.4-10.4-5.8 0-10.4 4.7-10.4 10.4v278.8c-25.7 4.9-45.2 27.5-45.2 54.7 0 27.1 19.5 49.8 45.2 54.7v81c0 5.8 4.7 10.4 10.4 10.4 5.8 0 10.4-4.7 10.4-10.4v-81c25.7-4.9 45.2-27.6 45.2-54.7m-55.7 34.8c-19.2 0-34.8-15.6-34.8-34.8s15.6-34.8 34.8-34.8 34.8 15.6 34.8 34.8-15.6 34.8-34.8 34.8m207.8-224.2c0-27.1-19.5-49.8-45.2-54.7V21.4c0-5.8-4.7-10.4-10.4-10.4-5.8 0-10.4 4.7-10.4 10.4v89.4c-25.7 4.9-45.2 27.5-45.2 54.7 0 27.1 19.5 49.8 45.2 54.7v270.4c0 5.8 4.7 10.4 10.4 10.4 5.8 0 10.4-4.7 10.4-10.4V220.2c25.6-4.9 45.2-27.5 45.2-54.7M256 200.4c-19.2 0-34.8-15.6-34.8-34.8s15.6-34.8 34.8-34.8 34.8 15.6 34.8 34.8c0 19.1-15.6 34.8-34.8 34.8m207.8 90.3c0-27.1-19.5-49.8-45.2-54.7V21.4c0-5.8-4.7-10.4-10.4-10.4-5.8 0-10.4 4.7-10.4 10.4V236c-25.7 4.9-45.2 27.5-45.2 54.7s19.5 49.8 45.2 54.7v145.2c0 5.8 4.7 10.4 10.4 10.4 5.8 0 10.4-4.7 10.4-10.4V345.4c25.7-4.9 45.2-27.6 45.2-54.7m-55.7 34.8c-19.2 0-34.8-15.6-34.8-34.8s15.6-34.8 34.8-34.8 34.8 15.6 34.8 34.8-15.6 34.8-34.8 34.8" fill="#fff"/></svg>
+                        <p class="text-white">Dificultad: {{subject.level}}</p>
+                    </div>
+               </div>
+               <div class="flex flex-col gap-2">
+                    <div class="flex flex-row  space-x-1">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M11.075 3.256c.34-.828 1.51-.828 1.85 0L14.65 7.46a1 1 0 0 0 .85.617l4.531.341c.892.067 1.254 1.181.572 1.76l-3.465 2.939a1 1 0 0 0-.325 1l1.076 4.413c.212.87-.736 1.558-1.497 1.088l-3.865-2.387a1 1 0 0 0-1.051 0L7.61 19.618c-.761.47-1.709-.219-1.497-1.088l1.076-4.414a1 1 0 0 0-.325-1l-3.465-2.938c-.682-.579-.32-1.693.572-1.76l4.53-.34a1 1 0 0 0 .85-.618z" stroke="#dfb719" stroke-width="2"/></svg>
+                        <p class="text-white">Puntuación: {{subject.rate}}</p>
+                    </div>
+                    <div class="flex flex-row  space-x-1">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 8.5V8.35417C18 6.50171 16.4983 5 14.6458 5H9.5C7.567 5 6 6.567 6 8.5C6 10.433 7.567 12 9.5 12H14.5C16.433 12 18 13.567 18 15.5C18 17.433 16.433 19 14.5 19H9.42708C7.53436 19 6 17.4656 6 15.5729V15.5M12 3V21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        <p class="text-white">Precio: {{subject.price}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-1/2 flex flex-col gap-2">
+            <h1 class="text-white text-2xl font-bold">Descripción: </h1>
+            <p class = "text-white md:w-3/4"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                Quisquam harum quis deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, esse non consequatur ducimus est distinctio, maiores voluptas praesentium necessitatibus, inventore mollitia consectetur odio nobis voluptatem! Natus dolores hic neque accusamus.</p>
+        
+        </div>
+    </div>
+
     <div class="flex flex-col md:flex-row gap-5 w-full">
         <button
             class="shadow-lg flex flex-row space-x-2 md:absolute md:top-20 md:left-56 p-3 rounded-lg bg-[#9facc9] hover:bg-white hover:text-[#221D21] text-white transition-colors animate-fade-in-down"
@@ -10,69 +44,77 @@
             <span>Atrás</span>
         </button>
     <div class="flex flex-col space-y-2 md:w-3/5 justify-center items-center md:justify-normal md:items-start">
-        <img [src]="subject.image" [alt]="subject.title" [style.view-transition-name]="'transition-image-' + subject.id" class="w-full h-auto rounded-xl border-2 border-slate-700">
-        <h1 class="text-white text-4xl font-bold">{{subject.title}}</h1>
-        <div>
+        <video #plyrVideo id="player" class="plyr__video-embed w-full h-auto rounded-xl " playsinline controls>
+            <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4" />
+        </video>
+        <h1 class="text-white text-4xl font-bold">Título de la sesión • Sesión 1</h1>
+        <div class="flex flex-col gap-2">
             <h1 class="text-white text-xl font-bold">Descripción</h1>
             <p class = "text-white md:w-3/4"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
                 Quisquam harum quis deserunt voluptates excepturi saepe minima, dolore voluptas commodi 
                 asperiores delectus qui minus dolores odio animi ad cupiditate non. Fugit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, esse non consequatur ducimus est distinctio, maiores voluptas praesentium necessitatibus, inventore mollitia consectetur odio nobis voluptatem! Natus dolores hic neque accusamus.</p>
         </div>
-        <div class="w-full md:w-auto">
-            <h1 class="text-white text-xl font-bold">Contenido del curso</h1>
-            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
-                <p>S1: lorem</p>
-            </div>
-            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
-                <p>S1: lorem</p>
-            </div>
-            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
-                <p>S1: lorem</p>
-            </div>
-            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
-                <p>S1: lorem</p>
-            </div>
-            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
-                <p>S1: lorem</p>
-            </div>
-            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
-                <p>S1: lorem</p>
-            </div>
-            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
-                <p>S1: lorem</p>
-            </div>
-            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
-                <p>S1: lorem</p>
-            </div>
-            <div class="border-2 border-slate-600 text-white rounded-md md:w-3/4 p-5">
-                <p>S1: lorem</p>
-            </div>
+        <div id="disqus_thread" class="w-full">
+            <p></p>
         </div>
     </div>
     <div class="flex flex-col bg-[#212f4d] md:w-1/5 rounded-xl p-2 space-y-6 md:h-screen">
-        <h1 class="text-white text-2xl font-bold">Información: </h1>
-        <div class="flex flex-row  space-x-1">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7v5l2.5-1.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <p class="text-white">Horas de video: {{subject.hours}}</p>
-        </div>
-        <div class="flex flex-row  space-x-1">
-            <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M159.6 354.9c0-27.1-19.5-49.8-45.2-54.7V21.4c0-5.8-4.7-10.4-10.4-10.4-5.8 0-10.4 4.7-10.4 10.4v278.8c-25.7 4.9-45.2 27.5-45.2 54.7 0 27.1 19.5 49.8 45.2 54.7v81c0 5.8 4.7 10.4 10.4 10.4 5.8 0 10.4-4.7 10.4-10.4v-81c25.7-4.9 45.2-27.6 45.2-54.7m-55.7 34.8c-19.2 0-34.8-15.6-34.8-34.8s15.6-34.8 34.8-34.8 34.8 15.6 34.8 34.8-15.6 34.8-34.8 34.8m207.8-224.2c0-27.1-19.5-49.8-45.2-54.7V21.4c0-5.8-4.7-10.4-10.4-10.4-5.8 0-10.4 4.7-10.4 10.4v89.4c-25.7 4.9-45.2 27.5-45.2 54.7 0 27.1 19.5 49.8 45.2 54.7v270.4c0 5.8 4.7 10.4 10.4 10.4 5.8 0 10.4-4.7 10.4-10.4V220.2c25.6-4.9 45.2-27.5 45.2-54.7M256 200.4c-19.2 0-34.8-15.6-34.8-34.8s15.6-34.8 34.8-34.8 34.8 15.6 34.8 34.8c0 19.1-15.6 34.8-34.8 34.8m207.8 90.3c0-27.1-19.5-49.8-45.2-54.7V21.4c0-5.8-4.7-10.4-10.4-10.4-5.8 0-10.4 4.7-10.4 10.4V236c-25.7 4.9-45.2 27.5-45.2 54.7s19.5 49.8 45.2 54.7v145.2c0 5.8 4.7 10.4 10.4 10.4 5.8 0 10.4-4.7 10.4-10.4V345.4c25.7-4.9 45.2-27.6 45.2-54.7m-55.7 34.8c-19.2 0-34.8-15.6-34.8-34.8s15.6-34.8 34.8-34.8 34.8 15.6 34.8 34.8-15.6 34.8-34.8 34.8" fill="#fff"/></svg>
-            <p class="text-white">Dificultad: {{subject.level}}</p>
-        </div>
-        <div class="flex flex-row  space-x-1">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M11.075 3.256c.34-.828 1.51-.828 1.85 0L14.65 7.46a1 1 0 0 0 .85.617l4.531.341c.892.067 1.254 1.181.572 1.76l-3.465 2.939a1 1 0 0 0-.325 1l1.076 4.413c.212.87-.736 1.558-1.497 1.088l-3.865-2.387a1 1 0 0 0-1.051 0L7.61 19.618c-.761.47-1.709-.219-1.497-1.088l1.076-4.414a1 1 0 0 0-.325-1l-3.465-2.938c-.682-.579-.32-1.693.572-1.76l4.53-.34a1 1 0 0 0 .85-.618z" stroke="#dfb719" stroke-width="2"/></svg>
-            <p class="text-white">Puntuación: {{subject.rate}}</p>
-        </div>
-        <div class="flex flex-row  space-x-1">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 8.5V8.35417C18 6.50171 16.4983 5 14.6458 5H9.5C7.567 5 6 6.567 6 8.5C6 10.433 7.567 12 9.5 12H14.5C16.433 12 18 13.567 18 15.5C18 17.433 16.433 19 14.5 19H9.42708C7.53436 19 6 17.4656 6 15.5729V15.5M12 3V21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-            <p class="text-white">Precio: {{subject.price}}</p>
-        </div>
-        <button class="p-2 bg-[#4f46e5] rounded-xl text-white text-xl">Compra con suscripción <p class="bg-green-500 rounded-lg">-50%</p></button>
-        <button class="p-2 bg-[#4f46e5] rounded-xl text-white">Compra Curso</button>
-        <button class="p-2 bg-[#4f46e5] rounded-xl text-white flex flex-col items-center">
-            Continuar
-            <progress class="w-full h-4 appearance-none" value="50" max="100"></progress>
-        </button>
+        <h2 class="text-white text-xl p-5">Contenido del curso</h2>
+        <div class="w-full max-w-md mx-auto">
+            <!-- Accordion item 1 -->
+            <div class="mb-2">
+              <button
+                class="w-full text-left bg-gray-200 p-4 rounded-t-lg hover:bg-gray-300 focus:outline-none"
+                (click)="toggleAccordion(1)"
+              >
+                <span class="font-semibold">Sección 1: Iniciando</span>
+              </button>
+              @if (isOpen(1)) {
+                <div class="p-4 bg-gray-100 rounded-b-lg flex flex-col gap-2">
+                    <button class="w-full border-b-2 p-2">Sesión 1: Lorem</button>
+                    <button class="w-full border-b-2 p-2">Sesión 2: Impsum</button>
+                    <button class="w-full border-b-2 p-2">Sesión 3: Lorem</button>
+                </div>
+              }   
+            </div>
+          
+            <!-- Accordion item 2 -->
+            <div class="mb-2">
+              <button
+                class="w-full text-left bg-gray-200 p-4 rounded-t-lg hover:bg-gray-300 focus:outline-none"
+                (click)="toggleAccordion(2)"
+              >
+                <span class="font-semibold">Sección 2: Medio</span>
+              </button>
+              @if (isOpen(2)) {
+                <div class="p-4 bg-gray-100 rounded-b-lg flex flex-col gap-2">
+                    <button class="w-full border-b-2 p-2">Sesión 4: Lorem</button>
+                    <button class="w-full border-b-2 p-2">Sesión 5: Impsum</button>
+                    <button class="w-full border-b-2 p-2">Sesión 6: Lorem</button>
+                </div>
+              }
+            </div>
+          
+            <!-- Accordion item 3 -->
+            <div class="mb-2">
+              <button
+                class="w-full text-left bg-gray-200 p-4 rounded-t-lg hover:bg-gray-300 focus:outline-none"
+                (click)="toggleAccordion(3)"
+              >
+                <span class="font-semibold">Sección 3: Terminando</span>
+              </button>
+
+              @if (isOpen(3)) {
+                <div class="p-4 bg-gray-100 rounded-b-lg flex flex-col gap-2">
+                    <button class="w-full border-b-2 p-2">Sesión 7: Lorem</button>
+                    <button class="w-full border-b-2 p-2">Sesión 8: Impsum</button>
+                    <button class="w-full border-b-2 p-2">Sesión 9: Lorem</button>
+                </div>
+              }
+            </div>
+          </div>
+          
     </div>
+    
     </div>
 </div>
