@@ -27,7 +27,8 @@ export class SubjectDetailComponent {
       {
         id: '7b04399d-d953-4f77-8032-9ed984e65b3b',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWXW4On2_DBbF7L82gzLUhRvCYncrc_Sg1rA&s',
-        title: 'React',
+        banner: 'https://dgwgtvfiqd6lk.cloudfront.net/wp-content/uploads/2024/06/img_Header-3-scaled.jpg',
+        title: 'Angular',
         author: 'Prof. Julia Fernández',
         level: 'Avanzado',
         hours: '20h',
@@ -38,6 +39,7 @@ export class SubjectDetailComponent {
       {
         id: '9083268a-b00c-4eab-ac52-7668d2864bf9',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAmKNBHCfd70Cd46awCM92pr59znb9Nazm7A&s',
+        banner: 'https://styde.net/wp-content/uploads/2019/12/vue3-post.png',
         title: 'Vue.js',
         author: 'Ing. Miguel Castro',
         level: 'Avanzado',
@@ -49,6 +51,7 @@ export class SubjectDetailComponent {
       {
         id: '98cbb786-3bca-40d7-9a3b-dec1ca17f07c',
         image: 'https://blog.facialix.com/wp-content/uploads/2024/07/curso-gratis-de-svelte-js-en-udemy-300x169.jpg',
+        banner: '',
         title: 'Svelte',
         author: 'Prof. Julia Fernández',
         level: 'Avanzado',
@@ -60,6 +63,7 @@ export class SubjectDetailComponent {
       {
         id: 'b48b8311-a33a-4500-aaa9-04614dfc2f0c',
         image: 'https://i.ytimg.com/vi/BhvLIzVL8_o/maxresdefault.jpg',
+        banner: '',
         title: 'Node.js',
         author: 'Prof. Julia Fernández',
         level: 'Principiante',
@@ -71,6 +75,7 @@ export class SubjectDetailComponent {
       {
         id: '4e479ebc-e400-4b89-a881-3afdbd9df273',
         image: 'https://i.blogs.es/905760/1366_2000-1-/1366_2000.jpeg',
+        banner: '',
         title: 'Python',
         author: 'Dr. Carlos Mendoza',
         level: 'Principiante',
@@ -82,6 +87,7 @@ export class SubjectDetailComponent {
       {
         id: 'bd9cf778-d8a0-4a5e-8b8d-2fcd707ce64d',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8Hmz8cek6vbHPi9sa6MgFSbwvEm6UlsCLCw&s',
+        banner: '',
         title: 'Java',
         author: 'Lic. Pedro Ruiz',
         level: 'Avanzado',
@@ -93,6 +99,7 @@ export class SubjectDetailComponent {
       {
         id: 'b9e56252-3b96-472f-b3f1-1b35d65fa3d6',
         image: 'https://i.ytimg.com/vi/AOG-9jARVmY/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAe0FaAidZtBT27W87KhWLW-gJNAA',
+        banner: '',
         title: 'C++',
         author: 'Prof. Ana García',
         level: 'Principiante',
@@ -104,6 +111,7 @@ export class SubjectDetailComponent {
       {
         id: 'f2438b46-279c-4918-9d09-b9232b8380bc',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR2VbAtYQG8nTavJzm_wvCwKdocuyt17CK9w&s',
+        banner: '',
         title: 'Ruby',
         author: 'Prof. Elena Morales',
         level: 'Principiante',
@@ -115,6 +123,7 @@ export class SubjectDetailComponent {
       {
         id: '4c005ca8-f226-4d6b-b129-7d42e9c78687',
         image: 'https://i.blogs.es/b72c12/hero/1366_2000.jpeg',
+        banner: '',
         title: 'Swift',
         author: 'Lic. Pedro Ruiz',
         level: 'Avanzado',
@@ -126,6 +135,7 @@ export class SubjectDetailComponent {
       {
         id: 'd98cfbdf-110f-44e7-854d-c8fefe44b1c7',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_CcsU_HMxM84_42SUjMEzMdQWM3YqSvSb3w&s',
+        banner: '',
         title: 'Flutter',
         author: 'Ing. Laura Torres',
         level: 'Principiante',
@@ -142,9 +152,9 @@ export class SubjectDetailComponent {
 
   toggleAccordion(section: number): void {
     if (this.openSections.has(section)) {
-      this.openSections.delete(section);  // Close section
+      this.openSections.delete(section);  
     } else {
-      this.openSections.add(section);     // Open section
+      this.openSections.add(section);     
     }
   }
 

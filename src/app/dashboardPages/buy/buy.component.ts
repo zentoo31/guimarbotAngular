@@ -18,6 +18,7 @@ export class BuyComponent {
       {
         id: '4e479ebc-e400-4b89-a881-3afdbd9df273',
         image: 'https://i.blogs.es/905760/1366_2000-1-/1366_2000.jpeg',
+        banner: '',
         title: 'Python',
         author: 'Dr. Carlos Mendoza',
         level: 'Principiante',
@@ -29,6 +30,7 @@ export class BuyComponent {
       {
         id: 'bd9cf778-d8a0-4a5e-8b8d-2fcd707ce64d',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8Hmz8cek6vbHPi9sa6MgFSbwvEm6UlsCLCw&s',
+        banner: '',
         title: 'Java',
         author: 'Lic. Pedro Ruiz',
         level: 'Avanzado',
@@ -40,6 +42,7 @@ export class BuyComponent {
       {
         id: 'b9e56252-3b96-472f-b3f1-1b35d65fa3d6',
         image: 'https://i.ytimg.com/vi/AOG-9jARVmY/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAe0FaAidZtBT27W87KhWLW-gJNAA',
+        banner: '',
         title: 'C++',
         author: 'Prof. Ana García',
         level: 'Principiante',
@@ -51,6 +54,7 @@ export class BuyComponent {
       {
         id: 'f2438b46-279c-4918-9d09-b9232b8380bc',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR2VbAtYQG8nTavJzm_wvCwKdocuyt17CK9w&s',
+        banner: '',
         title: 'Ruby',
         author: 'Prof. Elena Morales',
         level: 'Principiante',

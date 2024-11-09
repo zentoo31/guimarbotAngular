@@ -17,6 +17,7 @@ export class RoutesSubjectComponent {
       {
         id: '7b04399d-d953-4f77-8032-9ed984e65b3b',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWXW4On2_DBbF7L82gzLUhRvCYncrc_Sg1rA&s',
+        banner: '',
         title: 'Angular',
         author: 'Prof. Julia Fernández',
         level: 'Avanzado',
@@ -28,6 +29,7 @@ export class RoutesSubjectComponent {
       {
         id: '9083268a-b00c-4eab-ac52-7668d2864bf9',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAmKNBHCfd70Cd46awCM92pr59znb9Nazm7A&s',
+        banner: '',
         title: 'Vue.js',
         author: 'Ing. Miguel Castro',
         level: 'Avanzado',
@@ -39,6 +41,7 @@ export class RoutesSubjectComponent {
       {
         id: '98cbb786-3bca-40d7-9a3b-dec1ca17f07c',
         image: 'https://blog.facialix.com/wp-content/uploads/2024/07/curso-gratis-de-svelte-js-en-udemy-300x169.jpg',
+        banner: '',
         title: 'Svelte',
         author: 'Prof. Julia Fernández',
         level: 'Avanzado',

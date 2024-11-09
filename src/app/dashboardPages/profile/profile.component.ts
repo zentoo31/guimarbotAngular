@@ -1,13 +1,12 @@
-import { Component, ElementRef, Inject, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
-import { AuthService } from '../../services/auth.service';
 import { SubService } from '../../services/sub.service';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SpinnerComponent } from '../../ui-components/spinner/spinner.component';
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
 import { DOCUMENT } from '@angular/common';
-import { DatePipe } from '@angular/common';
 import { Sub } from '../../models/sub';
 import { InputIconModule } from 'primeng/inputicon';
 import { IconFieldModule } from 'primeng/iconfield';
@@ -17,7 +16,7 @@ import { LottieComponent, AnimationOptions } from 'ngx-lottie';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [SpinnerComponent, InputIconModule, IconFieldModule, InputTextModule, DatePipe, LottieComponent, RouterLink],
+  imports: [SpinnerComponent, InputIconModule, IconFieldModule, InputTextModule, LottieComponent, RouterLink, ReactiveFormsModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -27,18 +26,27 @@ export class ProfileComponent{
   router: Router = inject(Router);
   userService: UserService = inject(UserService);
   subService: SubService = inject(SubService);
-  authService: AuthService = inject(AuthService);
-  isLoading1:boolean  = true; //cambiar a true
-  isLoading2:boolean  = true;  //cambiar a true
+  isLoading1:boolean  = true; 
+  isLoading2:boolean  = true;  
   edit:boolean = true;
-
+  imgURL:string | undefined;
+  form: FormGroup = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    birthdate: new FormControl('', [Validators.required])  
+  });
+  
   constructor(@Inject(DOCUMENT) private document: Document){
     this.document.title = 'Guimarbot | Perfil';
+    this.form.controls['username'].disable();
+    this.form.controls['email'].disable();
+    this.form.controls['birthdate'].disable();
   }
 
   ngOnInit(){
      this.loadUser();     
      this.loadSubs();
+     
   }
 
   openUploadWidget() {
@@ -88,12 +96,12 @@ export class ProfileComponent{
       (error: any, result: any) => {
         if (!error && result && result.event === 'success') {
           console.log('Imagen subida con éxito: ', result.info);
+          this.imgURL = result.info.secure_url;
         }
       }
     );
     widget.open();
   }
-
 
   loadUser() {
     this.userService.getUser().then(
@@ -102,7 +110,13 @@ export class ProfileComponent{
         this.user.creation_date = this.parseDate(response.creation_date);
         this.user.birthdate = response.birthdate;
         this.document.title = `${this.user?.username} | Perfil`;
-        this.isLoading1 = false;        
+        this.imgURL = this.user?.profile_picture;
+        this.form.patchValue({
+          username: this.user.username,
+          email: this.user.email,
+          birthdate: `${this.user.birthdate} `
+        });
+        this.isLoading1 = false;
       }
     ).catch(
       error => console.error(error)
@@ -120,13 +134,20 @@ export class ProfileComponent{
     );
   }
 
-  logout() {
-    this.authService.logout().subscribe(
-      response => {
-        console.log(response.message);
-        this.router.navigate(['/login']);
+  async updateProfile(){
+    if (this.form.valid) {
+      try {
+        const imageURL = this.imgURL;
+        const formDataWithImage = {
+          ...this.form.value, 
+          profile_picture: imageURL  
+        };
+        const response = await this.userService.updateUser(formDataWithImage);
+        globalThis.location.reload();
+      } catch (error) {
+        console.error(error);
       }
-    );
+    }
   }
 
   parseDate(dateStr: string):string {
@@ -157,6 +178,16 @@ export class ProfileComponent{
 
   switchEdit(){
     this.edit = !this.edit;
+
+    if (this.edit) {
+      this.form.controls['username'].disable();
+      this.form.controls['email'].disable();
+      this.form.controls['birthdate'].disable();
+    } else {
+      this.form.controls['username'].enable();
+      this.form.controls['email'].enable();
+      this.form.controls['birthdate'].enable();
+    }
   }
 
   options: AnimationOptions = {

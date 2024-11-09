@@ -21,6 +21,11 @@ export class UserService {
     return user ?? {};
   }
 
+  async updateUser(formValue: any): Promise<User>{
+    const user = await firstValueFrom(this.httpClient.patch<User>(this.baseURL + '/update', formValue ,  {withCredentials: true}));
+    return user ?? {};
+  }
+
   
 
 }

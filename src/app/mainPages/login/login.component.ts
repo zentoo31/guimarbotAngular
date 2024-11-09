@@ -75,7 +75,7 @@ export class LoginComponent {
             this.toastService.show(response.message, 'bg-[#fff]');
             setTimeout(() => {
               this.router.navigate(['/dashboard']);
-            }, 2000);
+            }, 1500);
           }
         } catch (error) {
           console.error(error);
