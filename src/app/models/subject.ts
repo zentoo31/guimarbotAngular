@@ -1,5 +1,5 @@
 export interface Subject {
-    id: string,
+    _id: string,
     image: string,
     banner: string,
     title: string,

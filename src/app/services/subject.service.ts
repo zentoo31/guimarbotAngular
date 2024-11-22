@@ -18,4 +18,8 @@ export class SubjectService {
     return subjects ?? [];
   }
 
+  async getSubjectById(id: string): Promise<Subject>{
+    const subject = await firstValueFrom(this.httpClient.get<Subject>(this.baseURL + '/get/' + id, {withCredentials: true}));
+    return subject ?? {};
+  }
 }
