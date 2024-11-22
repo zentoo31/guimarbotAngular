@@ -28,11 +28,12 @@
         </div>
         <div class="w-1/2 flex flex-col gap-2">
             <h1 class="text-white text-2xl font-bold">Descripción: </h1>
-            <p class = "text-white md:w-3/4"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Quisquam harum quis deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, esse non consequatur ducimus est distinctio, maiores voluptas praesentium necessitatibus, inventore mollitia consectetur odio nobis voluptatem! Natus dolores hic neque accusamus.</p>
+            <p class = "text-white md:w-3/4">{{subject.description}}</p>
         </div>
     </div>
 
+
+    
     <div class="flex flex-col md:flex-row gap-5 w-full">
         <button
             class="shadow-lg flex flex-row space-x-2 md:absolute md:top-24 md:left-56 p-3 rounded-lg bg-[#4f46e5] hover:bg-[#5e57eb] hover:text-white text-white transition-colors animate-fade-in-down"
@@ -43,15 +44,21 @@
             <span>Atrás</span>
         </button>
     <div class="flex flex-col space-y-2 md:w-3/5 justify-center items-center md:justify-normal md:items-start">
-        <video #plyrVideo id="player" class="plyr__video-embed w-full h-auto rounded-xl " playsinline controls>
-            <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4" />
-        </video>
-        <h1 class="text-white text-4xl font-bold">Título de la sesión • Sesión 1</h1>
+
+      <div class="plyr__video-embed w-full h-auto rounded-xl" #plyrVideo id="player">
+        <iframe
+          class="w-full h-auto rounded-xl"
+          src="https://www.youtube.com/embed/bTqVqk7FSmY?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+          allowfullscreen
+          allowtransparency
+          allow="autoplay"
+        ></iframe>
+      </div>
+          
+        <h1 class="text-white text-4xl font-bold">{{sectionsWithSessions[sectionIndex].sessions[sessionIndex].title}}</h1>
         <div class="flex flex-col gap-2">
             <h1 class="text-white text-xl font-bold">Descripción</h1>
-            <p class = "text-white md:w-3/4"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Quisquam harum quis deserunt voluptates excepturi saepe minima, dolore voluptas commodi 
-                asperiores delectus qui minus dolores odio animi ad cupiditate non. Fugit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, esse non consequatur ducimus est distinctio, maiores voluptas praesentium necessitatibus, inventore mollitia consectetur odio nobis voluptatem! Natus dolores hic neque accusamus.</p>
+            <p class = "text-white md:w-3/4"> {{sectionsWithSessions[sectionIndex].sessions[sessionIndex].description}}</p>
         </div>
         <div id="disqus_thread" class="w-full">
             <p></p>
@@ -61,56 +68,24 @@
         <h2 class="text-white text-xl p-5">Contenido del curso</h2>
         <div class="w-full max-w-md mx-auto">
             <!-- Accordion item 1 -->
-            <div class="mb-2">
-              <button
-                class="w-full text-left bg-gray-200 p-4 rounded-t-lg hover:bg-gray-300 focus:outline-none"
-                (click)="toggleAccordion(1)"
-              >
-                <span class="font-semibold">Sección 1: Iniciando</span>
-              </button>
-              @if (isOpen(1)) {
-                <div class="p-4 bg-gray-100 rounded-b-lg flex flex-col gap-2">
-                    <button class="w-full border-b-2 p-2">Sesión 1: Lorem</button>
-                    <button class="w-full border-b-2 p-2">Sesión 2: Impsum</button>
-                    <button class="w-full border-b-2 p-2">Sesión 3: Lorem</button>
-                </div>
-              }   
-            </div>
-          
-            <!-- Accordion item 2 -->
-            <div class="mb-2">
-              <button
-                class="w-full text-left bg-gray-200 p-4 rounded-t-lg hover:bg-gray-300 focus:outline-none"
-                (click)="toggleAccordion(2)"
-              >
-                <span class="font-semibold">Sección 2: Medio</span>
-              </button>
-              @if (isOpen(2)) {
-                <div class="p-4 bg-gray-100 rounded-b-lg flex flex-col gap-2">
-                    <button class="w-full border-b-2 p-2">Sesión 4: Lorem</button>
-                    <button class="w-full border-b-2 p-2">Sesión 5: Impsum</button>
-                    <button class="w-full border-b-2 p-2">Sesión 6: Lorem</button>
-                </div>
-              }
-            </div>
-          
-            <!-- Accordion item 3 -->
-            <div class="mb-2">
-              <button
-                class="w-full text-left bg-gray-200 p-4 rounded-t-lg hover:bg-gray-300 focus:outline-none"
-                (click)="toggleAccordion(3)"
-              >
-                <span class="font-semibold">Sección 3: Terminando</span>
-              </button>
-
-              @if (isOpen(3)) {
-                <div class="p-4 bg-gray-100 rounded-b-lg flex flex-col gap-2">
-                    <button class="w-full border-b-2 p-2">Sesión 7: Lorem</button>
-                    <button class="w-full border-b-2 p-2">Sesión 8: Impsum</button>
-                    <button class="w-full border-b-2 p-2">Sesión 9: Lorem</button>
-                </div>
-              }
-            </div>
+            @for (section of sectionsWithSessions; track sectionIndex) {
+              <div class="mb-2">
+                <button
+                  class="w-full text-left bg-gray-200 p-4 rounded-t-lg hover:bg-gray-300 focus:outline-none"
+                  (click)="toggleAccordion($index)"
+                >
+                  <span class="font-semibold">{{section.title}}</span>
+                </button>
+                @if (isOpen($index)) {
+                  <div class="p-4 bg-gray-100 rounded-b-lg flex flex-col gap-2">
+                      @for (session of section.sessions; track sessionIndex) {
+                        <button class="w-full border-b-2 p-2" (click)="setIndexSectionAndSession(sectionIndex, sessionIndex)">{{session.title}}</button>
+                      }
+                  </div>
+                }   
+              </div>
+            }
+        
           </div>
           
     </div>

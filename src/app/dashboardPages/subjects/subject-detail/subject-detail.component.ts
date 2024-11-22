@@ -5,6 +5,9 @@ import { RouterLink } from '@angular/router';
 import Plyr from 'plyr';
 import { AccordionModule } from 'primeng/accordion';
 import { SubjectService } from '../../../services/subject.service';
+import { SectionsSesionsService } from '../../../services/sections-sesions.service';
+import { SectionWithSessions } from '../../../models/sections-sessions';
+
 @Component({
   selector: 'app-subject-detail',
   standalone: true,
@@ -15,9 +18,13 @@ import { SubjectService } from '../../../services/subject.service';
 export class SubjectDetailComponent {
   subject!: Subject;
   subjectDetail!: Subject[];
+  sectionsWithSessions: SectionWithSessions[] = [];
+  sectionIndex:number = 0;
+  sessionIndex:number = 0;
   id!:string;
   openSections: Set<number> = new Set();
   subjectService: SubjectService = inject(SubjectService);
+  sectionsSesionsService: SectionsSesionsService = inject(SectionsSesionsService);
   private route = inject(ActivatedRoute);
   @ViewChild('plyrVideo', { static: true }) plyrVideo!: ElementRef;
   player!: Plyr;
@@ -39,9 +46,16 @@ export class SubjectDetailComponent {
     return this.openSections.has(section);
   }
 
+  setIndexSectionAndSession(indexSection: number, indexSession:number): void {
+    this.sectionIndex = indexSection;
+    this.sessionIndex = indexSession;
+    
+  }
+
   ngOnInit(){
     this.loadDisqus();
     this.loadSubjectDetail();
+    this.loadSectionsAndSessions();
   }
 
   async loadDisqus(){
@@ -64,6 +78,18 @@ export class SubjectDetailComponent {
     }
   }
 
+   getYouTubeEmbedUrl(url: string): string {
+    const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]*\/\S+\/|(?:v|e(?:mbed)?)\/?|(?:.*[?&]v=)|(?:.*[?&]v=))([^"&?\/\s]*))$/;
+    const match = url.match(regex);
+  
+    if (match && match[1]) {
+      const videoId = match[1];
+      return `https://www.youtube.com/embed/${videoId}`;
+    } else {
+      throw new Error("URL de YouTube no válida");
+    }
+  }
+
   loadSubjectDetail() {
     this.subjectService.getSubjectById(this.id).then((data: Subject) => {
       if (data) {
@@ -78,6 +104,22 @@ export class SubjectDetailComponent {
       globalThis.document.title = "Error - Curso | Guimarbot";
     });
   }
+
+  async loadSectionsAndSessions() {
+    try {
+      const sectionsWithSessions = await this.sectionsSesionsService.getAllSectionsAndSessionsBySubjectId(this.id);
+      console.log("Secciones y sesiones cargadas:", sectionsWithSessions);
+      if (sectionsWithSessions.length > 0) {
+        this.sectionsWithSessions = sectionsWithSessions;
+      } else {
+        console.error("No se encontraron secciones o sesiones para este subject.");
+      }
+    } catch (error) {
+      console.error("Error al cargar las secciones y sesiones:", error);
+    }
+  }
+
+
 }
 
 
